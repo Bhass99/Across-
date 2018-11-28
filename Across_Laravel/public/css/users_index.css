@@ -1,0 +1,227 @@
+.container {
+  padding: 5px;
+}
+.main {
+  background: #f8f9fa;
+  text-align: center;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+@media screen and (min-width: 768px) {
+  .main {
+    width: 100%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 10px 15px 0 15px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .main {
+    width: 49%;
+  }
+}
+.textuser {
+  font-size: 1.4rem;
+}
+@media screen and (min-width: 768px) {
+  .textuser {
+    text-align: left;
+    width: 190px;
+  }
+}
+.buttons {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+@media screen and (min-width: 992px) {
+  .btn-primary {
+    width: 25%;
+  }
+}
+.create {
+  width: 100%;
+  margin: 5px 0;
+}
+@media screen and (min-width: 992px) {
+  .create {
+    width: 20%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .create {
+    width: 20%;
+  }
+}
+.welcTxt {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .welcTxt {
+    margin-top: 70px;
+  }
+}
+.message {
+  text-align: center;
+  padding: 0px 10px;
+  background: #acecac;
+  margin: 0px auto;
+  border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+  .message {
+    width: 20%;
+  }
+}
+.AdminDashboard {
+  width: 60%;
+  background: #d4d7e4;
+  display: block;
+  padding: 10px 5px;
+  height: 100%;
+  float: left;
+}
+@media screen and (min-width: 1200px) {
+  .AdminDashboard {
+    width: 20%;
+  }
+}
+.AdminDashboard a {
+  display: block;
+  margin: 10px 5px;
+  border: none;
+  background: none;
+  color: black;
+  text-align: left;
+  width: auto;
+}
+.AdminDashboard a .fas {
+  float: right;
+}
+.fa-bars {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background: #1d4c7b;
+  color: #bd5200;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#sidebar.active {
+  margin-left: -250px;
+}
+#sidebar .sidebar-header {
+  text-align: center;
+  padding: 20px;
+  background: #ffb100;
+  color: #1d4c7b;
+}
+#sidebar ul.components {
+  padding: 20px 20px;
+}
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  width: 100%;
+}
+#sidebar ul li a:hover {
+  color: #bd5200;
+  background: #1d4c7b;
+}
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #1d4c7b;
+}
+a[data-toggle="collapse"] {
+  position: relative;
+}
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #1d4c7b;
+}
+ul.CTAs {
+  padding: 20px;
+}
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+a.download {
+  background: #bd5200;
+  color: #1d4c7b;
+}
+a.article,
+a.article:hover {
+  background: #bd5200 !important;
+  color: #1d4c7b !important;
+}
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#content.active {
+  width: 100%;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+  }
+  #content.active {
+    width: calc(100% - 250px);
+  }
+  #sidebarCollapse span {
+    display: none;
+  }
+}

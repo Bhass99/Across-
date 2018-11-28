@@ -1,0 +1,65 @@
+.footer {
+  position: relative;
+}
+.footerLink {
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  margin-top: 2%;
+}
+.footerLink li {
+  width: auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-left: 1%;
+  font-size: 0.8rem;
+  color: #808080c7;
+}
+.footerContainer {
+  background: #e6e6e6;
+  padding: 20px;
+}
+.InfoDiv {
+  margin: 20px;
+}
+.endFooter {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+}
+.GrayBarFooter {
+  width: 50%;
+  background: #acacac;
+  height: 60px;
+}
+.endFooter .OneWord {
+  color: #acacac;
+  font-weight: bold;
+}
+.endFooter .OneWord {
+  font-size: 1rem;
+}
+@media (min-width: 1025px) {
+  .footerContainer {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+.BlocksColor-1 {
+  background: #005493;
+}
+.BlocksColor-2 {
+  background: #743751;
+}
+.BlocksColor-3 {
+  background: #ff9400;
+}
+.BlocksColor-4 {
+  background: #bd5200;
+}
+.BlocksColor-5 {
+  background: #929000;
+}

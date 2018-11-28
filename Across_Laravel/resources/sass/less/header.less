@@ -1,0 +1,185 @@
+@portrait: ~'screen and (min-width: 768px)';
+@landscape: ~'screen and (min-width: 992px)';
+@desktop: ~'screen and (min-width: 1200px)';
+@xxl: ~'screen and (min-width: 2010px)';
+
+.WC_bar{
+  display: none;
+}
+
+.line1{
+  
+
+  img{
+    width: 120PX;
+  }
+
+  .headerLeft{
+    float: right;
+    width: 60%;
+    .fas{
+      background: #d2d2d2;
+      width: 33%;
+      height: 70px;
+      padding: 26px 0 0 0;
+      text-align: center;
+      margin: -2px;
+    }
+  }
+
+}
+
+#nav{
+  background: white;
+  display: none;
+  text-align: center;
+  width: 100%;
+  margin: 15px auto;
+  .link{
+    margin: 15px auto;
+  }
+}
+
+.PageInfoBar{
+  display: inline-flex;
+  width: 100%;
+  height: 60px;
+  font-size: 1rem;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.GrayBar{
+  width: 20%;
+  background: #acacac;
+}
+.GrayIcon{
+  height: 68px;
+}
+
+.OneWord{
+  padding: 18px 5px;
+  font-size: 1.1rem;
+}
+
+.BlueBar{
+  background: #005493;
+  display: inline-flex;
+  width: 59%;
+}
+.blue_title{
+  padding: 16px 9px;
+  color: white;
+  font-size: 1.1rem;
+  width: 80%;
+}
+.SecondLogo{
+  display: flex;
+  font-size: 0.6rem;
+}
+
+.SecondLogo div{
+  text-align: center;
+  padding: 15px 0;
+  color: white;
+
+}
+
+
+@media (min-width: 1025px){
+
+  .headerLeft .fas{
+    display: none;
+  }
+  #nav{
+
+    width: auto;
+    float: right;
+    border:none;
+    display: inline-flex;
+  }
+  .line1{
+    width: 63%;
+    margin: auto;
+  }
+
+  .NavLink {
+    padding: 0 10px;
+    color: #337ab7;
+    text-decoration: none;
+    width: 100px;
+  }
+
+
+
+  .WC_bar {
+    width: 100%;
+    padding: 50px;
+    display: inline-flex;
+    background: #d8d8d8;
+    padding: 0 0 0 60%;
+  }
+  .WC_bar div{
+    background: #b7b7b7;
+    padding: 2px 16px;
+    color: white;
+  }
+  .WC_bar button{
+    border: none;
+    background: #9a9a9a;
+    color: white;
+  }
+  .WC_bar i{
+    padding: 5px 5px;
+
+  }
+}
+
+@media (max-width: 555px) {
+  .blue_title{
+    padding: 6px 9px;
+    font-size: 0.9rem;
+  }
+  .OneWord{
+    font-size: 0.9rem;
+  }
+
+
+
+
+  .SecondLogo div{
+    font-size: 0.6rem;
+  }
+}
+
+
+.imgIndex{
+  margin-left: -6%;
+  @media @desktop{
+    margin-left: -10%;
+
+  }
+}
+
+.edit{
+  color: black;
+  float: left;
+
+  @media @desktop{
+    width: 30px;
+  }
+
+  padding: 0;
+}
+td a{
+  color: black;
+}
+
+.arrow{
+  margin-left:20px;
+}
+
+.TableForm{
+  margin: 0 !important;
+}
+
