@@ -235,7 +235,7 @@ body {
     margin-top: 3%;
   }
 }
-.purple {
+/*.purple {
   background-color: #743751;
 }
 .blue {
@@ -251,30 +251,127 @@ body {
 }
 .green {
   background-color: #929000;
+
 }
-div.purple,
-div.blue,
-div.brown,
-div.orange,
-div.green {
+
+
+
+
+
+div.purple, div.blue, div.brown, div.orange, div.green {
+
   height: 200px;
 }
 @media (max-width: 768px) {
-  div.purple,
-  div.blue,
-  div.brown,
-  div.orange,
-  div.green {
+  div.purple, div.blue, div.brown, div.orange, div.green {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+  }
+  div.rowresponsive {
+    all: initial;
+  }
+
+
+  .responorange {
+    margin-top: 4%;
+  }
+  .respongreenimg {
+    margin-top: -1.3%;
+  }
+
+  .Blocks{
+    display: flex;
+    padding: 0 10%;
+  }
+
+  .respon1 {
+
+  }
+  .respon2 {
+    padding: 10px 10px;
+
+  }
+  .respon3 {
+  }
+
+}
+*/
+.blocks-1 {
+  background-color: #743751;
+}
+.blocks-0 {
+  background-color: #005493;
+}
+.blocks-2 {
+  background-color: #ff9400;
+  padding-left: 0;
+  padding-right: 0;
+}
+.blocks-3 {
+  background-color: #bd5200;
+}
+.blocks-4 {
+  background-color: #929000;
+}
+.col .respon3 {
+  height: 50px;
+}
+.respon1 {
+  height: 70px;
+  width: 50px;
+  padding-top: 10%;
+}
+.respon2 {
+  height: 60px;
+  width: 50px;
+}
+div.blocks-0,
+div.blocks-1,
+div.blocks-2,
+div.blocks-3,
+div.blocks-4 {
+  height: 110px;
+  max-width: 20%;
+}
+@media screen and (min-width: 768px) {
+  div.blocks-0,
+  div.blocks-1,
+  div.blocks-2,
+  div.blocks-3,
+  div.blocks-4 {
+    height: 200px;
+  }
+}
+@media (max-width: 767px) {
+  div.blocks-0,
+  div.blocks-1,
+  div.blocks-2,
+  div.blocks-3,
+  div.blocks-4 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    height: 100px;
   }
+  height: 100px;
   div.rowresponsive {
     all: initial;
+  }
+  .respon3 {
+    width: 50px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .respon2 {
+    width: 50px;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    margin-top: 4%;
   }
   .responorange {
     margin-top: 4%;
@@ -282,14 +379,16 @@ div.green {
   .respongreenimg {
     margin-top: -1.3%;
   }
-  .Blocks {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 0 10%;
+  .respon1 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
-  .respon2 {
-    padding: 10px 10px;
+  .respon3 {
+    margin-top: 9%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
 }
 .inputAuthor {
@@ -455,7 +554,6 @@ div.purple5 {
 }
 .purple2 {
   background-color: #447432;
-  background-color: #743751;
 }
 @media screen and (min-width: 1200px) {
   .purple2 {
@@ -464,7 +562,6 @@ div.purple5 {
   }
 }
 .purple3 {
-  background-color: #743751;
   background-color: #3e1312;
 }
 @media screen and (min-width: 1200px) {
@@ -474,7 +571,6 @@ div.purple5 {
   }
 }
 .purple4 {
-  background-color: #743751;
   background-color: #052374;
 }
 @media screen and (min-width: 1200px) {
@@ -484,7 +580,6 @@ div.purple5 {
   }
 }
 .purple5 {
-  background-color: #743751;
   background-color: #727374;
 }
 @media screen and (min-width: 1200px) {

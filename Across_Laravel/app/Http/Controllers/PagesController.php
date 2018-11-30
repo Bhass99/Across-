@@ -54,11 +54,10 @@ class PagesController extends Controller
         return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'index','id_category' ));
     }
     public function login(){
-        $category = Category::all();
-        if (!Auth::guest()){
-            return view('pages.index',[
-                'category' => $category,
-            ]);
+        if (Auth::check()) {
+            return redirect('/index');
+        }else{
+            return view('pages.login');
         }
     }
     public function register(){
