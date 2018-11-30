@@ -76,8 +76,9 @@
 
             </nav>
             <div class="container" >
-                <div class="users">
+
                     @if(isset($users))
+                    <div class="users">
                      <div class=" container table-responsive-sm">
                         <table class="table table-centered mb-0">
                             <thead>
@@ -108,11 +109,13 @@
                             @endforeach
                             </tbody>
                         </table>
+                     </div>
                     </div>
                     @endif
-                </div>
-                <div class="categories">
+
+
                     @if(isset($category))
+                    <div class="categories">
                         <div class=" container table-responsive-sm">
                             <table class="table  table-centered mb-0">
                                 <thead>
@@ -129,7 +132,7 @@
                                                 <tr >
                                                     <td><a href="#sub{{$item->id}}" data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></td>
                                                     <td>{{$item->name}}</td>
-                                                    <td class="table-action" style=" "><a href="/categories/{{$item->id}}/edit" class="edit"  > <i class="far fa-edit"></i></a>
+                                                    <td class="table-action" style=" "><a href="/categories/{{$item->id}}/edit" class="editIcon"  > <i class="far fa-edit"></i></a>
                                                     </td>
                                                     <td>
                                                             @if($item->name == "Core Resources" || $item->name == "Understanding Lojuxta")
@@ -139,17 +142,16 @@
                                                             <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
                                                             @endif
                                                        </td>
-                                                    <td>
                                                 </tr>
                                             @foreach($posts as $post)
                                                 @if($post->post_parent_id == $item->id)
-                                                    <tr class="collapse list-unstyled" id="sub{{$item->id}}" style="background: #d1ded1; ">
+                                                    <tr class="collapse list-unstyled" id="sub{{$item->id}}" style="background: #17a2b833;  ">
                                                         <td class="table-user ">{{$post->title}}</td>
                                                         <td >{{$post->date}}</td>
                                                         <td >{{$post->posted_by}}</td>
                                                         <td >{{$post->language}}</td>
                                                         <td class="table-action " style="display: inline-flex;">
-                                                            <a href="/posts/{{$post->id}}/edit" class="edit" ><i class="far fa-edit"></i></a>
+                                                            <a href="/posts/{{$post->id}}/edit" class="editIcon" ><i class="far fa-edit"></i></a>
                                                             <form method="POST" action="/posts/{{$post->id}} " onsubmit="return confirm('Are you sure you want to delete this post?')">
                                                                 {{method_field('delete')}}
                                                                 {!! csrf_field() !!}
@@ -162,11 +164,11 @@
                                             @foreach($sub_category as $child)
                                                 @if($child->parent_id == $item->id)
 
-                                                    <tr class="collapse list-unstyled" id="sub{{$item->id}}" style="background: honeydew;">
+                                                    <tr class="collapse list-unstyled" id="sub{{$item->id}}" style="background: #17a2b878;">
                                                         <td class="arrow"><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></td>
                                                         <td>{{$child->name}} </td>
                                                         <td class="table-action " >
-                                                            <a href="/secondcategory/{{$child->id}}/edit" class="edit" > <i class="far fa-edit"></i></a>
+                                                            <a href="/secondcategory/{{$child->id}}/edit" class="editIcon" > <i class="far fa-edit"></i></a>
                                                             <form method="POST" action="/categories/{{$child->id}} " onsubmit="return confirm('Are you sure ?')">
                                                                 {{method_field('delete')}}
                                                                 {!! csrf_field() !!}
@@ -177,14 +179,14 @@
                                                     </tr>
                                                     @foreach($posts as $post)
                                                         @if($post->post_parent_id == $child->id)
-                                                            <tr class="collapse list-unstyled" id="post{{$child->id}}" style="background: #D1DED1;">
+                                                            <tr class="collapse list-unstyled" id="post{{$child->id}}" style="background: #17a2b833;">
                                                                 <td class="table-user">{{$post->title}}</td>
                                                                 <td>{{$post->date}}</td>
                                                                 <td>{{$post->posted_by}}</td>
                                                                 <td>{{$post->language}}</td>
                                                                 <td>{{$post->type}}</td>
                                                                 <td class="table-action" style="display: inline-flex;">
-                                                                    <a href="/posts/{{$post->id}}/edit" class="edit" ><i class="far fa-edit"></i></a>
+                                                                    <a href="/posts/{{$post->id}}/edit" class="editIcon" ><i class="far fa-edit"></i></a>
                                                                     <form method="POST" action="/posts/{{$post->id}} " onsubmit="return confirm('Are you sure you want to delete this post?')">
                                                                         {{method_field('delete')}}
                                                                         {!! csrf_field() !!}
@@ -204,8 +206,9 @@
 
 
                         </div>
+                    </div>
                     @endif
-                </div>
+
 
             </div>
         </div>

@@ -96,13 +96,14 @@ class PostsController extends Controller
                 'description' => 'required',
                 'date' => 'required',
                 'file' => 'nullable',
-                'image' => 'required',
+                'image' => 'nullable',
                 'first_li' => 'nullable',
                 'second_li' => 'nullable',
                 'language' => 'required',
                 'type' => 'required'
             ]
         );
+        $post->fill($request->all());
 
         $filename = request('file');
         if($filename){
@@ -110,19 +111,25 @@ class PostsController extends Controller
             $extension = $filename->getClientOriginalExtension();
             $fileNameToStore = $NoExt . '_' . time() . '.' . $extension;
             request('file')->storeAs('public/uploads',$fileNameToStore);
-            $post->file = $fileNameToStore;
-        }
 
+        }else{
+            $fileNameToStore = $post->file;
+        }
+        $post->file = $fileNameToStore;
 
         $imagename = request('image');
-        $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
-        $extensionImage = $imagename->getClientOriginalExtension();
-        $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
-        request('image')->storeAs('public/uploads',$ImageNameToStore);
+        if($imagename){
+            $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
+            $extensionImage = $imagename->getClientOriginalExtension();
+            $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
+            request('image')->storeAs('public/uploads',$ImageNameToStore);
+        }else{
+            $ImageNameToStore = $post->image;
+        }
+
         $post-> image = $ImageNameToStore;
 
         $post-> posted_by = Auth::user()->email;
-        $post->fill($request->all());
 
         $post->save();
         return redirect('/adminpages' )->with('success', 'Post is successfully edited!');

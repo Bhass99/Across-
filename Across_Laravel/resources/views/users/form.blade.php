@@ -34,7 +34,7 @@
                             @if($user)
                               Edit
                                 @else
-                                create
+                                Add a new user
                             @endif
                         </p>
                         <div class="form-group">
@@ -49,8 +49,8 @@
                             <label> Choose a role</label>
                             <select name="role" class="form-control" required>
                                 <option value="">Choose a role</option>
-                                <option value="admin" selected="{{$user->role == 'admin' ? 'selected' : ''}}">Admin</option>
-                                <option value="user"  selected="{{$user->role == 'user' ? 'selected' : ''}}">User</option>
+                                <option value="admin" >Admin</option>
+                                <option value="user" >User</option>
                             </select>
                         </div>
                         <div class="form-group">
