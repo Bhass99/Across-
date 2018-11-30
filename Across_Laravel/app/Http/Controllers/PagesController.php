@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -53,7 +54,12 @@ class PagesController extends Controller
         return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'index','id_category' ));
     }
     public function login(){
-        return view('pages.login');
+        $category = Category::all();
+        if (!Auth::guest()){
+            return view('pages.index',[
+                'category' => $category,
+            ]);
+        }
     }
     public function register(){
         return view('pages.register');

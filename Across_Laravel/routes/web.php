@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/index', 'PagesController@index');
+Route::get('/index', 'PagesController@index')->name('index');
 //Route::get( 'news/{id}', 'PagesController@news');
 //Route::get('/users/index', 'UsersController@index');
 //Route::get('/corerescources', 'PagesController@coreRescources');
