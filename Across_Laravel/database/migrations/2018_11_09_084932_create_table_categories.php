@@ -19,7 +19,7 @@ class CreateTableCategories extends Migration
             $table->foreign('parent_id')->references('id')->on('categories');
             $table->string('name')->nullable();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('category_logo')->nullable();
             $table->timestamps();
         });

@@ -32,45 +32,37 @@ body {
 }
 
 }
-.purple {
+.blocks-1 {
   background-color: #743751;
 }
-.blue {
+.blocks-0 {
   background-color: #005493;
 }
-.orange {
+.blocks-2 {
   background-color: #ff9400;
   padding-left: 0;
   padding-right: 0;
 }
-.brown {
+.blocks-3 {
   background-color: #bd5200;
 }
-.green {
+.blocks-4 {
   background-color: #929000;
 
 }
-
 .col{
-  @media @landscape{
-  padding-right: 0;
-  padding-left: 0;
-}
-  .respon2{
-    @media @portrait{
-    margin-top: 2%;
-  }
-  }
   .respon3{
     height:50px;
     @media @portrait{
-  }
+
+    }
   }
 
 }
 .respon1{
   height:70px;
   width: 50px;
+  padding-top: 10%;
 
 }
 .respon2{
@@ -78,25 +70,34 @@ body {
   width: 50px;
 
 }
-div.purple, div.blue, div.brown, div.orange, div.green {
+div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
 
-  height: 200px;
-}
-@media (max-width: 768px) {
-  div.purple, div.blue, div.brown, div.orange, div.green {
-    display: flex;
-    justify-content: space-between;
+  height: 110px;
+  max-width: 20%;
+  @media @portrait {
+    height: 200px;
 
-    height: 100px;
   }
+}
+.rowresponsive{
+  margin-top: 5%;
+}
+@media (max-width: 767px) {
   div.rowresponsive {
     all: initial;
   }
-  .respon3 {
-    @media @landscape{
-    margin-top: 10%;
-
+  div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
+    display: flex;
+    height: 100px;
+    max-width: 100% !important;
+    justify-content: space-between;
   }
+
+  .respon3 {
+    width: 50px;
+    @media @landscape{
+
+    }
 
     flex: 1;
   }

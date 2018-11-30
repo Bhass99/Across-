@@ -132,7 +132,7 @@
                                                     <td class="table-action" style=" "><a href="/categories/{{$item->id}}/edit" class="edit"  > <i class="far fa-edit"></i></a>
                                                     </td>
                                                     <td>
-                                                            @if($item->name == "Core Rescurces" || $item->name == "Understanding Lojuxta")
+                                                            @if($item->name == "Core Resources" || $item->name == "Understanding Lojuxta")
                                                             <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Category</a>
 
                                                             @else

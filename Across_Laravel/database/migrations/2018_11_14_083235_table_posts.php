@@ -18,7 +18,7 @@ class TablePosts extends Migration
             $table->integer('post_parent_id')->unsigned()->nullable();
             $table->foreign('post_parent_id')->references('id')->on('categories');
             $table->string('title')->default(null);
-            $table->string('description');
+            $table->longText('description');
             $table->date('date')->nullable();
             $table->string('file')->nullable();
             $table->string('image')->nullable();

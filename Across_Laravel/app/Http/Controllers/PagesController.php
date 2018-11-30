@@ -11,7 +11,7 @@ class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['login']]);
+       $this->middleware('auth', ['except' => ['login']]);
 
     }
     public function index(){
@@ -36,7 +36,7 @@ class PagesController extends Controller
             return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
         }
         else{
-        return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id_category'));
+        return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id_category','id'));
         }
     }
     public function sub_category($patent_id , $id ){

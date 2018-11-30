@@ -1,6 +1,9 @@
 @extends('layout.app')
 <link rel="stylesheet" type="text/css" href="{{asset('css/pages.css')}}" />
+@php
+    $categoryid = \App\Category::whereNull('parent_id')->get();
 
+@endphp
 @include('inc.navbar')
 @section('content')
     <div class="PageInfoBar" >
@@ -113,79 +116,122 @@
 
                     @endif
 
-        @foreach($assets as $item)
+        @foreach($assets as $post)
             @if( $index)
                 <div class="container-fluid  ">
                     <div class="container mr-desk">
                         <div class="contentheader">
-                            <img src="/storage/uploads/{{$item->image}}" class="infoimg">
-                            <h1> {{$item->title}} </h1>
+                            <img src="/storage/uploads/{{$post->image}}" class="infoimg">
+                            <h1> {{$post->title}} </h1>
                         </div>
 
-                       <p> {{$item->description}}</p>
+                       <p> {{$post->description}}</p>
                         <hr  class="content_hr">
                     </div>
 
                 </div>
             @else
                 <div class="container-fluid  ">
-                @if($item->type == "Not Important")
-                    <div class="container mr-desk">
-                        @else
-                            <div class="container mr-desk " style="background: #1b4b72; color: white">
-                                @endif
-                                <small class="smaldate">{{$item->date}}</small>
-                                <div class="contentheader">
-                                    <img src="/storage/uploads/{{$item->image}}" class="infoimg">
-                                    <h1>{{$item->title}}</h1>
-                                </div>
-
-                                <div class="content">
-
-
-                                    <div class="content_imgs mt-3" >
-                                        <svg width="100" height="400" class="bluerect">
-                                            @if($item->type == "Not Important")
-                                              <rect width="100" height="358"  style="fill: rgb(0, 84, 147);" />
+                @if($categoryid[1]->id == $id)
+                        <div class="container mr-desk" style="background-color: {{ $post->type  == 'Important' ? '#ebebeb' : '#ff9400' }} ;">
+                            @else
+                                <div class="container mr-desk" style="background-color: {{ $post->type  == 'Important' ? '#ebebeb' : '#005493' }} ;">
+                                    @endif
+                                    <small class="smaldate {{ $post->type == 'Important' ? '' : 'text-white' }}"> {{ $post->date }} </small>
+                                    <div class="contentheader">
+                                        <img src="/storage/uploads/{{$post->info_image}}"  class="infoimg">
+                                        <h1 class=" {{ $post->type == 'Important' ? '' : 'text-white' }}">{{ $post->title  }}</h1>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content_imgs mt-3" >
+                                            <svg width="100" height="400" class="bluerect">
+                                                @if($categoryid[0]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: {{ $post->type  == 'Important' ? 'rgb(0, 84, 147)' : '#ff9400' }} " />
+                                                @elseif($categoryid[1]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: {{ $post->type  == 'Important' ? 'rgb(	116, 55, 81)' : 'rgb(	116, 55, 81)'}} " />
+                                                @elseif($categoryid[2]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: #ff9400" />
+                                                @elseif($categoryid[3]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: #bd5200" />
+                                                @elseif($categoryid[4]->id == $id)
+                                                    <rect width="100" height="358"  style="fill:#929000 " />
+                                                @endif
+                                            </svg>
+                                            @if($categoryid[4]->id == $id)
+                                                <video  class="video" controls>
+                                                    <source src="/storage/uploads/{{ $post->image }}"  type="video/mp4">
+                                                    <source src="/storage/uploads/{{ $post->image }}"  type="video/webm">
+                                                    <source src="/storage/uploads/{{ $post->image }}"  type="video/mov">
+                                                    Your browser does not support the video tag.
+                                                </video>
                                             @else
-                                                <rect width="100" height="358"  style="fill: rgb(255,177,0);" />
+                                                <img src="/storage/uploads/{{ $post->image }}" class="content_img" >
                                             @endif
-                                        </svg>
-                                        <img src="/storage/uploads/{{$item->file}}" class="content_img" >
-                                    </div>
-                                    <div class="content_txt">
-                                        <p class="mt-3">
-                                            {{$item->description}}
-                                        </p>
-                                        <ul>
-                                            @if($item->first_li)
-                                                <li><span class="dot"></span>{{$item->first_li}}</li>
-                                            @endif
-                                            @if($item->second_li)
-                                                <li><span class="dot"></span>{{$item->second_li}}</li>
-                                            @endif
-                                        </ul>
-                                        @if($item->type == "Not Important")
-                                            <a href="/download/{{$item->id}}"  > <button class="btn btn-primary float-left btns btnD"  >Download</button></a>
-                                        @else
-                                            <button class="btn btn-primary float-left btns btnD" style="background:  rgb(255,177,0)">Download</button>
-                                        @endif
-                                        <button class=" btn btn-light float-left btns btnI"> > </button>
-                                        <button class="btn btn-light float-right btns1">&and;</button>
-                                    </div>
-                                </div>
+                                        </div>
+                                        <div class="content_txt">
+                                            <p class="mt-3 {{ $post->type == 'Important' ? '' : 'text-white' }}" >
+                                                {{ $post->content }}
 
-                                <hr  class="content_hr">
-                            </div>
-                    </div>
+                                            </p>
+                                            <ul>
+                                                @if(count($post->first_li) > 0)
+                                                    <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->first_li }}</li>
+                                                @endif
+                                                @if(count($post->second_li) > 0)
+                                                    <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->second_li }}</li>
+                                                @endif
+                                            </ul>
+                                            <div class="buttons-div">
+                                                @if($categoryid[1]->id == $id)
+                                                    <a href="{{ route('download', $post->id) }}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}">Download</a>
+                                                    <button class=" btn btn-light float-left btns btnI"> > </button>
+
+                                                @elseif($categoryid[4]->id == $id)
+                                                    <a href="#"  class="btn float-left btn-light btn-obj">Open</a>
+                                                    <button class=" btn float-left btna-obj" style="background-color: #49b9e5"> > </button>
+                                                @else
+                                                    <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : '#ff9400' }}">Download</a>
+                                                    <button class=" btn btn-light float-left btns btnI"> > </button>
+                                                @endif
+
+                                                @if($categoryid[4]->id == $id)
+                                                    <a href="#"  class="btn float-left btn-light btn-obj btn-obj-save">Save</a>
+                                                    <button class=" btn float-left  btna-obj" style="background-color: #49b9e5"> > </button>
+                                                @endif
+                                                <button class="btn btn-light float-right btns1">&and;</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    @if($categoryid[1]->id == $id)
+                                        <hr  class="content_hr" style="background-color: {{ $post->type  == 'Important' ? '' : '#ff9400' }};">
+                                    @else
+                                        <hr  class="content_hr" style="background-color: {{ $post->type  == 'Important' ? '' : '#005493' }};">
+                                    @endif
+                                </div>
+                        </div>
                 </div>
+
     @endif
     @endforeach
 
 
     @include('inc.Blocks')
     <script>
-        $("#link1").css("font-weight", "bold")
+
+        $(".body-txt").each(function () {
+
+            var $height = 134;
+            if ($(this).height() > $height ){
+                $(this).css("height", 135);
+
+            }else {
+                console.log($(this).height());
+                $(this).css("height", "auto");
+            }
+        });
+        $("#link1").css("font-weight", "bold");
+
     </script>
 
 @endsection

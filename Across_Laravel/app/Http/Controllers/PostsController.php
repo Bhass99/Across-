@@ -137,7 +137,6 @@ class PostsController extends Controller
 
     public function download($file)
     {
-        dd("test");
         return response()->download(storage_path('app/public/uploads/' . $file));
 
     }
