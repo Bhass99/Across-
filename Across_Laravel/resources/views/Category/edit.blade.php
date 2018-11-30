@@ -20,7 +20,9 @@
                 @endforeach
             </ul>
         @endif
+
         <form class="LoginForm" method="POST" action= "/categories/{{$category->id}}" enctype="multipart/form-data" >
+            <p class="loginTitle">Edit</p>
             {{ csrf_field() }}
             {{method_field('PATCH')}}
             <label>Name</label>

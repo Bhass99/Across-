@@ -3,7 +3,12 @@
 @desktop: ~'screen and (min-width: 1200px)';
 
 .container{
-  padding: 5px;
+  .categories , .users{
+    border: 1px solid #17a2b8;
+    margin: 30px 0;
+    border-radius: 10px;
+    padding: 0;
+  }
 
 }
 .main{
@@ -85,6 +90,7 @@
   @media @portrait{
     margin-top: 70px;
 
+
   }
 }
 
@@ -164,7 +170,7 @@
 }
 
 #sidebar ul p {
-  color: #fff;
+  color: #ffb100;
   padding: 10px;
 }
 
@@ -173,16 +179,16 @@
   font-size: 1.1em;
   display: block;
   width: 100%;
+  color: #ffb100;
 }
 
 #sidebar ul li a:hover {
   color: #bd5200;
-  background: #1d4c7b;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-  color: #fff;
+  color: #ffb100;
   background: #1d4c7b;
 }
 
@@ -217,13 +223,13 @@ ul.CTAs a {
 }
 
 a.download {
-  background: #bd5200;
-  color: #1d4c7b;
+  background: #ffb100 !important;
+  color: #1d4c7b!important;
 }
 
 a.article,
 a.article:hover {
-  background: #bd5200 !important;
+  background: #ffb100 !important;
   color: #1d4c7b !important;
 }
 
@@ -263,5 +269,13 @@ a.article:hover {
   }
   #sidebarCollapse span {
     display: none;
+  }
+}
+
+.editIcon{
+  padding-left: 5px;
+  @media @desktop{
+    padding: 0;
+    float: left;
   }
 }

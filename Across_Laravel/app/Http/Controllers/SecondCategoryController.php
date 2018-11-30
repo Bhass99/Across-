@@ -53,7 +53,7 @@ class SecondCategoryController extends Controller
         return view('secondcategory.edit' , compact('category'));
     }
 
-  /*
+
     public function update($id)
     {
         $category = Category::find($id);
@@ -72,7 +72,7 @@ class SecondCategoryController extends Controller
         return redirect('/adminpages' );
     }
 
-*/
+
     public function destroy(SecondCategory $category )
     {
         $category->delete();
