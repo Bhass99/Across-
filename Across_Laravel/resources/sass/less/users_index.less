@@ -317,8 +317,11 @@ a.article:hover {
 }
 
 .CategoriesAssets{
+  width: 0px;
   overflow: scroll;
+  border: 5px solid #ffb100 !important;
   @media @desktop{
+    border: 1px solid #ffb100 !important;
     overflow: hidden;
     width: 80%;
     margin: 0 0 10px 100px;
@@ -327,6 +330,7 @@ a.article:hover {
 
   .AdminCategories;
   .AssetItem{
+    width: 0px;
     margin: auto;
     flex: 1;
     padding-left: 30px;
@@ -338,14 +342,16 @@ a.article:hover {
 }
 
 .SubCategories{
+  width: 0px;
+  border: 3px solid #ffb100;
   background: #1d4c7b;
   color: #ffb100;
   margin: 0 0 10px 0px;
-  border: 1px solid #ffb100;
   border-radius: 5px;
   display: flex;
   padding: 10px;
   @media @desktop{
+    border: 1px solid #ffb100;
     margin: 0 0 10px 50px !important;
     width: 80%;
   }

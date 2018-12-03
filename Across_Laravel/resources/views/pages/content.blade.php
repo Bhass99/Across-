@@ -163,10 +163,10 @@
 
                         </p>
                         <ul>
-                            @if(count($post->first_li) > 0)
+                            @if(isset($post->first_li))
                                 <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->first_li }}</li>
                             @endif
-                            @if(count($post->second_li) > 0)
+                            @if(isset($post->second_li))
                                 <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->second_li }}</li>
                             @endif
                         </ul>
