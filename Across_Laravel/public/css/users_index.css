@@ -281,6 +281,7 @@ a.article:hover {
           flex: 1;
 }
 .CategoriesAssets {
+  width: 0px;
   overflow: scroll;
   border: 5px solid #ffb100 !important;
   background: #1d4c7b;
@@ -323,6 +324,7 @@ a.article:hover {
           flex: 1;
 }
 .CategoriesAssets .AssetItem {
+  width: 0px;
   margin: auto;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -333,6 +335,7 @@ a.article:hover {
   margin: 0;
 }
 .SubCategories {
+  width: 0px;
   border: 3px solid #ffb100;
   background: #1d4c7b;
   color: #ffb100;

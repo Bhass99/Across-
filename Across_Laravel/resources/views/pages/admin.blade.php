@@ -155,7 +155,7 @@
                                                 @if($child->parent_id == $item->id)
 
                                                     <div  class=" SubCategories collapse " id="sub{{$item->id}}">
-                                                        <div class="arrow"><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></div>
+                                                        <div class="arrow"><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow " ></a></div>
                                                         <div>{{$child->name}} </div>
                                                         <div class="table-action " >
                                                             <a href="/secondcategory/{{$child->id}}/edit" class="editIcon" > <i class="far fa-edit"></i></a>
@@ -205,12 +205,19 @@
     <script>
         $(document).ready(function () {
 
+            $('.fa-chevron-circle-down').click(function () {
+
+                    $(this).css( {'transform' : 'rotate(180deg)'});
+
+            });
+
 
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar, #content').toggleClass('active');
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
+
         });
     </script>
 
