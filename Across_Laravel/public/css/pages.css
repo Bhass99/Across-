@@ -29,7 +29,7 @@ body {
 @media screen and (min-width: 992px) {
   .container-fluid .container .smaldate {
     top: 45px;
-    margin-left: 7.5%;
+    margin-left: 7%;
   }
 }
 .container-fluid .container .contentheader {
@@ -147,23 +147,22 @@ body {
     margin-left: -9%;
   }
 }
-.container-fluid .container .content .content_txt p {
+.container-fluid .container .content .content_txt .body-txt {
   word-wrap: break-word;
   width: 250px;
-  overflow-y: scroll;
 }
 @media screen and (min-width: 768px) {
-  .container-fluid .container .content .content_txt p {
+  .container-fluid .container .content .content_txt .body-txt {
     width: 350px;
   }
 }
 @media screen and (min-width: 992px) {
-  .container-fluid .container .content .content_txt p {
+  .container-fluid .container .content .content_txt .body-txt {
     width: 450px;
   }
 }
 @media screen and (min-width: 1200px) {
-  .container-fluid .container .content .content_txt p {
+  .container-fluid .container .content .content_txt .body-txt {
     width: 630px;
   }
 }
@@ -206,16 +205,22 @@ body {
 }
 .container-fluid .container .content .content_txt ul {
   list-style: none;
-  margin-left: -8%;
+  margin-left: -7%;
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_txt ul {
-    margin-left: -6%;
+    margin-left: -7%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container-fluid .container .content .content_txt ul {
+    margin-left: -4%;
+    height: 54px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container-fluid .container .content .content_txt ul {
-    margin-left: -5%;
+    height: 50px;
   }
 }
 .container-fluid .container .content .content_txt ul .dot {
@@ -225,13 +230,18 @@ body {
   background-color: orange;
   border-radius: 50%;
   display: block;
-  margin-top: 2%;
-  margin-left: -3.5%;
+  margin-top: 2.1%;
+  margin-left: -3.9%;
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_txt ul .dot {
-    margin-top: 1.4%;
-    margin-left: -1.5%;
+    margin-top: 1.1%;
+    margin-left: -2%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container-fluid .container .content .content_txt ul .dot {
+    margin-top: 0.8%;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -244,6 +254,18 @@ body {
   .container-fluid .container .content .content_txt ul .dot {
     margin-top: 0.5%;
   }
+}
+.body-txt::-webkit-scrollbar {
+  width: 10px;
+}
+.body-txt::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.body-txt::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.body-txt::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .content_hr {
   margin-top: 26%;
@@ -447,6 +469,9 @@ div.blocks-4 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 @media screen and (min-width: 992px) {
@@ -454,9 +479,6 @@ div.blocks-4 {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -464,15 +486,21 @@ div.blocks-4 {
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
-    margin: 50px 0px 0px 0px;
-    margin-left: 5%;
+    margin-top: auto;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
   }
 }
 div.purple1,
 div.purple2,
 div.purple3,
 div.purple4,
-div.purple5 {
+div.purple5,
+div.purple6,
+div.purple7,
+div.purple8,
+div.purple9 {
   height: 70px;
 }
 @media screen and (min-width: 992px) {
@@ -480,7 +508,11 @@ div.purple5 {
   div.purple2,
   div.purple3,
   div.purple4,
-  div.purple5 {
+  div.purple5,
+  div.purple6,
+  div.purple7,
+  div.purple8,
+  div.purple9 {
     display: inline-block;
     height: 120px;
     width: 21%;
@@ -493,61 +525,43 @@ div.purple5 {
   div.purple2,
   div.purple3,
   div.purple4,
-  div.purple5 {
-    width: 20%;
+  div.purple5,
+  div.purple6,
+  div.purple7,
+  div.purple8,
+  div.purple9 {
     height: 130px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .purple {
-    position: relative;
-    bottom: 23.5px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
 }
 .purple1 {
-  background-color: #743751;
-}
-@media screen and (min-width: 1200px) {
-  .purple1 {
-    position: relative;
-    bottom: 23.5px;
-  }
+  background-color: #ebebeb;
 }
 .purple2 {
-  background-color: #447432;
-}
-@media screen and (min-width: 1200px) {
-  .purple2 {
-    position: relative;
-    bottom: 23.5px;
-  }
+  background-color: #743751;
 }
 .purple3 {
-  background-color: #3e1312;
-}
-@media screen and (min-width: 1200px) {
-  .purple3 {
-    position: relative;
-    bottom: 23.5px;
-  }
+  background-color: #d3c0c8;
 }
 .purple4 {
-  background-color: #052374;
-}
-@media screen and (min-width: 1200px) {
-  .purple4 {
-    position: relative;
-    bottom: 23.5px;
-  }
+  background-color: #b99ba8;
 }
 .purple5 {
-  background-color: #727374;
+  background-color: #743751;
 }
-@media screen and (min-width: 1200px) {
-  .purple5 {
-    position: relative;
-    bottom: 23.5px;
-  }
+.purple6 {
+  background-color: #ebebeb;
+}
+.purple7 {
+  background-color: #ff9400;
+}
+.purple8 {
+  background-color: #ffddaf;
+}
+.purple9 {
+  background-color: #ffc97f;
 }
 .purple1:link {
   background-color: #d3c0c8;
@@ -587,14 +601,10 @@ div.purple5 {
 }
 @media screen and (min-width: 1200px) {
   .divsInfo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    margin-top: 6%;
-    float: left;
+    margin-top: 5%;
     margin-left: -11.5%;
   }
 }
@@ -610,21 +620,21 @@ div.purple5 {
 }
 .divBlock p {
   word-wrap: break-word;
-  width: 280px;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .divBlock p {
-    width: 240px;
+    width: 100%;
   }
 }
 @media screen and (min-width: 992px) {
   .divBlock p {
-    width: 320px;
+    width: 100%;
   }
 }
 @media screen and (min-width: 1200px) {
   .divBlock p {
-    width: 400px;
+    width: 370px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -683,6 +693,21 @@ div.purple5 {
 }
 .content_txtCR {
   margin-left: 0!important;
+}
+.name-page {
+  font-size: 10px;
+  color: white;
+  vertical-align: center;
+}
+@media screen and (min-width: 768px) {
+  .name-page {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .name-page {
+    font-size: 14px;
+  }
 }
 @media screen and (min-width: 1200px) {
   .secondBtn {

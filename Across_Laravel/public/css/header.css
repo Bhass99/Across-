@@ -40,6 +40,11 @@
   width: 5%;
   background: #acacac;
 }
+@media screen and (min-width: 1200px) {
+  .GrayBar {
+    width: 20%;
+  }
+}
 .GrayIcon {
   height: 68px;
 }

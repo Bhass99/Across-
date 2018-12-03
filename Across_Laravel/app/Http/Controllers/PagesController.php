@@ -51,7 +51,7 @@ class PagesController extends Controller
             $index = true;
         }
         $parent = $parent_id_category->parent;
-        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'index','id_category' ));
+        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'index','id_category', 'id' ));
     }
     public function login(){
         if (Auth::check()) {

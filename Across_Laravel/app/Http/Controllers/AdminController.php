@@ -17,9 +17,10 @@ class AdminController extends Controller
         $category = Category::all();
         $sub_category = Category::where('parent_id', '!=' , NULL  )->get();
         $posts = Post::all();
+        $categories = Category::whereNull('parent_id')->get();
 
 
-        return view('pages.admin', compact( 'category','sub_category' , 'posts'));
+        return view('pages.admin', compact( 'category','sub_category' , 'posts','categories'));
     }
     /*
     public function subcategory($id){
