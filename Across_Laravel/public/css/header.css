@@ -1,8 +1,13 @@
 .WC_bar {
   display: none;
 }
+@media screen and (min-width: 1200px) {
+  .header {
+    margin-left: 3%;
+  }
+}
 .line1 img {
-  width: 120PX;
+  width: 115px;
 }
 .line1 .headerLeft {
   float: right;
@@ -37,13 +42,7 @@
   overflow: hidden;
 }
 .GrayBar {
-  width: 5%;
   background: #acacac;
-}
-@media screen and (min-width: 1200px) {
-  .GrayBar {
-    width: 20%;
-  }
 }
 .GrayIcon {
   height: 68px;
@@ -89,7 +88,6 @@
     display: inline-flex;
   }
   .line1 {
-    width: 63%;
     margin: auto;
   }
   .NavLink {

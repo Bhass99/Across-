@@ -296,7 +296,7 @@ body {
 .blocks-4 {
   background-color: #929000;
 }
-.col .respon3 {
+.respon3 {
   height: 50px;
 }
 .respon1 {
@@ -344,7 +344,6 @@ div.blocks-4 {
             justify-content: space-between;
   }
   .respon3 {
-    width: 50px;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -356,22 +355,13 @@ div.blocks-4 {
             flex: 2;
     margin-top: 4%;
   }
-  .responorange {
-    margin-top: 4%;
-  }
-  .respongreenimg {
-    margin-top: -1.3%;
-  }
   .respon1 {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
   }
   .respon3 {
-    margin-top: 9%;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    margin-top: 11%;
   }
 }
 .inputAuthor {

@@ -6,11 +6,10 @@
     <button ><a href="{{ route('logout') }}">{{ __('Logout') }}</a></button>
     <i class="fas fa-globe-asia"></i>
 </div>
-
-<div class="header">
-    <div class="line1 " >
-                 <a href="{{ url('/index') }}"> <img src="/images/logo.png" ></a>
-
+<div class="container">
+    <div class="header">
+        <div class="line1 " >
+            <a href="{{ url('/index') }}"> <img src="/images/logo.png" ></a>
             <div class="headerLeft">
                 <i class="fas fa-user"></i>
                 <i class="fas fa-globe-asia"></i>
@@ -19,11 +18,13 @@
             <div id="nav" >
                 @foreach($category as $item)
                     @if($item-> parent_id == null)
-                       <a class="link1 NavLink" href="/category/{{$item->id}}" ><div class="link">{{$item->name}}</div></a>
+                        <a class="link1 NavLink" href="/category/{{$item->id}}" ><div class="link">{{$item->name}}</div></a>
                     @endif
                 @endforeach
             </div>
 
+        </div>
     </div>
+
 </div>
 

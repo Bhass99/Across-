@@ -6,32 +6,29 @@
 @endphp
 @include('inc.navbar')
 @section('content')
-    <div class="PageInfoBar" >
-        <div class="GrayBar"></div>
-        <img class="GrayIcon" src="/images/grayicon.png" >
-        <div class="OneWord" >LOJUXTA</div>
-        @switch($category)
-            @case($category[0]->id == $parent->id)
-             <div class="BlueBar" style="background-color:  #005493;">
-            @break
-
-            @case($category[1]->id == $parent->id)
-                <div class="BlueBar" style="background-color:  #743751;">
-            @break
-
-            @case($category[2]->id == $parent->id)
-                <div class="BlueBar" style="background-color:  #ff9400;">
-            @break
-
-            @case($category[3]->id == $parent->id)
-                <div class="BlueBar" style="background-color:  #bd5200;">
-            @break
-
-            @case($category[4]->id == $parent->id)
-                <div class="BlueBar" style="background-color:  #929000;">
-            @break
-
-            @endswitch
+<div class="container-fluid" style="background-color: white">
+    <div class="GrayBar ">    </div>
+    <div class="container">
+        <div class="PageInfoBar" >
+            <img class="GrayIcon" src="/images/grayicon.png" >
+            <div class="OneWord" >LOJUXTA</div>
+            @switch($category)
+                @case($category[0]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #005493;">
+                @break
+                @case($category[1]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #743751;">
+                @break
+                @case($category[2]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #ff9400;">
+                @break
+                @case($category[3]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #bd5200;">
+                @break
+                @case($category[4]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #929000;">
+                @break
+                @endswitch
                 <div class="blue_title">
                     LEARNING RESOURCE
                 </div>
@@ -42,7 +39,11 @@
                     <img src="/storage/uploads/{{$parent->category_logo}}" >
                 </div>
             </div>
+                </div></div></div></div>
         </div>
+    </div>
+</div>
+
         <div class="container container-responsive">
 
             <p class="txtPageCore"> {{$parent->name}}/ <a href="#" style="color: #7baabe;"> all</a></p>
@@ -173,9 +174,8 @@
                             @if($categoryid[1]->id == $id)
                                 <a href="{{ route('download', $post->id) }}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}">Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
-
                             @elseif($categoryid[4]->id == $id)
-                                <a href="#"  class="btn btn-light float-left btns btnD" style="background-color: white !important;" >Open</a>
+                                <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
                                 <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
                             @else
                                 <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : '#ff9400' }}">Download</a>
@@ -184,7 +184,6 @@
 
                             <button class="btn btn-light float-right btns1">&and;</button>
                         </div>
-
                     </div>
                 </div>
                 @if($categoryid[1]->id == $id)
