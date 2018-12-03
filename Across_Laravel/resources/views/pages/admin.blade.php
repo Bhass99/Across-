@@ -58,7 +58,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info" style=" background: #1d4c7b; color: #ffb100; border: none;">
                         <i class="fas fa-align-left"></i>
                     </button>
                     <div class="message">
@@ -117,91 +117,81 @@
                     @if(isset($category))
                     <div class="categories">
                         <div class=" container table-responsive-sm">
-                            <table class="table  table-centered mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>Sub category</th>
-                                        <th>Page name</th>
-                                        <th>Edit</th>
-                                        <th>Create a new:</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
                                     @foreach($category as $item)
                                         @if($item->parent_id == null)
-                                                <tr >
-                                                    <td><a href="#sub{{$item->id}}" data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></td>
-                                                    <td>{{$item->name}}</td>
-                                                    <td class="table-action" style=" "><a href="/categories/{{$item->id}}/edit" class="editIcon"  > <i class="far fa-edit"></i></a>
-                                                    </td>
-                                                    <td>
-                                                            @if($item->name == "Core Resources" || $item->name == "Understanding Lojuxta")
-                                                            <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Category</a>
+                                                <div class="AdminCategories" >
+                                                    <div class="CategoryItem"><a href="#sub{{$item->id}}" data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></div>
+                                                    <div class="CategoryItem">{{$item->name}}</div>
+                                                    <div class="table-action CategoryItem"><a href="/categories/{{$item->id}}/edit" class="editIcon"  > <i class="far fa-edit"></i></a>
+                                                    </div>
+                                                    <div class="CategoryItem">
+                                                        @if($item->name == "Core Resources" || $item->name == "Understanding Lojuxta")
+                                                        <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Category</a>
 
-                                                            @else
-                                                            <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
-                                                            @endif
-                                                       </td>
-                                                </tr>
+                                                        @else
+                                                        <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
+                                                        @endif
+                                                   </div>
+                                                </div>
                                             @foreach($posts as $post)
                                                 @if($post->post_parent_id == $item->id)
-                                                    <tr class="collapse list-unstyled" id="sub{{$item->id}}" style="background: #17a2b833;  ">
-                                                        <td class="table-user ">{{$post->title}}</td>
-                                                        <td >{{$post->date}}</td>
-                                                        <td >{{$post->posted_by}}</td>
-                                                        <td >{{$post->language}}</td>
-                                                        <td class="table-action " style="display: inline-flex;">
+                                                    <div class=" CategoriesAssets collapse list-unstyled" id="sub{{$item->id}}">
+                                                        <div  class=" AssetItem table-user ">{{$post->title}}</div>
+                                                        <div class="AssetItem" >{{$post->date}}</div>
+                                                        <div class="AssetItem" >{{$post->posted_by}}</div>
+                                                        <div class="AssetItem">{{$post->language}}</div>
+                                                        <div class="table-action AssetItem ">
                                                             <a href="/posts/{{$post->id}}/edit" class="editIcon" ><i class="far fa-edit"></i></a>
                                                             <form method="POST" action="/posts/{{$post->id}} " onsubmit="return confirm('Are you sure you want to delete this post?')">
                                                                 {{method_field('delete')}}
                                                                 {!! csrf_field() !!}
                                                                 <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
                                                             </form>
-                                                        </td>
-                                                    </tr>
+                                                        </div>
+                                                    </div>
                                                 @endif
                                             @endforeach
                                             @foreach($sub_category as $child)
                                                 @if($child->parent_id == $item->id)
 
-                                                    <tr class="collapse list-unstyled" id="sub{{$item->id}}" style="background: #17a2b878;">
-                                                        <td class="arrow"><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></td>
-                                                        <td>{{$child->name}} </td>
-                                                        <td class="table-action " >
+                                                    <div  class=" SubCategories collapse " id="sub{{$item->id}}">
+                                                        <div class="arrow"><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></div>
+                                                        <div>{{$child->name}} </div>
+                                                        <div class="table-action " >
                                                             <a href="/secondcategory/{{$child->id}}/edit" class="editIcon" > <i class="far fa-edit"></i></a>
                                                             <form method="POST" action="/categories/{{$child->id}} " onsubmit="return confirm('Are you sure ?')">
                                                                 {{method_field('delete')}}
                                                                 {!! csrf_field() !!}
                                                                 <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
                                                             </form>
-                                                        </td>
-                                                        <td><a href="{{route('posts.create', ['cid' => $child->id])}}" >Asset</a></td>
-                                                    </tr>
+                                                        </div>
+                                                        <div><a href="{{route('posts.create', ['cid' => $child->id])}}" >Asset</a></div>
+                                                    </div>
                                                     @foreach($posts as $post)
                                                         @if($post->post_parent_id == $child->id)
-                                                            <tr class="collapse list-unstyled" id="post{{$child->id}}" style="background: #17a2b833;">
-                                                                <td class="table-user">{{$post->title}}</td>
-                                                                <td>{{$post->date}}</td>
-                                                                <td>{{$post->posted_by}}</td>
-                                                                <td>{{$post->language}}</td>
-                                                                <td>{{$post->type}}</td>
-                                                                <td class="table-action" style="display: inline-flex;">
+                                                            <div class=" CategoriesAssets collapse list-unstyled" id="post{{$child->id}}" >
+                                                                <div class="AssetItem table-user">{{$post->title}}</div>
+                                                                <div class="AssetItem">{{$post->date}}</div>
+                                                                <div class="AssetItem">{{$post->posted_by}}</div>
+                                                                <div class="AssetItem">{{$post->language}}</div>
+                                                                <div class="AssetItem" >{{$post->type}}</div>
+                                                                <div class="table-action AssetItem">
                                                                     <a href="/posts/{{$post->id}}/edit" class="editIcon" ><i class="far fa-edit"></i></a>
                                                                     <form method="POST" action="/posts/{{$post->id}} " onsubmit="return confirm('Are you sure you want to delete this post?')">
                                                                         {{method_field('delete')}}
                                                                         {!! csrf_field() !!}
                                                                         <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
                                                                     </form>
-                                                                </td>
-                                                            </tr>
+                                                                </div>
+                                                            </div>
                                                         @endif
                                                     @endforeach
                                                 @endif
                                             @endforeach
                                         @endif
                                     @endforeach
-                                </tbody>
-                            </table>
+                                </div>
+                            </div>
 
 
 
@@ -211,10 +201,6 @@
 
 
             </div>
-        </div>
-    </div>
-
-
 
     <script>
         $(document).ready(function () {

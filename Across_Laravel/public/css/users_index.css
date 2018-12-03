@@ -1,6 +1,8 @@
 .container .categories,
 .container .users {
-  border: 1px solid #17a2b8;
+  /*
+   border: 1px solid #17a2b8;
+    */
   margin: 30px 0;
   border-radius: 10px;
   padding: 0;
@@ -101,6 +103,8 @@
   color: black;
   text-align: left;
   width: auto;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 .AdminDashboard a .fas {
   float: right;
@@ -152,7 +156,9 @@
   color: #ffb100;
 }
 #sidebar ul li a:hover {
-  color: #bd5200;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  font-weight: bold;
 }
 #sidebar ul li.active > a,
 a[aria-expanded="true"] {
@@ -184,6 +190,8 @@ ul.CTAs a {
   display: block;
   border-radius: 5px;
   margin-bottom: 5px;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 a.download {
   background: #ffb100 !important;
@@ -193,6 +201,8 @@ a.article,
 a.article:hover {
   background: #ffb100 !important;
   color: #1d4c7b !important;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -237,4 +247,124 @@ a.article:hover {
     padding: 0;
     float: left;
   }
+}
+.AdminCategories {
+  background: #1d4c7b;
+  color: #ffb100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border: 1px solid #ffb100;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.AdminCategories a,
+.AdminCategories button {
+  color: #ffb100;
+}
+.AdminCategories a:hover {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  font-weight: bold;
+  color: #ffb100;
+}
+@media screen and (min-width: 1200px) {
+  .AdminCategories {
+    width: 80%;
+  }
+}
+.AdminCategories .CategoryItem {
+  margin: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.CategoriesAssets {
+  overflow: scroll;
+  background: #1d4c7b;
+  color: #ffb100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border: 1px solid #ffb100;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 1200px) {
+  .CategoriesAssets {
+    overflow: hidden;
+    width: 80%;
+    margin: 0 0 10px 100px;
+  }
+}
+.CategoriesAssets a,
+.CategoriesAssets button {
+  color: #ffb100;
+}
+.CategoriesAssets a:hover {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  font-weight: bold;
+  color: #ffb100;
+}
+@media screen and (min-width: 1200px) {
+  .CategoriesAssets {
+    width: 80%;
+  }
+}
+.CategoriesAssets .CategoryItem {
+  margin: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.CategoriesAssets .AssetItem {
+  margin: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 30px;
+}
+.CategoriesAssets .AssetItem form {
+  margin: 0;
+}
+.SubCategories {
+  background: #1d4c7b;
+  color: #ffb100;
+  margin: 0 0 10px 0px;
+  border: 1px solid #ffb100;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+@media screen and (min-width: 1200px) {
+  .SubCategories {
+    margin: 0 0 10px 50px !important;
+    width: 80%;
+  }
+}
+.SubCategories a,
+.SubCategories button {
+  color: #ffb100;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+.SubCategories a:hover {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  font-weight: bold;
+  color: #ffb100;
+}
+.SubCategories div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: auto;
+}
+.SubCategories div form {
+  margin: 0;
 }
