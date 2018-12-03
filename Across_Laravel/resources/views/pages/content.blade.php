@@ -167,11 +167,80 @@
                                     @if(count($post->first_li) > 0)
                                         <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->first_li }}</li>
                                     @endif
+<<<<<<< HEAD
                                     @if(count($post->second_li) > 0)
                                         <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->second_li }}</li>
                                     @endif
                                 </ul>
                                 <div class="buttons-div">
+=======
+                                    <small class="smaldate {{ $post->type == 'Important' ? '' : 'text-white' }}"> {{ $post->date }} </small>
+                                    <div class="contentheader">
+                                        <img src="/storage/uploads/{{$post->info_image}}"  class="infoimg">
+                                        <h1 class=" {{ $post->type == 'Important' ? '' : 'text-white' }}">{{ $post->title  }}</h1>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content_imgs mt-3" >
+                                            <svg width="100" height="400" class="bluerect">
+                                                @if($categoryid[0]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: {{ $post->type  == 'Important' ? 'rgb(0, 84, 147)' : '#ff9400' }} " />
+                                                @elseif($categoryid[1]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: {{ $post->type  == 'Important' ? 'rgb(	116, 55, 81)' : 'rgb(	116, 55, 81)'}} " />
+                                                @elseif($categoryid[2]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: #ff9400" />
+                                                @elseif($categoryid[3]->id == $id)
+                                                    <rect width="100" height="358"  style="fill: #bd5200" />
+                                                @elseif($categoryid[4]->id == $id)
+                                                    <rect width="100" height="358"  style="fill:#929000 " />
+                                                @endif
+                                            </svg>
+                                            @if($categoryid[4]->id == $id)
+                                                <video  class="video" controls>
+                                                    <source src="/storage/uploads/{{ $post->image }}"  type="video/mp4">
+                                                    <source src="/storage/uploads/{{ $post->image }}"  type="video/webm">
+                                                    <source src="/storage/uploads/{{ $post->image }}"  type="video/mov">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            @else
+                                                <img src="/storage/uploads/{{ $post->image }}" class="content_img" >
+                                            @endif
+                                        </div>
+                                        <div class="content_txt">
+                                            <p class="mt-3 {{ $post->type == 'Important' ? '' : 'text-white' }}" >
+                                                {{ $post->content }}
+
+                                            </p>
+                                            <ul>
+                                                @if(isset($post->first_li))
+                                                    <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->first_li }}</li>
+                                                @endif
+                                                @if(isset($post->second_li))
+                                                    <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->second_li }}</li>
+                                                @endif
+                                            </ul>
+                                            <div class="buttons-div">
+                                                @if($categoryid[1]->id == $id)
+                                                    <a href="{{ route('download', $post->id) }}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}">Download</a>
+                                                    <button class=" btn btn-light float-left btns btnI"> > </button>
+
+                                                @elseif($categoryid[4]->id == $id)
+                                                    <a href="#"  class="btn float-left btn-light btn-obj">Open</a>
+                                                    <button class=" btn float-left btna-obj" style="background-color: #49b9e5"> > </button>
+                                                @else
+                                                    <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : '#ff9400' }}">Download</a>
+                                                    <button class=" btn btn-light float-left btns btnI"> > </button>
+                                                @endif
+
+                                                @if($categoryid[4]->id == $id)
+                                                    <a href="#"  class="btn float-left btn-light btn-obj btn-obj-save">Save</a>
+                                                    <button class=" btn float-left  btna-obj" style="background-color: #49b9e5"> > </button>
+                                                @endif
+                                                <button class="btn btn-light float-right btns1">&and;</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+>>>>>>> 1a9b400abbcc30f885429b6e4b47c56c2dc4955f
                                     @if($categoryid[1]->id == $id)
                                         <a href="{{ route('download', $post->id) }}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}">Download</a>
                                         <button class=" btn btn-light float-left btns btnI"> > </button>
