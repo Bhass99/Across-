@@ -1,4 +1,3 @@
-
 @extends('layout.loginlayout')
 <link rel="stylesheet" type="text/css" href="{{asset('css/users_index.css')}}" />
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -59,7 +58,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info" style=" background: #1d4c7b; color: #ffb100; border: none;">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info" style=" background: #1d4c7b; color: #ffb100;">
                         <i class="fas fa-align-left"></i>
                     </button>
                     <div class="message">
@@ -134,20 +133,6 @@
                                                         @endif
                                                    </div>
                                                 </div>
-                                            <tr >
-                                                    <td><a href="#sub{{$item->id}}" data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></td>
-                                                    <td>{{$item->name}}</td>
-                                                    <td class="table-action" style=" "><a href="/categories/{{$item->id}}/edit" class="editIcon"  > <i class="far fa-edit"></i></a>
-                                                    </td>
-                                                    <td>
-                                                            @if($categories[1]->id == $item->id || $categories[2]->id == $item->id)
-                                                                <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Subcategory</a>
-
-                                                            @else
-                                                            <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
-                                                            @endif
-                                                       </td>
-                                                </tr>
                                             @foreach($posts as $post)
                                                 @if($post->post_parent_id == $item->id)
                                                     <div class=" CategoriesAssets collapse list-unstyled" id="sub{{$item->id}}">
