@@ -6,10 +6,12 @@
 @endphp
 @include('inc.navbar')
 @section('content')
-<div class="container-fluid" style="background-color: white">
-    <div class="GrayBar ">    </div>
-    <div class="container">
-        <div class="PageInfoBar" >
+
+
+
+    <div class="blueBarWidth">
+        <div class="PageInfoBar">
+            <div class="GrayBar "></div>
             <img class="GrayIcon" src="/images/grayicon.png" >
             <div class="OneWord" >LOJUXTA</div>
             @switch($category)
@@ -42,7 +44,6 @@
                 </div></div></div></div>
         </div>
     </div>
-</div>
 
         <div class="container container-responsive">
 
@@ -172,13 +173,13 @@
                         </ul>
                         <div class="buttons-div">
                             @if($categoryid[1]->id == $id)
-                                <a href="{{ route('download', $post->id) }}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}">Download</a>
+                                <a href="{{ route('download', $post->id) }}" target="_blank"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}">Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
                             @elseif($categoryid[4]->id == $id)
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
                                 <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
                             @else
-                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : '#ff9400' }}">Download</a>
+                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Important' ? '' : '#ff9400' }}">Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
                             @endif
 

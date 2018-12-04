@@ -1,5 +1,6 @@
 @extends('layout.app')
 <link rel="stylesheet" type="text/css" href="{{asset('css/index.css')}}" />
+
 @include('inc.navbar')
 
 @section('content')

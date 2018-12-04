@@ -26,7 +26,7 @@
             <div class="loginSubmit w-25">
                 <input class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" ><button class=" btn btn-light float-left btns btnI" name="submit" type="submit"> > </button>
             </div>
-            <a href="{{ route('users.index') }}" class="float-right  btn btn-light">Back</a>
+            <a href="{{ route('adminpages') }}" class="float-right  btn btn-light">Back</a>
         </form>
         <img src="/images/body.png" class="bg-image">
 

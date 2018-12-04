@@ -296,17 +296,15 @@ body {
 .blocks-4 {
   background-color: #929000;
 }
-.respon3 {
-  height: 50px;
-}
 .respon1 {
   height: 70px;
-  width: 50px;
-  padding-top: 10%;
+  padding-top: 7%;
 }
 .respon2 {
   height: 60px;
-  width: 50px;
+}
+.respon3 {
+  height: 50px;
 }
 div.blocks-0,
 div.blocks-1,

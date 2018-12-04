@@ -31,6 +31,11 @@
 #nav .link {
   margin: 15px auto;
 }
+@media screen and (min-width: 1200px) {
+  .blueBarWidth {
+    width: 83%;
+  }
+}
 .PageInfoBar {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -43,6 +48,11 @@
 }
 .GrayBar {
   background: #acacac;
+}
+@media screen and (min-width: 1200px) {
+  .GrayBar {
+    width: 30%;
+  }
 }
 .GrayIcon {
   height: 68px;
@@ -151,9 +161,6 @@
 }
 td a {
   color: black;
-}
-.arrow {
-  margin-left: 20px;
 }
 .TableForm {
   margin: 0 !important;
