@@ -395,6 +395,7 @@ a.article:hover {
   background: #ffb100;
   color: #1d4c7b;
   border-color: #1d4c7b;
+  font-weight: bold;
 }
 .AdminCategoriesHeader a,
 .AdminCategoriesHeader button {

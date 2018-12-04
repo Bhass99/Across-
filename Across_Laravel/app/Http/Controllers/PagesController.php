@@ -29,9 +29,10 @@ class PagesController extends Controller
         $children = $one_category->children;
         $parent = $one_category->parent;
         $id_category = Category::find($id);
-        if ($parent->name == "Core Rescurces") {
+
+        if ($category[1]->id == $one_category->id && count($children)> 0 ) {
             return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
-        }elseif ($parent->name == "Understanding Lojuxta"){
+        }elseif ($category[2]->id == $one_category->id && count($children)> 0){
 
             return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
         }

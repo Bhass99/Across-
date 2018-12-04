@@ -7,6 +7,9 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Category;
 use phpDocumentor\Reflection\Project;
+use App\User;
+
+
 
 
 class PostsController extends Controller
@@ -22,11 +25,24 @@ class PostsController extends Controller
     {
         $category = Category::all();
         $PageId = $request->input('cid');
-        if($PageId == 8){
+
+
+
+        $categoryId = Category::find($PageId);
+
+        $parent_id =  $categoryId->parent_id;
+
+         $children =   Category::Where('parent_id', '=', $parent_id)->get();
+
+
+        if( count($children) > 1 &&  $category[1]->id == $children[1]->parent_id && $children[1]->id == $PageId  ){
            return view('faq/create' , compact('PageId'));
+
+        }else{
+            return view('posts.create' , compact('category','PageId'));
         }
 
-        return view('posts.create' , compact('category','PageId'));
+
     }
 
 
@@ -38,13 +54,13 @@ class PostsController extends Controller
                 'post_parent_id' => 'required',
                 'title' => 'required',
                 'description' => 'required',
-                'date' => 'required',
+                'date' => 'nullable',
                 'file' => 'nullable',
-                'image' => 'required',
+                'image' => 'nullable',
                 'first_li' => 'nullable',
                 'second_li' => 'nullable',
-                'language' => 'required',
-                'type' => 'required'
+                'language' => 'nullable',
+                'type' => 'nullable'
             ]
         );
 

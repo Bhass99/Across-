@@ -47,34 +47,35 @@
 
         <div class="container container-responsive">
 
-            <p class="txtPageCore"> {{$parent->name}}/ <a href="#" style="color: #7baabe;"> all</a></p>
+            <p class="txtPageCore"> {{$parent->name}}/ {{$id_category->name}}<a href="#" style="color: #7baabe;"></a></p>
             <div class="divsInfo">
                 <div class="divBlock">
                     <h2 class="">{{$parent->title}}</h2>
                     <p>{{$parent->description}}</p>
                 </div>
-            </div>
-            <div class=" d-block  row px-3 ">
-                @php
-                    $i=1;
-                @endphp
-                @foreach($children as $item)
-                    <a href="/sub_category/{{$item->parent_id . '/'.$item->id}}" >
-                        <div class=" row purple{{$i}} " style=" @if ( $id_category->id == $item->id) background: #ebebeb; @endif">
-                            <div class="col">
-                                <img src="/storage/uploads/{{$item->category_logo}}" class="iconImgs" >
-                            </div>
-                            <div class="col">
-                                <p class="iconTxt">{{$item->name}}</p>
-
-                            </div>
-                            <p class="text-center divArrow" style=" @if ( $id_category->id == $item->id) display: block !important; @endif"  > > </p>
-                        </div>
-                    </a>
+                <div class=" d-block  row px-3 ">
                     @php
-                        $i++;
+                        $i=1;
                     @endphp
-                @endforeach
+                    @foreach($children as $item)
+                        <a href="/sub_category/{{$item->parent_id . '/'.$item->id}}" >
+                            <div class=" row purple{{$i}} " style=" @if ( $id_category->id == $item->id) background: #ebebeb; @endif">
+                                <div class="col">
+                                    <img src="/storage/uploads/{{$item->category_logo}}" class="iconImgs" >
+                                </div>
+                                <div class="col">
+                                    <p class="iconTxt">{{$item->name}}</p>
+
+                                </div>
+                                <p class="text-center divArrow" style=" @if ( $id_category->id == $item->id) display: block !important; @endif"  > > </p>
+                            </div>
+                        </a>
+                        @php
+                            $i++;
+                        @endphp
+                    @endforeach
+            </div>
+
             </div>
         </div>
         @if($parent->name == "HoFH Libary")
@@ -123,9 +124,9 @@
             @else
                 <div class="container-fluid  ">
             @if($categoryid[1]->id == $id)
-                <div class="container mr-desk" style="background-color: {{ $post->type  == 'Important' ? '#ebebeb' : '#ff9400' }} ;">
+                <div class="container mr-desk" style="background-color: {{ $post->type  == 'Not Important' ? '#ebebeb' : '#ff9400' }} ;">
             @else
-                <div class="container mr-desk" style="background-color: {{ $post->type  == 'Important' ? '#ebebeb' : '#005493' }} ;">
+                <div class="container mr-desk" style="background-color: {{ $post->type  == 'Not Important' ? '#ebebeb' : '#005493' }} ;">
             @endif
                 <small class="smaldate {{ $post->type == 'Important' ? '' : 'text-white' }}"> {{ $post->date }} </small>
                 <div class="contentheader">
@@ -136,9 +137,9 @@
                     <div class="content_imgs mt-3" >
                         <svg width="100" height="400" class="bluerect">
                             @if($categoryid[0]->id == $id)
-                                <rect width="100" height="358"  style="fill: {{ $post->type  == 'Important' ? 'rgb(0, 84, 147)' : '#ff9400' }} " />
+                                <rect width="100" height="358"  style="fill: {{ $post->type  == 'Not Important' ? 'rgb(0, 84, 147)' : '#ff9400' }} " />
                             @elseif($categoryid[1]->id == $id)
-                                <rect width="100" height="358"  style="fill: {{ $post->type  == 'Important' ? 'rgb(	116, 55, 81)' : 'rgb(	116, 55, 81)'}} " />
+                                <rect width="100" height="358"  style="fill: {{ $post->type  == 'Not Important' ? 'rgb(	116, 55, 81)' : 'rgb(	116, 55, 81)'}} " />
                             @elseif($categoryid[2]->id == $id)
                                 <rect width="100" height="358"  style="fill: #ff9400" />
                             @elseif($categoryid[3]->id == $id)
@@ -159,16 +160,16 @@
                         @endif
                     </div>
                     <div class="content_txt">
-                        <p class="mt-3 body-txt {{ $post->type == 'Important' ? '' : 'text-white' }}" >
+                        <p class="mt-3 body-txt {{ $post->type == 'Not Important' ? '' : 'text-white' }}" >
                             {{ $post->description }}
 
                         </p>
                         <ul>
                             @if(isset($post->first_li))
-                                <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->first_li }}</li>
+                                <li class="{{ $post->type == 'Not Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->first_li }}</li>
                             @endif
                             @if(isset($post->second_li))
-                                <li class="{{ $post->type == 'Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->second_li }}</li>
+                                <li class="{{ $post->type == 'Not Important' ? '' : 'text-white' }}"><span class="dot"></span>{{ $post->second_li }}</li>
                             @endif
                         </ul>
                         <div class="buttons-div">
@@ -179,18 +180,18 @@
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
                                 <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
                             @else
-                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Important' ? '' : '#ff9400' }}">Download</a>
+                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Not Important' ? '' : '#ff9400' }}">Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
                             @endif
 
-                            <button class="btn btn-light float-right btns1">&and;</button>
+                            <button class="btn btn-light float-right btns1" onclick="topFunction()">&and;</button>
                         </div>
                     </div>
                 </div>
                 @if($categoryid[1]->id == $id)
                     <hr  class="content_hr" style="background-color: {{ $post->type  == 'Important' ? '' : '#ff9400' }};">
                 @else
-                    <hr  class="content_hr" style="background-color: {{ $post->type  == 'Important' ? '' : '#005493' }};">
+                    <hr  class="content_hr" style="background-color: {{ $post->type  == 'Not Important' ? '' : '#005493' }};">
                 @endif
             </div>
         </div>
@@ -200,6 +201,11 @@
 
 @include('inc.Blocks')
 <script>
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 
     $(".body-txt").each(function () {
 

@@ -84,6 +84,7 @@
   text-align: center;
   padding: 7px 2px;
   color: white;
+  margin-right: 1%;
 }
 @media (min-width: 1025px) {
   .headerLeft .fas {

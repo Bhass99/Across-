@@ -13,10 +13,16 @@
         </div>
         <p class="LoginPara">parturient montes, nascetur ridiculus mus.. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam</p>
         <br>
+        @if($errors->any())
+            <ul class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <li> {{ $error  }}</li>
+                @endforeach
+            </ul>
+        @endif
         <form class="LoginForm" method="POST" action= "/posts" enctype="multipart/form-data" >
             {{ csrf_field() }}
             <br>
-            <label>Choose a Page</label>
             <input type="hidden" name="post_parent_id" value="{{$PageId}}">
             <br>
             <label>Question</label>

@@ -256,7 +256,7 @@ body {
   }
 }
 .body-txt::-webkit-scrollbar {
-  width: 10px;
+  width: 2px;
 }
 .body-txt::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -454,9 +454,7 @@ div.blocks-4 {
 }
 @media screen and (min-width: 1200px) {
   .container-responsive {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
@@ -503,9 +501,9 @@ div.purple9 {
   div.purple9 {
     display: inline-block;
     height: 120px;
-    width: 21%;
+    width: 20%;
     float: left;
-    margin-left: 0.2%;
+    margin-left: 15px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -589,11 +587,9 @@ div.purple9 {
 }
 @media screen and (min-width: 1200px) {
   .divsInfo {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin-top: 5%;
-    margin-left: -11.5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 .txtPageCore {
@@ -622,7 +618,7 @@ div.purple9 {
 }
 @media screen and (min-width: 1200px) {
   .divBlock p {
-    width: 370px;
+    width: 300px;
   }
 }
 @media screen and (min-width: 1200px) {
