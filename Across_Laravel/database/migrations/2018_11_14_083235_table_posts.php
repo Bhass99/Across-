@@ -20,11 +20,9 @@ class TablePosts extends Migration
             $table->string('title')->default(null);
             $table->longText('description');
             $table->date('date')->nullable();
-            $table->string('file')->nullable();
             $table->string('image')->nullable();
             $table->string('first_li')->nullable();
             $table->string('second_li')->nullable();
-            $table->string('language')->nullable();
             $table->string('posted_by')->nullable();
             $table->string('type')->nullable();
             $table->timestamps();

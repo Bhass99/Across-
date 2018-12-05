@@ -102,6 +102,7 @@ div.blocks-4 {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    padding: 10px 0;
   }
   .respon3 {
     margin-top: 9%;

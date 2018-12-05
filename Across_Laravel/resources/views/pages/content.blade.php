@@ -46,8 +46,7 @@
     </div>
 
         <div class="container container-responsive">
-
-            <p class="txtPageCore"> {{$parent->name}}/ {{$id_category->name}}<a href="#" style="color: #7baabe;"></a></p>
+            <p class="txtPageCore"> {{$parent->name}}/ {{isset($id_category->name)? $id_category->name :'All' }}<a href="#" style="color: #7baabe;"></a></p>
             <div class="divsInfo">
                 <div class="divBlock">
                     <h2 class="">{{$parent->title}}</h2>
@@ -128,23 +127,24 @@
             @else
                 <div class="container mr-desk" style="background-color: {{ $post->type  == 'Not Important' ? '#ebebeb' : '#005493' }} ;">
             @endif
-                <small class="smaldate {{ $post->type == 'Important' ? '' : 'text-white' }}"> {{ $post->date }} </small>
+                <small class="smaldate {{ $post->type == 'Not Important' ? '' : 'text-white' }}"> {{ $post->date }} </small>
                 <div class="contentheader">
                     <img src="/storage/uploads/{{$post->image}}"  class="infoimg">
-                    <h1 class=" {{ $post->type == 'Important' ? '' : 'text-white' }}">{{ $post->title  }}</h1>
+                    <h1 class=" {{ $post->type == 'Not Important' ? '' : 'text-white' }}"> {{ $post->type == 'Not Important' ? '' : 'HIGHLIGHT:' }}  {{ $post->title  }}</h1>
                 </div>
                 <div class="content">
                     <div class="content_imgs mt-3" >
                         <svg width="100" height="400" class="bluerect">
-                            @if($categoryid[0]->id == $id)
+
+                            @if($categoryid[0]->id == $parent->id)
                                 <rect width="100" height="358"  style="fill: {{ $post->type  == 'Not Important' ? 'rgb(0, 84, 147)' : '#ff9400' }} " />
-                            @elseif($categoryid[1]->id == $id)
+                            @elseif($categoryid[1]->id == $parent->id)
                                 <rect width="100" height="358"  style="fill: {{ $post->type  == 'Not Important' ? 'rgb(	116, 55, 81)' : 'rgb(	116, 55, 81)'}} " />
-                            @elseif($categoryid[2]->id == $id)
+                            @elseif($categoryid[2]->id == $parent->id)
                                 <rect width="100" height="358"  style="fill: #ff9400" />
-                            @elseif($categoryid[3]->id == $id)
+                            @elseif($categoryid[3]->id == $parent->id)
                                 <rect width="100" height="358"  style="fill: #bd5200" />
-                            @elseif($categoryid[4]->id == $id)
+                            @elseif($categoryid[4]->id == $parent->id)
                                 <rect width="100" height="358"  style="fill:#929000 " />
                             @endif
                         </svg>
@@ -174,7 +174,7 @@
                         </ul>
                         <div class="buttons-div">
                             @if($categoryid[1]->id == $id)
-                                <a href="{{ route('download', $post->id) }}" target="_blank"  class="btn btn-primary float-left btns btnD" style="background-color:{{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}">Download</a>
+                                <a href="{{ route('download', $post->id) }}" target="_blank"  class="btn btn-primary float-left btns btnD {{ $post->type  == 'Important' ? '' : 'rgb(	116, 55, 81)' }}" >Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
                             @elseif($categoryid[4]->id == $id)
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
@@ -183,6 +183,13 @@
                                 <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Not Important' ? '' : '#ff9400' }}">Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
                             @endif
+
+                            <div class="language">
+                                @if(isset($post->language))
+
+                                @endif
+
+                            </div>
 
                             <button class="btn btn-light float-right btns1" onclick="topFunction()">&and;</button>
                         </div>

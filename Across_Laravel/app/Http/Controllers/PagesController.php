@@ -28,17 +28,21 @@ class PagesController extends Controller
         $assets = $one_category->assets;
         $children = $one_category->children;
         $parent = $one_category->parent;
-        $id_category = Category::find($id);
+    //    $id_category = Category::find($id);
+        if(count($children)> 0){
+            if ($category[1]->id == $one_category->id   ) {
+                return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
+            }elseif ($category[2]->id == $one_category->id){
 
-        if ($category[1]->id == $one_category->id && count($children)> 0 ) {
-            return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
-        }elseif ($category[2]->id == $one_category->id && count($children)> 0){
+                return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
+            }
+            else{
+                return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id'));
+            }
+        }else{
+            return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id'));
+        }
 
-            return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
-        }
-        else{
-        return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id_category','id'));
-        }
     }
     public function sub_category($patent_id , $id ){
         $index = false;
@@ -64,42 +68,4 @@ class PagesController extends Controller
     public function register(){
         return view('pages.register');
     }
-    /*
-    public function libary(){
-        $posts = Post::all();
-        $category = Category::all();
-        return view('pages.libary');
-    }
-    public function news($id){
-        $posts = Post::all();
-        $category = Category::all();
-        $one_category = Category::find($id);
-        return view('pages.news', compact("posts" , "one_category" , 'category'));
-    }
-     public function coreRescources(){
-        $posts = Post::all();
-        $category = Category::all();
-        return view('pages.coreRescources',  compact("posts","category"));
-    }
-      public function coreRescources2(){
-        $posts = Post::all();
-        $category = Category::all();
-        return view('pages.coreRescources2', compact( "posts","category"));
-    }
-
-    public function objection(){
-        $posts = Post::all();
-        $category = Category::all();
-        return view('pages.objection',  compact("posts" ,"category"));
-    }
-    public function understanding(){
-        $posts = Post::all();
-        $category = Category::all();
-        return view('pages.understanding',compact("posts", "category"));
-    }
-    */
-
-
-
-
 }

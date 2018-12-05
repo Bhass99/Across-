@@ -15,22 +15,8 @@ body {
   overflow: hidden;
 }
 .container-fluid .container .smaldate {
-  margin-left: 19%;
+  padding: 10px 60px;
   display: block;
-}
-@media screen and (min-width: 768px) {
-  .container-fluid .container .smaldate {
-    margin-left: 9%;
-    position: relative;
-    top: 26px;
-    float: left;
-  }
-}
-@media screen and (min-width: 992px) {
-  .container-fluid .container .smaldate {
-    top: 45px;
-    margin-left: 7%;
-  }
 }
 .container-fluid .container .contentheader {
   display: -webkit-inline-box;
@@ -46,7 +32,7 @@ body {
   display: inline;
   width: 50px;
   height: 52px;
-  margin-top: 5%;
+  margin-right: 10px;
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .contentheader .infoimg {
@@ -54,21 +40,9 @@ body {
     height: 44px;
   }
 }
-.container-fluid .container .contentheader h1 {
-  font-size: 1.5em;
-  margin-left: 9%;
-  margin-top: 11%;
-}
 @media screen and (min-width: 768px) {
   .container-fluid .container .contentheader h1 {
-    margin-left: 3%;
-    margin-top: 5%;
     font-size: 1.8em;
-  }
-}
-@media screen and (min-width: 768px) {
-  .container-fluid .container .contentheader h1 {
-    font-size: 2.2em;
   }
 }
 .container-fluid .container .content {
@@ -83,9 +57,6 @@ body {
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_imgs {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
     margin-left: -2.2%;
   }
 }
@@ -102,6 +73,7 @@ body {
 .container-fluid .container .content .content_imgs .bluerect {
   height: 200px;
   width: 50px;
+  float: left;
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_imgs .bluerect {
@@ -140,11 +112,12 @@ body {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    padding-left: 50px;
   }
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_txt {
-    margin-left: -9%;
+    padding-left: 50px;
   }
 }
 .container-fluid .container .content .content_txt .body-txt {
@@ -707,4 +680,12 @@ div.purple9 {
     position: relative;
     right: 0px;
   }
+}
+.container-fluid {
+  padding: 50px;
+}
+.language {
+  background: red;
+  width: 100px;
+  height: 50px;
 }

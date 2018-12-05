@@ -23,17 +23,13 @@ body {
 
 
     .smaldate {
-      margin-left: 19%;
+      padding: 10px 60px;
       display: block;
       @media @portrait{
-        margin-left: 9%;
-        position: relative;
-        top: 26px;
-        float: left;
+
       }
       @media @landscape{
-        top: 45px;
-        margin-left: 7%;
+
       }
 
     }
@@ -46,7 +42,7 @@ body {
         display: inline;
         width: 50px;
         height: 52px;
-        margin-top: 5%;
+        margin-right: 10px;
         @media @portrait{
           width: 40px;
           height: 44px;
@@ -58,16 +54,9 @@ body {
         }
       }
       h1 {
-        font-size: 1.5em;
-        margin-left: 9%;
-        margin-top: 11%;
+
         @media @portrait{
-          margin-left: 3%;
-          margin-top: 5%;
           font-size: 1.8em;
-        }
-        @media @portrait{
-          font-size: 2.2em;
         }
       }
     }
@@ -81,7 +70,6 @@ body {
       .content_imgs {
 
         @media @portrait{
-          flex: 1;
           margin-left: -2.2%;
         }
         @media @landscape{
@@ -96,9 +84,10 @@ body {
         .bluerect {
           height: 200px;
           width: 50px;
-
+          float: left;
           @media @portrait{
             height: 270px;
+
           }
           @media @landscape{
             width: 70px;
@@ -125,9 +114,10 @@ body {
         @media @portrait{
           width: 100%;
           flex: 1;
+          padding-left: 50px;
         }
         @media @landscape{
-          margin-left: -9%;
+          padding-left: 50px;
 
         }
         .body-txt{
@@ -647,3 +637,12 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.purple6,div.
 }
 
 
+.container-fluid{
+  padding: 50px;
+}
+
+.language{
+  background: red;
+  width: 100px;
+  height: 50px;
+}
