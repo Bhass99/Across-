@@ -125,12 +125,14 @@
                                                     <div class="table-action CategoryItem"><a href="/categories/{{$item->id}}/edit" class="editIcon"  > <i class="far fa-edit"></i></a>
                                                     </div>
                                                     <div class="CategoryItem">
-                                                        @if($item->name == "Core Rescources" || $item->name == "Understanding Loxjuxta")
-                                                        <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Category</a>
 
-                                                        @else
-                                                        <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
-                                                        @endif
+                                                            @if(isset($category[1]->id) && $category[1]->id == $item->id || isset($category[2]->id) && $category[2]->id == $item->id )
+                                                                <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Category</a>
+                                                            @else
+                                                                <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
+                                                            @endif
+
+
                                                    </div>
                                                 </div>
                                             @foreach($posts as $post)

@@ -62,7 +62,6 @@
   font-size: 1.1rem;
 }
 .BlueBar {
-  background: #005493;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -165,4 +164,19 @@ td a {
 }
 .TableForm {
   margin: 0 !important;
+}
+.BlueBarCategory--1 {
+  background: #005493;
+}
+.BlueBarCategory--2 {
+  background: #743751;
+}
+.BlueBarCategory--3 {
+  background: #ff9400;
+}
+.BlueBarCategory--4 {
+  background: #bd5200;
+}
+.BlueBarCategory--5 {
+  background: #929000;
 }

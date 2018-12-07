@@ -28,12 +28,8 @@
             <label>Title</label>
             <input class="form-control" type="text" name="title" value="{{old('title')}}">
             <br>
-            <label>Post type</label>
-            <select name="type" class="form-control" required>
-                <option value="{{old('type')}}">Choose the type of the post</option>
-                <option value="Important" >Important</option>
-                <option value="Not Important" >Not Important</option>
-            </select>
+            <label>Highlight</label>
+            <input type="checkbox" name="is_highlighted"  class="form-control"   value="1">
             <br>
             <label>Description</label>
             <textarea class="form-control" type="text" name="description" >{{old('description')}}</textarea>

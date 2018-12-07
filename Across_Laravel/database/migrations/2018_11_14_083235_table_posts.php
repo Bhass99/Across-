@@ -24,7 +24,7 @@ class TablePosts extends Migration
             $table->string('first_li')->nullable();
             $table->string('second_li')->nullable();
             $table->string('posted_by')->nullable();
-            $table->string('type')->nullable();
+            $table->boolean('is_highlighted')->default(0)->nullable();
             $table->timestamps();
         });
     }

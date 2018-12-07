@@ -58,11 +58,11 @@ class PostsController extends Controller
                 'image' => 'nullable',
                 'first_li' => 'nullable',
                 'second_li' => 'nullable',
-                'type' => 'nullable'
+                'is_highlighted' => 'nullable',
             ]
         );
 
-        $post = new Post($request->all('post_parent_id' , 'title' , 'description' ,'date','image','first_li','second_li'));
+        $post = new Post($request->all('post_parent_id' , 'title' , 'description' ,'date','image','first_li','second_li','is_highlighted'));
                     $imagename = request('image');
         $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
         $extensionImage = $imagename->getClientOriginalExtension();
@@ -73,18 +73,12 @@ class PostsController extends Controller
         $post->save();
 
 
-
-
-
-
-        $files = $request->file;
-
         foreach (['de', 'en','nl','es','it'] as $locale){
 
             if($request->hasFile('file-'.$locale)){
 
-                $fileData = new File($request->all('de', 'en','nl','es','it'));
-                dd($fileData);
+                $fileData = new File($request->all());
+                $fileData->language = $request->$locale;
                 $fileData->parent_id = $post->id;
                 $TheFile = $request->file('file-'.$locale);
                 $extension = $TheFile->getClientOriginalExtension();
@@ -184,7 +178,7 @@ class PostsController extends Controller
     }
 
 
-    public function destroy(Post $post)
+    public function destroy(Post $post , File $file)
     {
         $post->delete();
         return redirect('/adminpages')->with('success', 'Post is successfully deleted!');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Post;
+use App\File;
+
 use Illuminate\Support\Facades\Auth;
 use App\Category;
 use Illuminate\Http\Request;
@@ -19,16 +21,22 @@ class PagesController extends Controller
         return view('pages.index', compact( "category"));
     }
     public function ShowCategory($id){
-        $index = false;
-        if($id == 4){
-            $index = true;
-        }
         $category = Category::all();
+        $index = 0;
+        if(count($category)> 0 && isset( $category[3]->id) && $category[3]->id == $id ){
+            $index = 1;
+        }
         $one_category = Category::find($id);
         $assets = $one_category->assets;
         $children = $one_category->children;
         $parent = $one_category->parent;
-    //    $id_category = Category::find($id);
+        foreach ($assets as $asset){
+            $file = $asset->file;
+        }
+
+
+
+
         if(count($children)> 0){
             if ($category[1]->id == $one_category->id   ) {
                 return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
@@ -37,26 +45,25 @@ class PagesController extends Controller
                 return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
             }
             else{
-                return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id'));
+                return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id' , 'file'));
             }
         }else{
-            return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id'));
+            return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id', 'file'));
         }
 
     }
     public function sub_category($patent_id , $id ){
-        $index = false;
+        $faqs = 0;
         $category = Category::all();
         $parent_id_category = Category::find($patent_id);
         $id_category = Category::find($id);
         $assets = $id_category->assets;
         $children = $parent_id_category->children;
-
         if($id_category->name == 'FAQs'){
-            $index = true;
+            $faqs = 1;
         }
         $parent = $parent_id_category->parent;
-        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'index','id_category', 'id' ));
+        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'faqs','id_category', 'id' ));
     }
     public function login(){
         if (Auth::check()) {
