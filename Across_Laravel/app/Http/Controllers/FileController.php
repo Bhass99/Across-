@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\File;
 class FileController extends Controller
 {
     public function download($id)
 
-    { $posts = Post::find($id);
+    { $files = File::find($id);
 
 
-        $file = $posts->file;
+        $file = $files->file;
         $TheFile = storage_path('/app/public/uploads/' . $file);
         $ext = pathinfo(storage_path().$TheFile, PATHINFO_EXTENSION);
 

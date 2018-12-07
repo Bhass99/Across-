@@ -158,6 +158,21 @@
                     <div class="buttons-div">
                         <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
                         <button class=" btn btn-light float-left btns btnI"> > </button>
+
+                        @php
+                         $files = $post->file
+                        @endphp
+                        @if(count($files) > 1)
+                            <p>Choose language</p>
+                        @endif
+                        <div class="languageIcons">
+                        @foreach($files as $file)
+                                <a href="/download/{{$file->id}}" target="_blank"  >
+                                   <img src="/images/{{$file->language}}.png">
+                                </a>
+                        @endforeach
+                        </div>
+
                         {{--
                         @elseif($categoryid[4]->id == $id)
                         <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
@@ -174,8 +189,9 @@
 
                         </div>
                         --}}
-                        <button class="btn btn-light float-right btns1" onclick="topFunction()">&and;</button>
+
                     </div>
+                    <button class="btn btn-light float-right btns1" onclick="topFunction()">&and;</button>
                 </div>
             </div>
 

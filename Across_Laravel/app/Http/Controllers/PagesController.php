@@ -30,9 +30,6 @@ class PagesController extends Controller
         $assets = $one_category->assets;
         $children = $one_category->children;
         $parent = $one_category->parent;
-        foreach ($assets as $asset){
-            $file = $asset->file;
-        }
 
 
 
@@ -45,10 +42,10 @@ class PagesController extends Controller
                 return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
             }
             else{
-                return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id' , 'file'));
+                return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id' ));
             }
         }else{
-            return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id', 'file'));
+            return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id'));
         }
 
     }
