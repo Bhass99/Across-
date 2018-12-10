@@ -172,8 +172,8 @@
                                 @endif
                             </ul>
                             <div class="buttons-div">
-                                <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
-                                <button class=" btn btn-light float-left btns btnI"> > </button>
+                                <a  target="_blank"  class="btn btn-primary float-left btns btnD downloadFile " >Download</a>
+                                <button class=" btn btn-light float-left btns btnI downloadFile"> > </button>
                                 {{--
                                 @elseif($categoryid[4]->id == $id)
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
@@ -199,9 +199,9 @@
                                 @endif
                                 <div class="languageIcons">
                                     @foreach($files as $file)
-                                        <a href="/download/{{$file->id}}" target="_blank"  >
+                                        <div class="file" name="{{$file->id}}"  >
                                             <img src="/images/{{$file->language}}.png">
-                                        </a>
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -245,7 +245,7 @@
                 $(this).click(function () {
                     id = $(this).attr('name');
                     $('.file').css('opacity', '0.4');
-                    $(this).css('opacity', '1')
+                    $(this).css('opacity', '1');
                     $('.downloadFile').attr("href",'/download/'+( + id ));
                 })
             })
