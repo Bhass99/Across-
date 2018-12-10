@@ -178,6 +178,26 @@
                             <div class="buttons-div">
                                 <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
+                                <a  target="_blank"  class="btn btn-primary float-left btns btnD downloadFile " >Download
+                                    <span > > </span>
+                                </a>
+                                {{--
+                                @elseif($categoryid[4]->id == $id)
+                                <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
+                                <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
+                                @else
+                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Not Important' ? '' : '#ff9400' }}">Download</a>
+                                <button class=" btn btn-light float-left btns btnI"> > </button>
+                                @endif
+
+                                <div class="language">
+                                @if(isset($post->language))
+
+                                @endif
+
+                                </div>
+                                --}}
+
                                 @php
                                     $files = $post->file
                                 @endphp
@@ -186,9 +206,9 @@
                                 @endif
                                 <div class="languageIcons">
                                     @foreach($files as $file)
-                                        <a href="/download/{{$file->id}}" target="_blank"  >
+                                        <div class="file" name="{{$file->id}}"  >
                                             <img src="/images/{{$file->language}}.png">
-                                        </a>
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -237,7 +257,7 @@
                 $(this).click(function () {
                     id = $(this).attr('name');
                     $('.file').css('opacity', '0.4');
-                    $(this).css('opacity', '1')
+                    $(this).css('opacity', '1');
                     $('.downloadFile').attr("href",'/download/'+( + id ));
                 })
             })

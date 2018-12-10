@@ -47,6 +47,9 @@
             <input class="form-control" type="file" name="image" value="{{$posts->image}}">
             <br>
             <label>Language</label>
+
+
+            <br>
             <label id="nl">
                 Nl
                 <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
@@ -80,6 +83,14 @@
             </div>
             <a href="{{ route('adminpages') }}" class="float-right  btn btn-light">Back</a>
         </form>
+        @foreach($file as $TheFile)
+            <div>{{$TheFile->language . '.' . $TheFile->file  }}</div>
+            <form method="POST" action="/files/{{$TheFile->id}} " onsubmit="return confirm('Are you sure you want to delete this file?')">
+                {{method_field('delete')}}
+                {!! csrf_field() !!}
+                <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
+            </form>
+        @endforeach
         <img src="/images/body.png" class="bg-image">
 
         <script>

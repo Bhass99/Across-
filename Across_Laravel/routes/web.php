@@ -45,6 +45,7 @@ Route::middleware('checkAdmin')->group(function () {
     Route::resource('posts', 'PostsController');
     Route::resource('secondcategory', 'SecondCategoryController');
     Route::resource('categories', 'CategoriesController');
+    Route::resource('files', 'DeleteFileController');
 
     Route::get('/admin', 'PagesController@admin');
     Route::get('/adminpages', 'AdminController@pages')->name('adminpages');
