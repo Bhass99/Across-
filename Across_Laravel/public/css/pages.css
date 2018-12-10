@@ -14,23 +14,17 @@ body {
   margin: auto;
   overflow: hidden;
 }
+.container-fluid .container {
+  position: relative;
+}
 .container-fluid .container .smaldate {
-  margin-left: 19%;
+  padding: 10px 60px;
   display: block;
 }
-@media screen and (min-width: 768px) {
-  .container-fluid .container .smaldate {
-    margin-left: 9%;
-    position: relative;
-    top: 26px;
-    float: left;
-  }
-}
-@media screen and (min-width: 992px) {
-  .container-fluid .container .smaldate {
-    top: 45px;
-    margin-left: 7%;
-  }
+.container-fluid .container .btn-top {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
 }
 .container-fluid .container .contentheader {
   display: -webkit-inline-box;
@@ -46,7 +40,7 @@ body {
   display: inline;
   width: 50px;
   height: 52px;
-  margin-top: 5%;
+  margin-right: 10px;
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .contentheader .infoimg {
@@ -54,21 +48,9 @@ body {
     height: 44px;
   }
 }
-.container-fluid .container .contentheader h1 {
-  font-size: 1.5em;
-  margin-left: 9%;
-  margin-top: 11%;
-}
 @media screen and (min-width: 768px) {
   .container-fluid .container .contentheader h1 {
-    margin-left: 3%;
-    margin-top: 5%;
     font-size: 1.8em;
-  }
-}
-@media screen and (min-width: 768px) {
-  .container-fluid .container .contentheader h1 {
-    font-size: 2.2em;
   }
 }
 .container-fluid .container .content {
@@ -83,25 +65,23 @@ body {
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_imgs {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
     margin-left: -2.2%;
   }
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_imgs {
-    margin-left: -1.8%;
+    margin-left: -15px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container-fluid .container .content .content_imgs {
-    margin-left: -1.4%;
+    margin-left: -15px;
   }
 }
 .container-fluid .container .content .content_imgs .bluerect {
   height: 200px;
   width: 50px;
+  float: left;
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_imgs .bluerect {
@@ -140,11 +120,13 @@ body {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    padding-left: 50px;
+    position: relative;
   }
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_txt {
-    margin-left: -9%;
+    padding-left: 50px;
   }
 }
 .container-fluid .container .content .content_txt .body-txt {
@@ -198,65 +180,35 @@ body {
   border: none;
   background-color: transparent;
 }
-@media screen and (min-width: 768px) {
-  .container-fluid .container .content .content_txt .btns1 {
-    margin-top: 4%;
-  }
-}
 .container-fluid .container .content .content_txt ul {
   list-style: none;
-  margin-left: -7%;
+  margin-left: -16%;
 }
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_txt ul {
-    margin-left: -7%;
+    margin-left: -12%;
   }
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_txt ul {
-    margin-left: -4%;
+    margin-left: -8%;
     height: 54px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container-fluid .container .content .content_txt ul {
+    margin-left: -6%;
     height: 50px;
   }
 }
-.container-fluid .container .content .content_txt ul .dot {
-  position: absolute;
-  height: 9px;
-  width: 9px;
-  background-color: orange;
-  border-radius: 50%;
-  display: block;
-  margin-top: 2.1%;
-  margin-left: -3.9%;
-}
-@media screen and (min-width: 768px) {
-  .container-fluid .container .content .content_txt ul .dot {
-    margin-top: 1.1%;
-    margin-left: -2%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .container-fluid .container .content .content_txt ul .dot {
-    margin-top: 0.8%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .container-fluid .container .content .content_txt ul .dot {
-    margin-top: 0.6%;
-    margin-left: -0.9%;
-  }
-}
-@media screen and (min-width: 1800px) {
-  .container-fluid .container .content .content_txt ul .dot {
-    margin-top: 0.5%;
-  }
+.container-fluid .container .content .content_txt ul li .dot {
+  font-size: 20px;
+  color: orange;
+  position: relative;
+  top: 1px;
 }
 .body-txt::-webkit-scrollbar {
-  width: 10px;
+  width: 2px;
 }
 .body-txt::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -296,17 +248,15 @@ body {
 .blocks-4 {
   background-color: #929000;
 }
-.respon3 {
-  height: 50px;
-}
 .respon1 {
   height: 70px;
-  width: 50px;
-  padding-top: 10%;
+  padding-top: 7%;
 }
 .respon2 {
   height: 60px;
-  width: 50px;
+}
+.respon3 {
+  height: 50px;
 }
 div.blocks-0,
 div.blocks-1,
@@ -456,9 +406,7 @@ div.blocks-4 {
 }
 @media screen and (min-width: 1200px) {
   .container-responsive {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
@@ -505,9 +453,9 @@ div.purple9 {
   div.purple9 {
     display: inline-block;
     height: 120px;
-    width: 21%;
+    width: 20%;
     float: left;
-    margin-left: 0.2%;
+    margin-left: 15px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -591,11 +539,9 @@ div.purple9 {
 }
 @media screen and (min-width: 1200px) {
   .divsInfo {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin-top: 5%;
-    margin-left: -11.5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 .txtPageCore {
@@ -624,7 +570,7 @@ div.purple9 {
 }
 @media screen and (min-width: 1200px) {
   .divBlock p {
-    width: 370px;
+    width: 300px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -718,13 +664,6 @@ div.purple9 {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-@media screen and (min-width: 1200px) {
-  .GrayBar {
-    width: 100%;
-    height: 60px;
-    margin-top: 4%;
-  }
-}
 .container-fluid .container-mobile {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -750,60 +689,111 @@ div.purple9 {
 .Bluebar-5 {
   background-color: #929000;
 }
-/*
-
-@media @desktop{
-    display: flex;
-
+.container-fluid {
+  padding: 50px;
+}
+.language {
+  background: red;
+  width: 100px;
+  height: 50px;
+}
+.category--1 rect {
+  fill: #005493;
+}
+.category--1 .highlighted {
+  background: #005493;
+}
+.category--1 .highlighted rect {
+  fill: #ff9400 !important;
+}
+.category--1 .highlighted hr {
+  background: #1d4c7b !important;
+}
+.category--1 .highlighted .btnD {
+  background: #ff9400 !important;
+}
+.category--1 .highlighted h1 {
+  color: white;
+}
+.category--1 .highlighted p {
+  color: white;
+}
+.category--1 .highlighted li {
+  color: white;
+}
+.category--1 .highlighted .smaldate {
+  color: white;
+}
+.category--2 rect {
+  fill: #743751;
+}
+.category--2 .highlighted {
+  background: #ff9400;
+}
+.category--2 .highlighted hr {
+  background: #ff9400 !important;
+}
+.category--2 .highlighted .btnD {
+  background: #743751 !important;
+}
+.category--2 .highlighted h1 {
+  color: white;
+}
+.category--2 .highlighted p {
+  color: white;
+}
+.category--2 .highlighted li {
+  color: white;
+}
+.category--2 .highlighted .smaldate {
+  color: white;
+}
+.category--2 .highlighted .dot {
+  background: #743751 !important;
+}
+.category--2 .highlighted .buttons-div .btns1 {
+  color: white !important;
+}
+.languageIcons {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.languageIcons img {
+  width: 30px;
+  height: 30px;
+  margin: auto 3px;
+}
+.buttons-div {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .buttons-div {
+    position: absolute ;
+    bottom: 0;
   }
-  .GrayBar{
-
-    @media @desktop{
-      flex-grow: 1;
-    }
-  }
-  .container{
-    @media @desktop{
-      margin-left: 0 !important;
-      max-width: 81% !important;
-      flex: 4;
-    }
-  }
-<div class="container-fluid container-mobile" style="background-color: white">
-    <div class="GrayBar ">    </div>
-    <div class="container container-mobile">
-        <div class="PageInfoBar" >
-            <img class="GrayIcon" src="/images/grayicon.png" >
-            <div class="OneWord" >LOJUXTA</div>
-            @switch($category)
-                @case($category[0]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #005493;">
-                @break
-                @case($category[1]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #743751;">
-                @break
-                @case($category[2]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #ff9400;">
-                @break
-                @case($category[3]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #bd5200;">
-                @break
-                @case($category[4]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #929000;">
-                @break
-                @endswitch
-                <div class="blue_title">
-                    LEARNING RESOURCE
-                </div>
-                <div class="SecondLogo">
-                    <div>
-                        <p class="name-page">{{$parent->name}}</p>
-                    </div>
-                    <img src="/storage/uploads/{{$parent->category_logo}}" >
-                </div>
-            </div>
-                </div></div></div></div>
-        </div>
-    </div>
-</div>
- */
+}
+.buttons-div p {
+  padding: 17px 28px;
+  margin-bottom: 0px;
+}
+.navbar-parent {
+  position: relative;
+}
+.navbar-parent .GrayBar {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  margin-top: 10px;
+}
+.navbar-parent .navbar-child {
+  position: relative;
+  z-index: 2;
+  padding: 0;
+}
+.navbar-parent .navbar-child .OneWord {
+  background-color: white;
+}

@@ -20,4 +20,5 @@ class Category extends Model
         return $this->hasMany(Post::class, 'post_parent_id');
     }
 
+
 }

@@ -20,22 +20,23 @@ body {
   margin: auto;
   overflow: hidden;
   .container {
+    position: relative;
 
 
     .smaldate {
-      margin-left: 19%;
+      padding: 10px 60px;
       display: block;
       @media @portrait{
-        margin-left: 9%;
-        position: relative;
-        top: 26px;
-        float: left;
       }
       @media @landscape{
-        top: 45px;
-        margin-left: 7%;
+
       }
 
+    }
+    .btn-top{
+      position: absolute;
+      right: 0;
+      bottom: 0px;
     }
     .contentheader {
       display: inline-flex;
@@ -46,7 +47,7 @@ body {
         display: inline;
         width: 50px;
         height: 52px;
-        margin-top: 5%;
+        margin-right: 10px;
         @media @portrait{
           width: 40px;
           height: 44px;
@@ -58,16 +59,9 @@ body {
         }
       }
       h1 {
-        font-size: 1.5em;
-        margin-left: 9%;
-        margin-top: 11%;
+
         @media @portrait{
-          margin-left: 3%;
-          margin-top: 5%;
           font-size: 1.8em;
-        }
-        @media @portrait{
-          font-size: 2.2em;
         }
       }
     }
@@ -81,24 +75,24 @@ body {
       .content_imgs {
 
         @media @portrait{
-          flex: 1;
           margin-left: -2.2%;
         }
         @media @landscape{
-          margin-left: -1.8%;
+          margin-left: -15px;
 
         }
         @media @desktop{
-          margin-left: -1.4%;
+          margin-left: -15px;
 
         }
 
         .bluerect {
           height: 200px;
           width: 50px;
-
+          float: left;
           @media @portrait{
             height: 270px;
+
           }
           @media @landscape{
             width: 70px;
@@ -125,9 +119,12 @@ body {
         @media @portrait{
           width: 100%;
           flex: 1;
+          padding-left: 50px;
+          position: relative;
+
         }
         @media @landscape{
-          margin-left: -9%;
+          padding-left: 50px;
 
         }
         .body-txt{
@@ -173,45 +170,28 @@ body {
           border: none;
           background-color: transparent;
           @media @portrait{
-            margin-top: 4%;
           }
         }
         ul {
           list-style: none;
-          margin-left: -7%;
+          margin-left: -16%;
           @media @portrait{
-            margin-left: -7%;
+            margin-left: -12%;
           }
           @media @landscape{
-            margin-left: -4%;
+            margin-left: -8%;
             height: 54px;
           }
           @media @desktop{
+            margin-left: -6%;
             height: 50px;
           }
-
-          .dot {
-            position: absolute;
-            height: 9px;
-            width: 9px;
-            background-color: orange;
-            border-radius: 50%;
-            display: block;
-            margin-top: 2.1%;
-            margin-left: -3.9%;
-            @media @portrait{
-              margin-top: 1.1%;
-              margin-left: -2%;
-            }
-            @media @landscape{
-              margin-top: 0.8%;
-            }
-            @media @desktop{
-              margin-top: 0.6%;
-              margin-left: -0.9%;
-            }
-            @media @xxl{
-              margin-top: 0.5%;
+          li{
+            .dot {
+              font-size: 20px;
+              color: orange;
+              position: relative;
+              top: 1px;
             }
           }
         }
@@ -221,7 +201,7 @@ body {
 }
 
 .body-txt::-webkit-scrollbar {
-  width: 10px;
+  width: 2px;
 }
 .body-txt::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -263,6 +243,18 @@ body {
   background-color: #929000;
 
 }
+
+
+.respon1{
+  height:70px;
+  padding-top: 7%;
+
+}
+.respon2{
+  height:60px;
+
+}
+
 .respon3 {
   height: 50px;
   @media @portrait {
@@ -270,17 +262,6 @@ body {
   }
 }
 
-.respon1{
-  height:70px;
-  width: 50px;
-  padding-top: 10%;
-
-}
-.respon2{
-  height:60px;
-  width: 50px;
-
-}
 div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
 
   height: 110px;
@@ -405,7 +386,7 @@ div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
 .container-responsive{
 
   @media @desktop{
-    display: flex;
+    display: block;
     justify-content: flex-start;
   }
 }
@@ -425,9 +406,9 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.purple6,div.
   @media @landscape{
     display: inline-block;
     height: 120px;
-    width: 21%;
+    width: 20%;
     float: left;
-    margin-left: 0.2%;
+    margin-left: 15px;
 
   }
   @media @desktop{
@@ -523,9 +504,7 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.purple6,div.
 
 .divsInfo{
   @media @desktop{
-    flex: 1;
-    margin-top: 5%;
-    margin-left: -11.5%;
+    display: flex;
   }
 }
 .txtPageCore{
@@ -547,7 +526,7 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.purple6,div.
       width: 100%;
     }
     @media @desktop {
-      width: 370px;
+      width: 300px;
     }
   }
 }
@@ -650,14 +629,7 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.purple6,div.
 .flip{
   transform: rotate(180deg);
 }
-.GrayBar{
 
-  @media @desktop{
-    width: 100%;
-    height: 60px;
-    margin-top: 4%;
-  }
-}
 .container-fluid .container-mobile{
   display: flex;
    @media  (max-width: 768px) {
@@ -683,60 +655,125 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.purple6,div.
 }
 
 
-/*
 
-@media @desktop{
-    display: flex;
+.container-fluid{
+  padding: 50px;
+}
 
+.language{
+  background: red;
+  width: 100px;
+  height: 50px;
+}
+
+
+.category--1{
+   rect{
+     fill: #005493;
+   }
+  .highlighted{
+    background: #005493;
+    rect{
+      fill: #ff9400!important;
+    }
+    hr{
+      background:  #1d4c7b!important;
+    }
+    .btnD{
+      background: #ff9400!important;
+    }
+    h1{
+      color: white;
+    }
+    p{
+      color: white;
+    }
+    li{
+      color: white;
+    }
+    .smaldate{
+      color: white;
+    }
   }
+ }
+
+.category--2{
+  rect{
+    fill: #743751;
+  }
+
+  .highlighted{
+    background: #ff9400;
+
+    hr{
+      background:  #ff9400!important;
+    }
+    .btnD{
+      background:  #743751!important;
+    }
+    h1{
+      color: white;
+    }
+    p{
+      color: white;
+    }
+    li{
+      color: white;
+    }
+    .smaldate{
+      color: white;
+    }
+    .dot{
+      background:#743751!important;
+    }
+    .buttons-div {
+
+      .btns1{
+        color: white !important;
+      }
+
+    }
+  }
+}
+
+.languageIcons{
+  display: inline-flex;
+  img{
+    width: 30px;
+    height: 30px;
+    margin: auto 3px;
+  }
+}
+.buttons-div{
+  display: inline-flex;
+  width: 100%;
+  @media @portrait{
+    position: absolute ;
+    bottom: 0;
+  }
+  p{
+    padding: 17px 28px;
+    margin-bottom: 0px;
+  }
+}
+
+.navbar-parent {
+  position: relative;
   .GrayBar{
 
-    @media @desktop{
-      flex-grow: 1;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    margin-top: 10px;
+  }
+  .navbar-child {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+
+    .OneWord{
+      background-color: white;
     }
   }
-  .container{
-    @media @desktop{
-      margin-left: 0 !important;
-      max-width: 81% !important;
-      flex: 4;
-    }
-  }
-<div class="container-fluid container-mobile" style="background-color: white">
-    <div class="GrayBar ">    </div>
-    <div class="container container-mobile">
-        <div class="PageInfoBar" >
-            <img class="GrayIcon" src="/images/grayicon.png" >
-            <div class="OneWord" >LOJUXTA</div>
-            @switch($category)
-                @case($category[0]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #005493;">
-                @break
-                @case($category[1]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #743751;">
-                @break
-                @case($category[2]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #ff9400;">
-                @break
-                @case($category[3]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #bd5200;">
-                @break
-                @case($category[4]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #929000;">
-                @break
-                @endswitch
-                <div class="blue_title">
-                    LEARNING RESOURCE
-                </div>
-                <div class="SecondLogo">
-                    <div>
-                        <p class="name-page">{{$parent->name}}</p>
-                    </div>
-                    <img src="/storage/uploads/{{$parent->category_logo}}" >
-                </div>
-            </div>
-                </div></div></div></div>
-        </div>
-    </div>
-</div>
- */
+
+}

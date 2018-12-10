@@ -8,9 +8,7 @@
 }
 .header{
 
-  @media @desktop{
-    margin-left: 3%;
-  }
+
 }
 
 .line1{
@@ -46,6 +44,12 @@
   }
 }
 
+.blueBarWidth{
+  @media @desktop{
+    width: 83%;
+  }
+}
+
 .PageInfoBar{
   display: inline-flex;
   width: 100%;
@@ -58,7 +62,8 @@
 .GrayBar{
   background: #acacac;
   @media @desktop{
-}
+    width: 30%;
+  }
 }
 .GrayIcon{
   height: 68px;
@@ -70,7 +75,6 @@
 }
 
 .BlueBar{
-  background: #005493;
   display: inline-flex;
   width: 59%;
 }
@@ -89,6 +93,7 @@
   text-align: center;
   padding: 7px 2px;
   color: white;
+  margin-right: 1%;
 
 }
 
@@ -183,11 +188,27 @@ td a{
   color: black;
 }
 
-.arrow{
-  margin-left:20px;
-}
 
 .TableForm{
   margin: 0 !important;
 }
 
+.BlueBarCategory--1{
+  background: #005493;
+}
+
+.BlueBarCategory--2{
+  background: #743751;
+}
+
+.BlueBarCategory--3{
+  background: #ff9400;
+}
+
+.BlueBarCategory--4{
+  background: #bd5200 ;
+}
+
+.BlueBarCategory--5{
+  background: #929000;
+}

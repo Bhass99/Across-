@@ -249,6 +249,7 @@ a.article:hover {
   }
 }
 .AdminCategories {
+  overflow: scroll;
   background: #1d4c7b;
   color: #ffb100;
   display: -webkit-box;
@@ -272,6 +273,7 @@ a.article:hover {
 @media screen and (min-width: 1200px) {
   .AdminCategories {
     width: 80%;
+    overflow: hidden;
   }
 }
 .AdminCategories .CategoryItem {
@@ -279,11 +281,11 @@ a.article:hover {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding: 0 10px;
 }
 .CategoriesAssets {
-  width: 0px;
-  overflow: scroll;
   border: 5px solid #ffb100 !important;
+  overflow: scroll;
   background: #1d4c7b;
   color: #ffb100;
   display: -webkit-box;
@@ -315,6 +317,7 @@ a.article:hover {
 @media screen and (min-width: 1200px) {
   .CategoriesAssets {
     width: 80%;
+    overflow: hidden;
   }
 }
 .CategoriesAssets .CategoryItem {
@@ -322,20 +325,24 @@ a.article:hover {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding: 0 10px;
 }
 .CategoriesAssets .AssetItem {
-  width: 0px;
   margin: auto;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding-left: 30px;
+  padding: 0 20px;
+}
+@media screen and (min-width: 1200px) {
+  .CategoriesAssets .AssetItem {
+    width: auto;
+  }
 }
 .CategoriesAssets .AssetItem form {
   margin: 0;
 }
 .SubCategories {
-  width: 0px;
   border: 3px solid #ffb100;
   background: #1d4c7b;
   color: #ffb100;
@@ -373,4 +380,60 @@ a.article:hover {
 }
 .SubCategories div form {
   margin: 0;
+}
+.AdminCategoriesHeader {
+  overflow: scroll;
+  background: #1d4c7b;
+  color: #ffb100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border: 1px solid #ffb100;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background: #ffb100;
+  color: #1d4c7b;
+  border-color: #1d4c7b;
+  font-weight: bold;
+}
+.AdminCategoriesHeader a,
+.AdminCategoriesHeader button {
+  color: #ffb100;
+}
+.AdminCategoriesHeader a:hover {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  font-weight: bold;
+  color: #ffb100;
+}
+@media screen and (min-width: 1200px) {
+  .AdminCategoriesHeader {
+    width: 80%;
+    overflow: hidden;
+  }
+}
+.AdminCategoriesHeader .CategoryItem {
+  margin: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 10px;
+}
+@media screen and (min-width: 1200px) {
+  .arrow {
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .UserEmail {
+    -webkit-box-flex: 2 !important;
+        -ms-flex: 2 !important;
+            flex: 2 !important;
+  }
+}
+.table-action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

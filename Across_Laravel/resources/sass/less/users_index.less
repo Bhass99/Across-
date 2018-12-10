@@ -292,6 +292,7 @@ a.article:hover {
 }
 
 .AdminCategories{
+  overflow: scroll;
   background: #1d4c7b;
   color: #ffb100;
   display: flex;
@@ -309,15 +310,16 @@ a.article:hover {
   }
   @media @desktop {
     width: 80%;
+    overflow: hidden;
   }
   .CategoryItem{
     margin: auto;
     flex: 1;
+    padding: 0 10px;
   }
 }
 
 .CategoriesAssets{
-  width: 0px;
   overflow: scroll;
   border: 5px solid #ffb100 !important;
   @media @desktop{
@@ -325,16 +327,18 @@ a.article:hover {
     overflow: hidden;
     width: 80%;
     margin: 0 0 10px 100px;
+
   }
 
 
   .AdminCategories;
   .AssetItem{
-    width: 0px;
     margin: auto;
     flex: 1;
-    padding-left: 30px;
-
+    padding: 0 20px;
+    @media @desktop {
+     width: auto;
+    }
     form{
       margin: 0;
     }
@@ -342,7 +346,6 @@ a.article:hover {
 }
 
 .SubCategories{
-  width: 0px;
   border: 3px solid #ffb100;
   background: #1d4c7b;
   color: #ffb100;
@@ -373,4 +376,28 @@ a.article:hover {
       margin: 0;
     }
   }
+}
+
+.AdminCategoriesHeader{
+  .AdminCategories;
+  background: #ffb100;
+  color: #1d4c7b;
+  border-color: #1d4c7b;
+  font-weight: bold;
+}
+
+.arrow {
+  @media @desktop{
+    margin-left: 20px;
+  }
+}
+
+.UserEmail{
+  @media @desktop{
+    flex: 2 !important;
+  }
+
+}
+.table-action{
+  display: flex;
 }

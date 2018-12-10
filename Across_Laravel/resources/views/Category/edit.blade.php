@@ -26,7 +26,7 @@
             {{ csrf_field() }}
             {{method_field('PATCH')}}
             <label>Name</label>
-            <input class="form-control" type="text" name="name" value="{{$category->name}}" @if($category->parent_id == null) readonly @endif >
+            <input class="form-control" type="text" name="name" value="{{$category->name}}" @if($category->parent_id == null)  @endif >
             <br>
             <label>Title</label>
             <input class="form-control" type="text" name="title" value="{{$category->title}}" >

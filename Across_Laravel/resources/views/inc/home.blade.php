@@ -48,6 +48,7 @@
     </div>
 
     @include('inc.blocks')
+
     <div class="welcomeTxt">
         <h2 class="welctxtBig">Welcome to our learning rescource</h2>
         <div class="nxt nxt 1mt-3">

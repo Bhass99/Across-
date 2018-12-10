@@ -80,35 +80,35 @@
                     @if(isset($users))
                     <div class="users">
                      <div class=" container table-responsive-sm">
-                        <table class="table table-centered mb-0">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <div class="table table-centered mb-0">
+                            <div>
+                                <div class="AdminCategoriesHeader" >
+                                    <div  class="CategoryItem">First Name</div>
+                                    <div  class="CategoryItem">Last Name</div>
+                                    <div  class="CategoryItem">Email</div>
+                                    <div  class="CategoryItem">Action</div>
+                                </div>
+                            </div>
+                            <div>
                             @foreach($users as $user)
-                                <tr>
-                                    <td class="table-user">
+                                <div class="AdminCategories">
+                                    <div class="CategoryItem">
                                         {{ $user->first_name}}
-                                    </td>
-                                    <td>{{ $user->last_name}}</td>
-                                    <td>{{ $user->email}}</td>
-                                    <td class="table-action" >
+                                    </div>
+                                    <div class="CategoryItem" >{{ $user->last_name}}</div>
+                                    <div class="CategoryItem">{{ $user->email}}</div>
+                                    <div class="table-action CategoryItem" >
                                         <a href="{{ route('users.edit', $user->id) }}" class="edit" >  <i class="fas fa-user-edit"></i></a>
                                         <form class="m-0" method="POST" action="{{ route('users.destroy', $user->id) }}" style="display: inline" onsubmit="return confirm('Are you sure you want to delete {{$user->last_name}}?')">
                                             <input type="hidden" name="_method"  value="DELETE">
                                             <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-user-times"></i></button>
                                             {!! csrf_field() !!}
                                         </form>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </div>
                             @endforeach
-                            </tbody>
-                        </table>
+                            </div>
+                        </div>
                      </div>
                     </div>
                     @endif
@@ -120,25 +120,27 @@
                                     @foreach($category as $item)
                                         @if($item->parent_id == null)
                                                 <div class="AdminCategories" >
-                                                    <div class="CategoryItem"><a href="#sub{{$item->id}}" data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></div>
+                                                    <div class="CategoryItem arrowCategory"  ><a href="#sub{{$item->id}}" data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></div>
                                                     <div class="CategoryItem">{{$item->name}}</div>
                                                     <div class="table-action CategoryItem"><a href="/categories/{{$item->id}}/edit" class="editIcon"  > <i class="far fa-edit"></i></a>
                                                     </div>
                                                     <div class="CategoryItem">
-                                                        @if($item->name == "Core Resources" || $item->name == "Understanding Lojuxta")
-                                                        <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Category</a>
 
-                                                        @else
-                                                        <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
-                                                        @endif
+                                                            @if(isset($category[1]->id) && $category[1]->id == $item->id || isset($category[2]->id) && $category[2]->id == $item->id )
+                                                                <a href="{{route('secondcategory.create', ['cid' => $item->id])}}" class="btn-block" >Category</a>
+                                                            @else
+                                                                <a href="{{route('posts.create', ['cid' => $item->id])}}" class="btn-block" >Asset</a>
+                                                            @endif
+
+
                                                    </div>
                                                 </div>
                                             @foreach($posts as $post)
                                                 @if($post->post_parent_id == $item->id)
                                                     <div class=" CategoriesAssets collapse list-unstyled" id="sub{{$item->id}}">
-                                                        <div  class=" AssetItem table-user ">{{$post->title}}</div>
+                                                        <div  class=" AssetItem ">{{$post->title}}</div>
                                                         <div class="AssetItem" >{{$post->date}}</div>
-                                                        <div class="AssetItem" >{{$post->posted_by}}</div>
+                                                        <div class="AssetItem UserEmail" >{{$post->posted_by}}</div>
                                                         <div class="AssetItem">{{$post->language}}</div>
                                                         <div class="table-action AssetItem ">
                                                             <a href="/posts/{{$post->id}}/edit" class="editIcon" ><i class="far fa-edit"></i></a>
@@ -155,7 +157,7 @@
                                                 @if($child->parent_id == $item->id)
 
                                                     <div  class=" SubCategories collapse " id="sub{{$item->id}}">
-                                                        <div class="arrow"><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow " ></a></div>
+                                                        <div class="arrowCategory" id="arrow{{$child->id}}" ><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow " ></a></div>
                                                         <div>{{$child->name}} </div>
                                                         <div class="table-action " >
                                                             <a href="/secondcategory/{{$child->id}}/edit" class="editIcon" > <i class="far fa-edit"></i></a>
@@ -207,8 +209,23 @@
             var click = 0;
             $('#sub').click(function(){
                 $(this).toggleClass('flip')
-            });
 
+
+        $(document).ready(function () {
+
+            var index = false;
+
+            $('.arrowCategory').each(function () {
+                $(this).click(function () {
+                    if (!index) {
+                        $(this).css({'transform': 'rotateX(180deg)'});
+                        index = true;
+                    } else {
+                        $(this).css({'transform': 'rotateX(360deg)'});
+                        index = false;
+                    }
+                })
+            });
 
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar, #content').toggleClass('active');

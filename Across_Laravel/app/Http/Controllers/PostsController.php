@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\File;
 use Illuminate\Support\Facades\Auth;
 use App\Category;
 use phpDocumentor\Reflection\Project;
+use App\User;
+
+
 
 
 class PostsController extends Controller
@@ -22,53 +26,91 @@ class PostsController extends Controller
     {
         $category = Category::all();
         $PageId = $request->input('cid');
-        if($PageId == 8){
+
+
+
+        $categoryId = Category::find($PageId);
+
+        $parent_id =  $categoryId->parent_id;
+
+         $children =   Category::Where('parent_id', '=', $parent_id)->get();
+
+
+        if( count($children) > 1 &&  $category[1]->id == $children[1]->parent_id && $children[1]->id == $PageId  ){
            return view('faq/create' , compact('PageId'));
+
+        }else{
+            return view('posts.create' , compact('category','PageId'));
         }
 
-        return view('posts.create' , compact('category','PageId'));
+
     }
 
 
     public function store(Request $request)
     {
-
         $this->validate($request,
             [
                 'post_parent_id' => 'required',
                 'title' => 'required',
                 'description' => 'required',
-                'date' => 'required',
-                'file' => 'nullable',
-                'image' => 'required',
+                'date' => 'nullable',
+                'image' => 'nullable',
                 'first_li' => 'nullable',
                 'second_li' => 'nullable',
-                'language' => 'required',
-                'type' => 'required'
+                'is_highlighted' => 'nullable',
             ]
         );
 
-        $post = new Post($request->all());
-
-        $filename = request('file');
-        if($filename){
-            $NoExt = pathinfo( $filename->getClientOriginalname(), PATHINFO_FILENAME);
-            $extension = $filename->getClientOriginalExtension();
-            $fileNameToStore = $NoExt . '_' . time() . '.' . $extension;
-            request('file')->storeAs('public/uploads',$fileNameToStore);
-            $post->file = $fileNameToStore;
-        }
-
-
-        $imagename = request('image');
+        $post = new Post($request->all('post_parent_id' , 'title' , 'description' ,'date','image','first_li','second_li','is_highlighted'));
+                    $imagename = request('image');
         $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
         $extensionImage = $imagename->getClientOriginalExtension();
         $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
         request('image')->storeAs('public/uploads',$ImageNameToStore);
         $post-> image = $ImageNameToStore;
-
         $post-> posted_by = Auth::user()->email;
         $post->save();
+
+
+        foreach (['de', 'en','nl','es','it'] as $locale){
+
+            if($request->hasFile('file-'.$locale)){
+
+                $fileData = new File($request->all());
+                $fileData->language = $request->$locale;
+                $fileData->parent_id = $post->id;
+                $TheFile = $request->file('file-'.$locale);
+                $extension = $TheFile->getClientOriginalExtension();
+                $fileData->file = $extension;
+                $fileData->save();
+                $fileNameToStore = $fileData->id.'.'.$extension;
+            }
+
+
+
+        //    $fileData = new File($request->all('parent_id','language','file'));
+
+
+
+          //
+
+           // $fileNameToStore = $NoExt . '_' . time() . '.' . $extension;
+
+       //     $filename->storeAs('public/uploads',$fileNameToStore);
+
+        //    $post->file = $fileNameToStore;
+            //dd($filename);
+         //   $fileData->save();
+
+        }
+
+
+
+
+
+
+
         return redirect('/adminpages' )->with('success', 'Post is successfully created!');
     }
 
@@ -136,7 +178,7 @@ class PostsController extends Controller
     }
 
 
-    public function destroy(Post $post)
+    public function destroy(Post $post , File $file)
     {
         $post->delete();
         return redirect('/adminpages')->with('success', 'Post is successfully deleted!');

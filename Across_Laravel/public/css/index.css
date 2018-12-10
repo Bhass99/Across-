@@ -41,18 +41,6 @@ body {
 .blocks-4 {
   background-color: #929000;
 }
-.col .respon3 {
-  height: 50px;
-}
-.respon1 {
-  height: 70px;
-  width: 50px;
-  padding-top: 10%;
-}
-.respon2 {
-  height: 60px;
-  width: 50px;
-}
 div.blocks-0,
 div.blocks-1,
 div.blocks-2,
@@ -114,6 +102,7 @@ div.blocks-4 {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    padding: 10px 0;
   }
   .respon3 {
     margin-top: 9%;
