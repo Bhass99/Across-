@@ -36,6 +36,7 @@ class PagesController extends Controller
             return redirect("/sub_category/" . $children->first()->parent_id . '/'. $children->first()->id);
         }
         else{
+
         return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id_category','id'));
         }
     }

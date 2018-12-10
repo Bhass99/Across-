@@ -385,3 +385,8 @@ div.blocks-4 {
     right: 0px;
   }
 }
+@media (max-width: 768px) {
+  .container-mobile {
+    all: unset !important;
+  }
+}

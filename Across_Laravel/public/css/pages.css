@@ -714,3 +714,96 @@ div.purple9 {
     right: 0px;
   }
 }
+.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+@media screen and (min-width: 1200px) {
+  .GrayBar {
+    width: 100%;
+    height: 60px;
+    margin-top: 4%;
+  }
+}
+.container-fluid .container-mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media (max-width: 768px) {
+  .container-fluid .container-mobile {
+    all: unset !important;
+  }
+}
+.Bluebar-1 {
+  background-color: #005493;
+}
+.Bluebar-2 {
+  background-color: #743751;
+}
+.Bluebar-3 {
+  background-color: #ff9400;
+}
+.Bluebar-4 {
+  background-color: #bd5200;
+}
+.Bluebar-5 {
+  background-color: #929000;
+}
+/*
+
+@media @desktop{
+    display: flex;
+
+  }
+  .GrayBar{
+
+    @media @desktop{
+      flex-grow: 1;
+    }
+  }
+  .container{
+    @media @desktop{
+      margin-left: 0 !important;
+      max-width: 81% !important;
+      flex: 4;
+    }
+  }
+<div class="container-fluid container-mobile" style="background-color: white">
+    <div class="GrayBar ">    </div>
+    <div class="container container-mobile">
+        <div class="PageInfoBar" >
+            <img class="GrayIcon" src="/images/grayicon.png" >
+            <div class="OneWord" >LOJUXTA</div>
+            @switch($category)
+                @case($category[0]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #005493;">
+                @break
+                @case($category[1]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #743751;">
+                @break
+                @case($category[2]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #ff9400;">
+                @break
+                @case($category[3]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #bd5200;">
+                @break
+                @case($category[4]->id == $parent->id)
+                    <div class="BlueBar w-100" style="background-color:  #929000;">
+                @break
+                @endswitch
+                <div class="blue_title">
+                    LEARNING RESOURCE
+                </div>
+                <div class="SecondLogo">
+                    <div>
+                        <p class="name-page">{{$parent->name}}</p>
+                    </div>
+                    <img src="/storage/uploads/{{$parent->category_logo}}" >
+                </div>
+            </div>
+                </div></div></div></div>
+        </div>
+    </div>
+</div>
+ */

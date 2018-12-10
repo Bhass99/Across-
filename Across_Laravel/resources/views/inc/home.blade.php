@@ -1,4 +1,4 @@
-<div class="container container_responsive">
+<div class="container container_responsive container-mobile">
     <div class="PageInfoBar indexPageInfo"  >
         <img class="GrayIcon" src="images/grayicon.png">
         <div class="OneWord" >LOJUXTA</div>

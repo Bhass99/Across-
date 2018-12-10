@@ -6,40 +6,43 @@
 @endphp
 @include('inc.navbar')
 @section('content')
-<div class="container-fluid" style="background-color: white">
-    <div class="GrayBar ">    </div>
-    <div class="container">
-        <div class="PageInfoBar" >
-            <img class="GrayIcon" src="/images/grayicon.png" >
-            <div class="OneWord" >LOJUXTA</div>
-            @switch($category)
-                @case($category[0]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #005493;">
-                @break
-                @case($category[1]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #743751;">
-                @break
-                @case($category[2]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #ff9400;">
-                @break
-                @case($category[3]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #bd5200;">
-                @break
-                @case($category[4]->id == $parent->id)
-                    <div class="BlueBar w-100" style="background-color:  #929000;">
-                @break
-                @endswitch
-                <div class="blue_title">
-                    LEARNING RESOURCE
-                </div>
-                <div class="SecondLogo">
-                    <div>
-                        <p class="name-page">{{$parent->name}}</p>
+<div class="container-fluid container-mobile d-flex " style="background-color: white; padding: 0; " >
+
+    <div class=" d-flex col-6 " style="padding: 0;">
+
+        <div class="col-4" style="padding: 0;">
+            <div class="GrayBar ">    </div>
+        </div>
+        <div class="container">
+            <div class="col-8" style="padding: 0;">
+                <div class="PageInfoBar" >
+                    <img class="GrayIcon" src="/images/grayicon.png" >
+                    <div class="OneWord" >LOJUXTA</div>
+                        <div class="BlueBar-{{$id}} w-100" style="background-color:  #005493;">
                     </div>
-                    <img src="/storage/uploads/{{$parent->category_logo}}" >
                 </div>
             </div>
-                </div></div></div></div>
+        </div>
+    </div>
+    <div class="container">
+
+    </div>
+    </di>
+    <div class="d-flex col-6 " style="padding: 0;">
+        <div class="col-9" style="padding: 0;">
+            <div class="PageInfoBar"  >
+                <div class="BlueBar-{{$id}} w-100" style="background-color:  #005493;">
+                    <div class="blue_title">
+                        LEARNING RESOURCE
+                    </div>
+                    <div class="SecondLogo">
+                        <div>
+                            <p class="name-page">{{$parent->name}}</p>
+                        </div>
+                        <img src="/storage/uploads/{{$parent->category_logo}}" >
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -194,6 +197,7 @@
             </div>
         </div>
     </div>
+
 @endif
 @endforeach
 
@@ -207,12 +211,11 @@
             $(this).css("height", 135);
             $(this).css("overflow-y", "scroll");
 
-
         }else {
-            console.log($(this).height());
             $(this).css("height", "auto");
         }
     });
+    $('.link-{{$id}}').css('font-weight', 'bold');
     $("#link1").css("font-weight", "bold");
 
 </script>

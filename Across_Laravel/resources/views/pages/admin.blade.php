@@ -204,11 +204,9 @@
 
     <script>
         $(document).ready(function () {
-
-            $('.fa-chevron-circle-down').click(function () {
-
-                    $(this).css( {'transform' : 'rotate(180deg)'});
-
+            var click = 0;
+            $('#sub').click(function(){
+                $(this).toggleClass('flip')
             });
 
 
