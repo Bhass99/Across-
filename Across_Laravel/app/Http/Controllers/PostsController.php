@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Category;
 use phpDocumentor\Reflection\Project;
 use App\User;
-
-
+use function PhpParser\filesInDir;
 
 
 class PostsController extends Controller
@@ -117,15 +116,15 @@ class PostsController extends Controller
     public function edit($id)
     {
         $posts = Post::find($id);
-        return view('posts.edit', compact('posts'));
+        $file = File::where('parent_id', '=', $posts->id)->get();
+        return view('posts.edit', compact('posts','file'));
     }
 
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
 
-        $this->validate($request,
-            [
+        $this->validate($request, [
                 'post_parent_id' => 'required',
                 'title' => 'required',
                 'description' => 'required',
@@ -134,24 +133,24 @@ class PostsController extends Controller
                 'first_li' => 'nullable',
                 'second_li' => 'nullable',
                 'is_highlighted' => 'nullable',
-            ]
-        );
-
-        $post =  Post($request->all('post_parent_id', 'title', 'description', 'date', 'image', 'first_li', 'second_li', 'is_highlighted'));
+               ]);
+          $post = Post::find($id);
+        $post->fill($request->all());
         $imagename = request('image');
-        $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
-        $extensionImage = $imagename->getClientOriginalExtension();
-        $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
-        request('image')->storeAs('public/uploads', $ImageNameToStore);
-        $post->image = $ImageNameToStore;
-        $post->posted_by = Auth::user()->email;
-        $post->save();
+        if(isset($imagename)){
+            $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
+            $extensionImage = $imagename->getClientOriginalExtension();
+            $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
+            request('image')->storeAs('public/uploads', $ImageNameToStore);
+            $post->image = $ImageNameToStore;
+        }
+
+         $post->save();
 
 
         foreach (['de', 'en', 'nl', 'es', 'it'] as $locale) {
 
             if ($request->hasFile('file-' . $locale)) {
-
                 $fileData = new File($request->all());
 
                 $fileData->language = $request->$locale;
@@ -160,6 +159,7 @@ class PostsController extends Controller
                 $extension = $TheFile->getClientOriginalExtension();
                 $fileData->file = $extension;
                 $fileData->save();
+
                 $fileNameToStore = $fileData->id . '.' . $extension;
                 $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
             }

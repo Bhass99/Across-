@@ -27,13 +27,9 @@
             <input type="hidden" name="post_parent_id" value="{{$posts->post_parent_id}}">
             <label>Title</label>
             <input class="form-control" type="text" name="title" value="{{$posts->title}}"   >
+            <label>Highlight</label>
+            <input type="checkbox" name="is_highlighted"  class="form-control"   value="1" {{$posts->is_highlighted ? 'checked':''}}>
             <br>
-            <label>Post type</label>
-            <select name="type" class="form-control" required>
-                <option value="{{ $posts->type }}">{{ $posts->type }}</option>
-                <option value="Important" >Important</option>
-                <option value="Not Important" >Not Important</option>
-            </select>
             <br>
             <label>Description</label>
             <textarea class="form-control" type="text" name="description" >{{$posts->description}}</textarea>
@@ -47,9 +43,6 @@
             <label>Date</label>
             <input class="form-control" type="date" name="date" value="{{$posts->date}}">
             <br>
-            <label>File</label>
-            <input class="form-control" type="file" name="file" value="{{$posts->file}}">
-            <br>
             <label>Image</label>
             <input class="form-control" type="file" name="image" value="{{$posts->image}}">
             <br>
@@ -61,7 +54,7 @@
 
             <label id="de">
                 GM
-                <input class="CheckBox" type="checkbox" name="de"  value="de" checked >
+                <input class="CheckBox" type="checkbox" name="de"  value="de"  >
             </label>
 
             <label id="it">
