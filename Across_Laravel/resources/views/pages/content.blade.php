@@ -69,7 +69,11 @@
                 @endphp
                 @foreach($children as $item)
                     <a href="/sub_category/{{$item->parent_id . '/'.$item->id}}" >
-                        <div class=" row purple{{$i}} "  style=" @if ( $id_category->id == $item->id) background: #ebebeb; @endif">
+                        @if($block[1]->id == $parent->id)
+                            <div class=" row purple{{$i}} "  style=" @if ( $id_category->id == $item->id) background: #ebebeb; @endif">
+                        @elseif($block[2]->id == $parent->id)
+                            <div class=" row orange{{$i}} "  style=" @if ( $id_category->id == $item->id) background: #ebebeb; @endif">
+                        @endif
                             <div class="col">
                                 <img src="/storage/uploads/{{$item->category_logo}}" class="iconImgs" >
                             </div>
@@ -174,27 +178,10 @@
                             <div class="buttons-div">
                                 <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
-                                {{--
-                                @elseif($categoryid[4]->id == $id)
-                                <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
-                                <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
-                                @else
-                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Not Important' ? '' : '#ff9400' }}">Download</a>
-                                <button class=" btn btn-light float-left btns btnI"> > </button>
-                                @endif
-
-                                <div class="language">
-                                @if(isset($post->language))
-
-                                @endif
-
-                                </div>
-                                --}}
-
                                 @php
                                     $files = $post->file
                                 @endphp
-                                @if(count($files) > 1)
+                                @if(count($files) > 0)
                                     <p>Choose language</p>
                                 @endif
                                 <div class="languageIcons">
@@ -234,13 +221,18 @@
 
 
                 }else {
-                    console.log($(this).height());
                     $(this).css("height", "auto");
                 }
             });
-            $('.link-{{$id}}').css('font-weight', 'bold');
-            $('#link').css('font-weight', 'bold');
 
+            $('.link-{{$id}}').css('font-weight', 'bold');
+            @if(isset($parent_id_category))
+                @if($parent_id_category->id == 2)
+                    $('.link-2').css('font-weight', 'bold');
+                @elseif($parent_id_category->id == 3)
+                    $('.link-3').css('font-weight', 'bold');
+                @endif
+            @endif
             $('.file').each(function () {
                 $(this).click(function () {
                     id = $(this).attr('name');

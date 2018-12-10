@@ -80,6 +80,11 @@
   color: white;
   margin-right: 1%;
 }
+@media screen and (min-width: 1200px) {
+  .NavLink {
+    margin: 0 14px;
+  }
+}
 @media (min-width: 1025px) {
   .headerLeft .fas {
     display: none;
@@ -97,7 +102,6 @@
   }
   .NavLink {
     padding: 0 10px;
-    color: #337ab7;
     text-decoration: none;
     width: 100px;
   }

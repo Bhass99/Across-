@@ -72,7 +72,7 @@
                 <img src="images/indexcamera.png" class="img p-1"> <h6 class="ml-4">TEST YOUR KNOWLEDGE</h6>
             </div>
             <div class="div2">
-                <h4 class="text-white">TAKE THE MULTIPLE CHOICE QUIZ TO TEST YOUR JNOWLEDGE</h4>
+                <h4 class="text-white">TAKE THE MULTIPLE CHOICE QUIZ TO TEST YOUR KNOWLEDGE</h4>
                 <button class="btn btn-primary btnDownload">Start</button><button class="btn btn-light btnNext"> > </button>
             </div>
         </div>

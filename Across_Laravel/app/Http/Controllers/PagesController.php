@@ -59,9 +59,9 @@ class PagesController extends Controller
             $faqs = 1;
         }
 
-
+        $block = Category::whereNull('parent_id')->get();
         $parent = $parent_id_category->parent;
-        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'faqs','id_category', 'id'));
+        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'faqs','id_category', 'id','parent_id_category','block'));
     }
     public function login(){
         if (Auth::check()) {

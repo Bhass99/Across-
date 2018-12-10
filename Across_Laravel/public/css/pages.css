@@ -203,7 +203,7 @@ body {
 }
 .container-fluid .container .content .content_txt ul li .dot {
   font-size: 20px;
-  color: orange;
+  color: #ff9400;
   position: relative;
   top: 1px;
 }
@@ -435,10 +435,7 @@ div.purple2,
 div.purple3,
 div.purple4,
 div.purple5,
-div.purple6,
-div.purple7,
-div.purple8,
-div.purple9 {
+div.orange\{\{\$i\}\} {
   height: 70px;
 }
 @media screen and (min-width: 992px) {
@@ -447,10 +444,7 @@ div.purple9 {
   div.purple3,
   div.purple4,
   div.purple5,
-  div.purple6,
-  div.purple7,
-  div.purple8,
-  div.purple9 {
+  div.orange\{\{\$i\}\} {
     display: inline-block;
     height: 120px;
     width: 20%;
@@ -464,10 +458,7 @@ div.purple9 {
   div.purple3,
   div.purple4,
   div.purple5,
-  div.purple6,
-  div.purple7,
-  div.purple8,
-  div.purple9 {
+  div.orange\{\{\$i\}\} {
     height: 130px;
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -750,9 +741,6 @@ div.purple9 {
 }
 .category--2 .highlighted .smaldate {
   color: white;
-}
-.category--2 .highlighted .dot {
-  background: #743751 !important;
 }
 .category--2 .highlighted .buttons-div .btns1 {
   color: white !important;
