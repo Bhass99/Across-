@@ -49,6 +49,7 @@ class PagesController extends Controller
     }
     public function sub_category($patent_id , $id ){
         $faqs = 0;
+        $indexColor = '';
         $category = Category::all();
         $parent_id_category = Category::find($patent_id);
         $id_category = Category::find($id);
@@ -57,8 +58,10 @@ class PagesController extends Controller
         if($id_category->name == 'FAQs'){
             $faqs = 1;
         }
+
+
         $parent = $parent_id_category->parent;
-        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'faqs','id_category', 'id' ));
+        return view('pages.content' , compact(  'children','parent','category' , 'assets' , 'faqs','id_category', 'id'));
     }
     public function login(){
         if (Auth::check()) {
