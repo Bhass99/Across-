@@ -178,9 +178,7 @@
                             <div class="buttons-div">
                                 <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
                                 <button class=" btn btn-light float-left btns btnI"> > </button>
-                                <a  target="_blank"  class="btn btn-primary float-left btns btnD downloadFile " >Download
-                                    <span > > </span>
-                                </a>
+                                
                                 {{--
                                 @elseif($categoryid[4]->id == $id)
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
