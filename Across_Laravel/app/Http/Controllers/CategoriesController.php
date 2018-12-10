@@ -39,6 +39,9 @@ class CategoriesController extends Controller
 
         $category->save();
         return redirect('/adminpages' );
+
+
+
     }
 
     public function edit(Category $category)

@@ -73,18 +73,6 @@
                 <input class="CheckBox" type="checkbox" name="en"  value="en"  >
             </label>
 
-
-            <!--
-            <select name="language" class="form-control" required>
-                <option value="{{old('language')}}">Choose a Language</option>
-                <option value="NL" >Dutch</option>
-                <option value="GM" >German</option>
-                <option value="IT" >Italian</option>
-                <option value="SP" >Spanish</option>
-                <option value="EN" >English</option>
-            </select>
-          -->
-
             <br>
             <br>
 

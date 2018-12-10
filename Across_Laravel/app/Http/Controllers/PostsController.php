@@ -19,7 +19,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('posts.index' , compact('posts'));
+        return view('posts.index', compact('posts'));
     }
 
     public function create(Request $request)
@@ -28,19 +28,18 @@ class PostsController extends Controller
         $PageId = $request->input('cid');
 
 
-
         $categoryId = Category::find($PageId);
 
-        $parent_id =  $categoryId->parent_id;
+        $parent_id = $categoryId->parent_id;
 
-         $children =   Category::Where('parent_id', '=', $parent_id)->get();
+        $children = Category::Where('parent_id', '=', $parent_id)->get();
 
 
-        if( count($children) > 1 &&  $category[1]->id == $children[1]->parent_id && $children[1]->id == $PageId  ){
-           return view('faq/create' , compact('PageId'));
+        if (count($children) > 1 && $category[1]->id == $children[1]->parent_id && $children[1]->id == $PageId) {
+            return view('faq/create', compact('PageId'));
 
-        }else{
-            return view('posts.create' , compact('category','PageId'));
+        } else {
+            return view('posts.create', compact('category', 'PageId'));
         }
 
 
@@ -62,56 +61,50 @@ class PostsController extends Controller
             ]
         );
 
-        $post = new Post($request->all('post_parent_id' , 'title' , 'description' ,'date','image','first_li','second_li','is_highlighted'));
-                    $imagename = request('image');
+        $post = new Post($request->all('post_parent_id', 'title', 'description', 'date', 'image', 'first_li', 'second_li', 'is_highlighted'));
+        $imagename = request('image');
         $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
         $extensionImage = $imagename->getClientOriginalExtension();
         $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
-        request('image')->storeAs('public/uploads',$ImageNameToStore);
-        $post-> image = $ImageNameToStore;
-        $post-> posted_by = Auth::user()->email;
+        request('image')->storeAs('public/uploads', $ImageNameToStore);
+        $post->image = $ImageNameToStore;
+        $post->posted_by = Auth::user()->email;
         $post->save();
 
 
-        foreach (['de', 'en','nl','es','it'] as $locale){
+        foreach (['de', 'en', 'nl', 'es', 'it'] as $locale) {
 
-            if($request->hasFile('file-'.$locale)){
+            if ($request->hasFile('file-' . $locale)) {
 
                 $fileData = new File($request->all());
+
                 $fileData->language = $request->$locale;
                 $fileData->parent_id = $post->id;
-                $TheFile = $request->file('file-'.$locale);
+                $TheFile = $request->file('file-' . $locale);
                 $extension = $TheFile->getClientOriginalExtension();
                 $fileData->file = $extension;
                 $fileData->save();
-                $fileNameToStore = $fileData->id.'.'.$extension;
+                $fileNameToStore = $fileData->id . '.' . $extension;
+                $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
             }
 
 
-
-        //    $fileData = new File($request->all('parent_id','language','file'));
-
+            //    $fileData = new File($request->all('parent_id','language','file'));
 
 
-          //
+            //
 
-           // $fileNameToStore = $NoExt . '_' . time() . '.' . $extension;
+            // $fileNameToStore = $NoExt . '_' . time() . '.' . $extension;
 
-       //     $filename->storeAs('public/uploads',$fileNameToStore);
+            //     $filename->storeAs('public/uploads',$fileNameToStore);
 
-        //    $post->file = $fileNameToStore;
+            //    $post->file = $fileNameToStore;
             //dd($filename);
-         //   $fileData->save();
+            //   $fileData->save();
 
         }
 
-
-
-
-
-
-
-        return redirect('/adminpages' )->with('success', 'Post is successfully created!');
+        return redirect('/adminpages')->with('success', 'Post is successfully created!');
     }
 
 
@@ -124,11 +117,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $posts = Post::find($id);
-        return view('posts.edit' , compact('posts'));
+        return view('posts.edit', compact('posts'));
     }
 
 
-    public function update(Request $request ,Post $post)
+    public function update(Request $request, Post $post)
     {
 
         $this->validate($request,
@@ -136,49 +129,47 @@ class PostsController extends Controller
                 'post_parent_id' => 'required',
                 'title' => 'required',
                 'description' => 'required',
-                'date' => 'required',
-                'file' => 'nullable',
+                'date' => 'nullable',
                 'image' => 'nullable',
                 'first_li' => 'nullable',
                 'second_li' => 'nullable',
-                'language' => 'required',
-                'type' => 'required'
+                'is_highlighted' => 'nullable',
             ]
         );
-        $post->fill($request->all());
 
-        $filename = request('file');
-        if($filename){
-            $NoExt = pathinfo( $filename->getClientOriginalname(), PATHINFO_FILENAME);
-            $extension = $filename->getClientOriginalExtension();
-            $fileNameToStore = $NoExt . '_' . time() . '.' . $extension;
-            request('file')->storeAs('public/uploads',$fileNameToStore);
-
-        }else{
-            $fileNameToStore = $post->file;
-        }
-        $post->file = $fileNameToStore;
-
+        $post =  Post($request->all('post_parent_id', 'title', 'description', 'date', 'image', 'first_li', 'second_li', 'is_highlighted'));
         $imagename = request('image');
-        if($imagename){
-            $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
-            $extensionImage = $imagename->getClientOriginalExtension();
-            $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
-            request('image')->storeAs('public/uploads',$ImageNameToStore);
-        }else{
-            $ImageNameToStore = $post->image;
-        }
-
-        $post-> image = $ImageNameToStore;
-
-        $post-> posted_by = Auth::user()->email;
-
+        $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
+        $extensionImage = $imagename->getClientOriginalExtension();
+        $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
+        request('image')->storeAs('public/uploads', $ImageNameToStore);
+        $post->image = $ImageNameToStore;
+        $post->posted_by = Auth::user()->email;
         $post->save();
-        return redirect('/adminpages' )->with('success', 'Post is successfully edited!');
+
+
+        foreach (['de', 'en', 'nl', 'es', 'it'] as $locale) {
+
+            if ($request->hasFile('file-' . $locale)) {
+
+                $fileData = new File($request->all());
+
+                $fileData->language = $request->$locale;
+                $fileData->parent_id = $post->id;
+                $TheFile = $request->file('file-' . $locale);
+                $extension = $TheFile->getClientOriginalExtension();
+                $fileData->file = $extension;
+                $fileData->save();
+                $fileNameToStore = $fileData->id . '.' . $extension;
+                $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
+            }
+
+            return redirect('/adminpages')->with('success', 'Post is successfully edited!');
+        }
     }
 
 
-    public function destroy(Post $post , File $file)
+    public function destroy(Post $post, File $file)
     {
         $post->delete();
         return redirect('/adminpages')->with('success', 'Post is successfully deleted!');
@@ -189,4 +180,5 @@ class PostsController extends Controller
         return response()->download(storage_path('app/public/uploads/' . $file));
 
     }
+
 }

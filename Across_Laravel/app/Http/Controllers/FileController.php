@@ -12,13 +12,14 @@ class FileController extends Controller
 
 
         $file = $files->file;
+        $fileId = $files->id;
         $TheFile = storage_path('/app/public/uploads/' . $file);
         $ext = pathinfo(storage_path().$TheFile, PATHINFO_EXTENSION);
 
         if($ext == 'pdf'){
-            return response()->file(storage_path('/app/public/uploads/' . $file));
+            return response()->file(storage_path('/app/public/uploads/' . $fileId . '.' . $file));
         }else{
-            return response()->download(storage_path('/app/public/uploads/' . $file));
+            return response()->download(storage_path('/app/public/uploads/' . $fileId . '.' . $file));
         }
 
 

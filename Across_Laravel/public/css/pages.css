@@ -797,3 +797,6 @@ div.purple9 {
 .navbar-parent .navbar-child .OneWord {
   background-color: white;
 }
+.file {
+  opacity: 0.4;
+}

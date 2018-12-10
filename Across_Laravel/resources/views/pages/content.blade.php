@@ -9,31 +9,31 @@
 
 
 
-<div class="navbar-parent w-100">
+    <div class="navbar-parent w-100">
 
-   <div class="GrayBar w-50"></div>
+        <div class="GrayBar w-50"></div>
 
-   <div class="container navbar-child" >
-       <div class="PageInfoBar">
-           <img class="GrayIcon" src="/images/grayicon.png" >
-           <div class="OneWord" >LOJUXTA</div>
+        <div class="container navbar-child" >
+            <div class="PageInfoBar">
+                <img class="GrayIcon" src="/images/grayicon.png" >
+                <div class="OneWord" >LOJUXTA</div>
 
-           <div class="BlueBar w-100 BlueBarCategory--{{ $parent->id }} " >
+                <div class="BlueBar w-100 BlueBarCategory--{{ $parent->id }} " >
 
-               <div class="blue_title">
-                   LEARNING RESOURCE
-               </div>
-               <div class="SecondLogo">
-                   <div>
-                       <p class="name-page">{{$parent->name}}</p>
-                   </div>
-                   <img src="/storage/uploads/{{$parent->category_logo}}" >
-               </div>
-           </div>
-       </div>
+                    <div class="blue_title">
+                        LEARNING RESOURCE
+                    </div>
+                    <div class="SecondLogo">
+                        <div>
+                            <p class="name-page">{{$parent->name}}</p>
+                        </div>
+                        <img src="/storage/uploads/{{$parent->category_logo}}" >
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<!--
+    <!--
 <div class="blueBarWidth">
         <div class="PageInfoBar">
             <div class="GrayBar "></div>
@@ -136,17 +136,8 @@
                 </div>
             </div>
         @else
-
-
             <div class="container-fluid  category--{{ $parent->id }} ">
-                {{--  @if($parent->id == $id) --}}
                 <div class="container mr-desk  {{ $post->is_highlighted ? 'highlighted' : '' }}">
-                    {{--
-                    @else
-                    <div class="container mr-desk" style="background-color: {{ $post->type  == 'Not Important' ? '#ebebeb' : '#005493' }} ;">
-                    @endif
-                    --}}
-
                     <small class="smaldate " > {{ $post->date }} </small>
                     <div class="contentheader">
                         <img src="/storage/uploads/{{$post->image}}"  class="infoimg">
@@ -197,31 +188,11 @@
                                         </a>
                                     @endforeach
                                 </div>
-
-                                {{--
-                                @elseif($categoryid[4]->id == $id)
-                                <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
-                                <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
-                                @else
-                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Not Important' ? '' : '#ff9400' }}">Download</a>
-                                <button class=" btn btn-light float-left btns btnI"> > </button>
-                                @endif
-
-                                <div class="language">
-                                @if(isset($post->language))
-
-                                @endif
-
-                                </div>
-                                --}}
-
                             </div>
                         </div>
                     </div>
                     <button class="btn float-right btn-top {{ $post->is_highlighted ? 'text-white' : '' }}" style="background-color: transparent" onclick="topFunction()">&and;</button>
-
                     <hr  class="content_hr" >
-
                 </div>
             </div>
         @endif
@@ -236,6 +207,12 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+    $(document).ready(function(){
+
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+         }
 
         $(".body-txt").each(function () {
 
@@ -244,6 +221,7 @@
                 $(this).css("height", 135);
                 $(this).css("overflow-y", "scroll");
 
+
             }else {
                 console.log($(this).height());
                 $(this).css("height", "auto");
@@ -251,6 +229,17 @@
         });
         $('.link-{{$id}}').css('font-weight', 'bold');
         $("#link1").css("font-weight", "bold");
+        $("#link1").css("font-weight", "bold");
+
+            $('.file').each(function () {
+                 $(this).click(function () {
+                     id = $(this).attr('name');
+                     $('.file').css('opacity', '0.4');
+                     $(this).css('opacity', '1')
+                    $('.downloadFile').attr("href",'/download/'+( + id ));
+                })
+            })
+    })
 
     </script>
 
