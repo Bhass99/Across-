@@ -176,7 +176,7 @@
                                 @endif
                             </ul>
                             <div class="buttons-div">
-                                <a  target="_blank"  class="btn btn-primary float-left btns btnD downloadFile " >Download
+                                <a  target="_blank"  id="downloadFile{{$post->id}}" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
                                   <span > > </span>
                                 </a>
                                 {{--
@@ -202,7 +202,7 @@
                                 @if(count($files) > 0)
                                     <p>Choose language</p>
                                 @endif
-                                <div class="languageIcons">
+                                <div class="languageIcons" name="{{$post->name}}">
                                     @foreach($files as $file)
                                         <div class="file" name="{{$file->id}}"  >
                                             <img src="/images/{{$file->language}}.png">
@@ -251,12 +251,14 @@
                     $('.link-3').css('font-weight', 'bold');
                 @endif
             @endif
+
             $('.file').each(function () {
                 $(this).click(function () {
+                    test = $('.downloadFile').attr("name");
                     id = $(this).attr('name');
                     $('.file').css('opacity', '0.4');
                     $(this).css('opacity', '1');
-                    $('.downloadFile').attr("href",'/download/'+( + id ));
+                    $('#downloadFile' + test).attr("href",'/download/'+( + id ));
                 })
             })
         })
