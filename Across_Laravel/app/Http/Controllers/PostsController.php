@@ -134,7 +134,7 @@ class PostsController extends Controller
                 'second_li' => 'nullable',
                 'is_highlighted' => 'nullable',
                ]);
-          $post = Post::find($id);
+        $post = Post::find($id);
         $post->fill($request->all());
         $imagename = request('image');
         if(isset($imagename)){
@@ -147,17 +147,19 @@ class PostsController extends Controller
 
          $post->save();
 
-
-        foreach (['de', 'en', 'nl', 'es', 'it'] as $locale) {
-
+        $array = ['nl','en','de', 'es', 'it'];
+        foreach ($array as $locale) {
             if ($request->hasFile('file-' . $locale)) {
-                $fileData = new File($request->all());
+                $fileData = File::where('parent_id', '=', $id)->get();
+               // $fileData = File::find($id);
+                $fileData->fill($request->all());
 
                 $fileData->language = $request->$locale;
                 $fileData->parent_id = $post->id;
                 $TheFile = $request->file('file-' . $locale);
                 $extension = $TheFile->getClientOriginalExtension();
                 $fileData->file = $extension;
+
                 $fileData->save();
 
                 $fileNameToStore = $fileData->id . '.' . $extension;
@@ -166,12 +168,14 @@ class PostsController extends Controller
 
             return redirect('/adminpages')->with('success', 'Post is successfully edited!');
         }
+
     }
 
 
-    public function destroy(Post $post, File $file)
+    public function destroy(Post $post)
     {
         $post->delete();
+
         return redirect('/adminpages')->with('success', 'Post is successfully deleted!');
     }
 
@@ -180,5 +184,6 @@ class PostsController extends Controller
         return response()->download(storage_path('app/public/uploads/' . $file));
 
     }
+
 
 }
