@@ -14,9 +14,7 @@
             <div class="GrayBar "></div>
             <img class="GrayIcon" src="/images/grayicon.png" >
             <div class="OneWord" >LOJUXTA</div>
-
-                    <div class="BlueBar w-100 BlueBarCategory--{{ $parent->id }} " >
-
+            <div class="BlueBar w-100 BlueBarCategory--{{ $parent->id }} " >
                 <div class="blue_title">
                     LEARNING RESOURCE
                 </div>
@@ -27,7 +25,6 @@
                     <img src="/storage/uploads/{{$parent->category_logo}}" >
                 </div>
             </div>
-                </div></div></div></div>
         </div>
     </div>
 
@@ -156,9 +153,9 @@
                         @endif
                     </ul>
                     <div class="buttons-div">
-                        <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
-                        <button class=" btn btn-light float-left btns btnI"> > </button>
-
+                        <a  target="_blank"  class="btn btn-primary float-left btns btnD downloadFile " >Download
+                           <span> > </span>
+                        </a>
                         @php
                          $files = $post->file
                         @endphp
@@ -167,29 +164,13 @@
                         @endif
                         <div class="languageIcons">
                         @foreach($files as $file)
-                                <a href="/download/{{$file->id}}" target="_blank"  >
-                                   <img src="/images/{{$file->language}}.png">
-                                </a>
+                                <div >
+                                    <div class="file" id="file{{$file->id}}" name="{{$file->id}}">
+                                         <img  src="/images/{{$file->language}}.png">
+                                    </div>
+                                </div>
                         @endforeach
                         </div>
-
-                        {{--
-                        @elseif($categoryid[4]->id == $id)
-                        <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
-                        <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
-                        @else
-                        <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Not Important' ? '' : '#ff9400' }}">Download</a>
-                        <button class=" btn btn-light float-left btns btnI"> > </button>
-                        @endif
-
-                        <div class="language">
-                        @if(isset($post->language))
-
-                        @endif
-
-                        </div>
-                        --}}
-
                     </div>
                     <button class="btn btn-light float-right btns1" onclick="topFunction()">&and;</button>
                 </div>
@@ -206,26 +187,37 @@
 
 @include('inc.Blocks')
 <script>
+    $(document).ready(function(){
 
-    function topFunction() {
+        function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-    }
+         }
 
-    $(".body-txt").each(function () {
+        $(".body-txt").each(function () {
 
-        var $height = 134;
-        if ($(this).height() > $height ){
-            $(this).css("height", 135);
-            $(this).css("overflow-y", "scroll");
+            var $height = 134;
+            if ($(this).height() > $height ){
+                $(this).css("height", 135);
+                $(this).css("overflow-y", "scroll");
 
 
-        }else {
-            console.log($(this).height());
-            $(this).css("height", "auto");
-        }
-    });
-    $("#link1").css("font-weight", "bold");
+            }else {
+                console.log($(this).height());
+                $(this).css("height", "auto");
+            }
+        });
+        $("#link1").css("font-weight", "bold");
+
+            $('.file').each(function () {
+                 $(this).click(function () {
+                     id = $(this).attr('name');
+                     $('.file').css('opacity', '0.4');
+                     $(this).css('opacity', '1')
+                    $('.downloadFile').attr("href",'/download/'+( + id ));
+                })
+            })
+    })
 
 </script>
 
