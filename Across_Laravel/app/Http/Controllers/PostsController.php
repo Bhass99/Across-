@@ -167,8 +167,8 @@ class PostsController extends Controller
                 $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
             }
 
-            return redirect('/adminpages')->with('success', 'Post is successfully edited!');
         }
+        return redirect('/adminpages')->with('success', 'Post is successfully edited!');
 
     }
 
