@@ -176,7 +176,7 @@
                                 @endif
                             </ul>
                             <div class="buttons-div">
-                                <a  target="_blank"  id="downloadFile{{$post->id}}" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
+                                <a target="_blank"  id="downloadFile" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
                                   <span > > </span>
                                 </a>
                                 {{--
@@ -202,7 +202,7 @@
                                 @if(count($files) > 0)
                                     <p>Choose language</p>
                                 @endif
-                                <div class="languageIcons" name="{{$post->name}}">
+                                <div class="languageIcons" name="{{$post->id}}">
                                     @foreach($files as $file)
                                         <div class="file" name="{{$file->id}}"  >
                                             <img src="/images/{{$file->language}}.png">
@@ -252,14 +252,21 @@
                 @endif
             @endif
 
-            $('.file').each(function () {
-                $(this).click(function () {
-                    test = $('.downloadFile').attr("name");
-                    id = $(this).attr('name');
+            $('.buttons-div').each(function () {
+                var oneItem = $(this);
+
+                $('.file').css('opacity', '0.4');
+                $(this).css('opacity', '1');
+                fileID = $('.file').attr('name');
+                oneItem.find('#downloadFile').attr("href",'/download/'+( + fileID ));
+
+                oneItem.find('.file').click(function () {
                     $('.file').css('opacity', '0.4');
                     $(this).css('opacity', '1');
-                    $('#downloadFile' + test).attr("href",'/download/'+( + id ));
-                })
+                    fileID = $(this).attr('name');
+                    oneItem.find('#downloadFile').attr("href",'/download/'+( + fileID ));
+                 })
+
             })
         })
 
