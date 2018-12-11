@@ -32,7 +32,7 @@
             <input class="form-control" type="text" name="title" value="{{$category->title}}" >
             <br>
             <label>Description</label>
-            <input class="form-control" type="text" name="description" value="{{$category->description}}">
+            <textarea class="form-control" type="text" name="description" > {{$category->description}}</textarea>
             <br>
             <label>Logo</label>
             <input class="form-control" type="file" name="category_logo" value="{{$category->category_logo}}">

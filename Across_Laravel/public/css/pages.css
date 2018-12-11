@@ -522,7 +522,7 @@ div.orange4 {
   }
 }
 .purple1 {
-  background-color: #ebebeb;
+  background-color: #632e45;
 }
 .purple2 {
   background-color: #743751;
@@ -537,7 +537,7 @@ div.orange4 {
   background-color: #743751;
 }
 .orange1 {
-  background-color: #ebebeb;
+  background-color: #ec8900;
 }
 .orange2 {
   background-color: #ff9400;
@@ -550,9 +550,6 @@ div.orange4 {
 }
 .purpleChange {
   background-color: #905f74;
-}
-.purple1:link {
-  background-color: #d3c0c8;
 }
 .iconImgs {
   margin-top: 11%;

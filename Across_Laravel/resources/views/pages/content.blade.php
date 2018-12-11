@@ -127,7 +127,7 @@
                                     Your browser does not support the video tag.
                                 </video>
                             @else
-                                <img src="/storage/uploads/{{ $post->file }}" class="content_img" >
+                                <img src="/images/content1.png" class="content_img" >
                             @endif
                         </div>
                         <div class="content_txt">
@@ -236,7 +236,7 @@
 
                 $('.file').css('opacity', '0.4');
                 $(this).css('opacity', '1');
-                fileID = $('.file').attr('name');
+                fileID = oneItem.find('.file').attr('name');
                 oneItem.find('#downloadFile').attr("href",'/download/'+( + fileID ));
 
                 oneItem.find('.file').click(function () {
