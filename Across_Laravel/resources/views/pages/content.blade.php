@@ -7,19 +7,13 @@
 @include('inc.navbar')
 @section('content')
 
-
-
     <div class="navbar-parent w-100">
-
         <div class="GrayBar w-50"></div>
-
         <div class="container navbar-child" >
             <div class="PageInfoBar">
                 <img class="GrayIcon" src="/images/grayicon.png" >
                 <div class="OneWord" >LOJUXTA</div>
-
                 <div class="BlueBar w-100 BlueBarCategory--{{ $parent->id }} " >
-
                     <div class="blue_title">
                         LEARNING RESOURCE
                     </div>
@@ -33,29 +27,6 @@
             </div>
         </div>
     </div>
-    <!--
-<div class="blueBarWidth">
-        <div class="PageInfoBar">
-            <div class="GrayBar "></div>
-            <img class="GrayIcon" src="/images/grayicon.png" >
-            <div class="OneWord" >LOJUXTA</div>
-
-                    <div class="BlueBar w-100 BlueBarCategory--{{ $parent->id }} " >
-
-                <div class="blue_title">
-                    LEARNING RESOURCE
-                </div>
-                <div class="SecondLogo">
-                    <div>
-                        <p class="name-page">{{$parent->name}}</p>
-                    </div>
-                    <img src="/storage/uploads/{{$parent->category_logo}}" >
-                </div>
-            </div>
-                </div></div></div></div>
-        </div>
-    </div>
--->
     <div class="container container-responsive">
         <p class="txtPageCore"> {{$parent->name}}/ {{isset($id_category->name)? $id_category->name :'All' }}<a href="#" style="color: #7baabe;"></a></p>
         <div class="divsInfo">
@@ -89,11 +60,8 @@
                     @endphp
                 @endforeach
             </div>
-
         </div>
     </div>
-
-
     @if(isset($index) && $index == 1)
         <div class="container" >
             <div class="mb-3">
@@ -123,7 +91,6 @@
             </div>
         </div>
     @endif
-
 
     @foreach($assets as $post)
 
@@ -176,9 +143,14 @@
                                 @endif
                             </ul>
                             <div class="buttons-div">
-                                <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
-                                <button class=" btn btn-light float-left btns btnI"> > </button>
-                                
+
+                                @if($categoryid[4]->id == $id)
+                                    <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
+                                    <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
+                                @else
+                                    <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
+                                    <a href="/download/{{$post->id}}" class=" btn btn-light float-left btns btnI"> > </a>
+                                @endif
                                 {{--
                                 @elseif($categoryid[4]->id == $id)
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>

@@ -150,6 +150,7 @@ class PostsController extends Controller
         $array = ['nl','en','de', 'es', 'it'];
         foreach ($array as $locale) {
             if ($request->hasFile('file-' . $locale)) {
+                dd($locale);
                 $fileData = File::where('parent_id', '=', $id)->get();
                // $fileData = File::find($id);
                 $fileData->fill($request->all());

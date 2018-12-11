@@ -435,7 +435,10 @@ div.purple2,
 div.purple3,
 div.purple4,
 div.purple5,
-div.orange\{\{\$i\}\} {
+div.orange1,
+div.orange2,
+div.orange3,
+div.orange4 {
   height: 70px;
 }
 @media screen and (min-width: 992px) {
@@ -444,7 +447,10 @@ div.orange\{\{\$i\}\} {
   div.purple3,
   div.purple4,
   div.purple5,
-  div.orange\{\{\$i\}\} {
+  div.orange1,
+  div.orange2,
+  div.orange3,
+  div.orange4 {
     display: inline-block;
     height: 120px;
     width: 20%;
@@ -458,7 +464,10 @@ div.orange\{\{\$i\}\} {
   div.purple3,
   div.purple4,
   div.purple5,
-  div.orange\{\{\$i\}\} {
+  div.orange1,
+  div.orange2,
+  div.orange3,
+  div.orange4 {
     height: 130px;
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -480,16 +489,16 @@ div.orange\{\{\$i\}\} {
 .purple5 {
   background-color: #743751;
 }
-.purple6 {
+.orange1 {
   background-color: #ebebeb;
 }
-.purple7 {
+.orange2 {
   background-color: #ff9400;
 }
-.purple8 {
+.orange3 {
   background-color: #ffddaf;
 }
-.purple9 {
+.orange4 {
   background-color: #ffc97f;
 }
 .purpleChange {
