@@ -5,10 +5,10 @@
 </head>
 <body>
     <h1>
-        Hallo {{ $user->first_name }}
+        Hallo {{ $user->last_name }}
     </h1>
     <p>
-        Hier is uw wachtwoord. {{ $pass }}
+        Here is your password:  {{ $pass }}
     </p>
 </body>
 </html>

@@ -34,6 +34,6 @@ class forgetPassword extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.SendPassword');
+        return $this->view('emails.forgotPassword');
     }
 }

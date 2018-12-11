@@ -21,7 +21,12 @@ body {
   overflow: hidden;
   .container {
     position: relative;
-
+    @media @landscape{
+      height: 410px;
+    }
+    @media @desktop{
+    height: auto;
+  }
     .smaldate {
       padding: 10px 60px;
       display: block;
@@ -110,7 +115,7 @@ body {
           }
           @media @landscape{
             height: 270px;
-            width: 305px;
+            width: 275px;
           }
         }
       }
@@ -151,12 +156,40 @@ body {
         .btnD {
           background-color: #49b9e5;
           border: none;
-          width: 120px;
+          width: 145px;
+          height: 43px;
+          position: relative;
+          padding-right: 29%;
+          padding-top: 3%;
+          @media @portrait{
+            padding-top: 2.5%;
+          }
           @media @landscape{
+            padding-top: 1.8%;
             width: 200px;
             height: 45px;
-
           }
+          @media @desktop{
+            padding-top: 1.5%;
+          }
+          span{
+            position: absolute;
+            right: 0;
+            background-color: white;
+            height: 43px;
+            width: 24%;
+            top: 0;
+            font-size: 19px;
+            color: #243259;
+            font-weight: 700;
+            padding-top: 3.5%;
+            @media @landscape{
+              height: 45px;
+              padding-top: 2.5%;
+            }
+          }
+
+
         }
         .btnI {
           color: #243259;
@@ -173,16 +206,13 @@ body {
         }
         ul {
           list-style: none;
-          margin-left: -16%;
+          padding: 0;
           @media @portrait{
-            margin-left: -12%;
           }
           @media @landscape{
-            margin-left: -8%;
             height: 54px;
           }
           @media @desktop{
-            margin-left: -6%;
             height: 50px;
           }
           li{
@@ -198,6 +228,7 @@ body {
     }
   }
 }
+
 
 .body-txt::-webkit-scrollbar {
   width: 2px;
@@ -350,18 +381,30 @@ div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
     top: 36px
   }
 }
-
-.chooseLang{
-
-  margin-top: 25%;
-  opacity: 0.5;
+.languages{
+  margin-top: 10%;
   @media @portrait{
-    margin-top: 3%;
-    margin-left: 48%;
+    margin-top: 20%;
   }
   @media @landscape{
-    margin-top: -9%;
-    margin-left: 73%;
+    position: absolute;
+    right: 0;
+    width: 53%;
+    margin-top: 21.5%;
+  }
+  @media @desktop{
+    top: 28.5%;
+    right: -13%;
+  }
+}
+.languageIcons{
+  margin-left: 3%;
+}
+.chooseLang{
+  opacity: 0.5;
+
+  @media @landscape{
+    white-space: nowrap;
   }
   h5{
     @media @desktop{
@@ -370,8 +413,6 @@ div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
   }
   @media @desktop{
 
-    margin-top: -3%;
-    margin-left: 68%;
   }
 }
 .content_hr_Libary{

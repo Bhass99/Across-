@@ -134,7 +134,7 @@
                             <p class="mt-3 body-txt " >
                                 {{ $post->description }}
                             </p>
-                            <ul>
+                            <ul >
                                 @if(isset($post->first_li))
                                     <li ><span class="dot">&#9679;</span> {{ $post->first_li }}</li>
                                 @endif
@@ -145,15 +145,15 @@
                             <div class="buttons-div">
 
                                 @if($categoryid[4]->id == $id)
-                                    <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
-                                    <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
+                                    <a target="_blank"   class="btn btn-primary float-left btns btnD  " style="background-color: white !important;" >open
+                                        <span style="background-color: #49b9e5"> > </span>
+                                    </a>
                                 @else
-                                    <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
-                                    <a href="/download/{{$post->id}}" class=" btn btn-light float-left btns btnI"> > </a>
+                                    <a target="_blank"  id="downloadFile" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
+                                        <span > > </span>
+                                    </a>
                                 @endif
-                                <a target="_blank"  id="downloadFile" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
-                                  <span > > </span>
-                                </a>
+
                                 {{--
                                 @elseif($categoryid[4]->id == $id)
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
@@ -170,12 +170,16 @@
 
                                 </div>
                                 --}}
+                            </div>
 
-                                @php
-                                    $files = $post->file
-                                @endphp
+                            @php
+                                $files = $post->file
+                            @endphp
+                            <div class="d-flex languages">
                                 @if(count($files) > 0)
-                                    <p>Choose language</p>
+                                    <div class="ChooseLang">
+                                        <p>Choose language</p>
+                                    </div>
                                 @endif
                                 <div class="languageIcons" name="{{$post->id}}">
                                     @foreach($files as $file)
@@ -188,7 +192,7 @@
                         </div>
                     </div>
                     <button class="btn float-right btn-top {{ $post->is_highlighted ? 'text-white' : '' }}" style="background-color: transparent" onclick="topFunction()">&and;</button>
-                    <hr  class="content_hr" >
+                    <hr  class="content_hr " style="background-color: {{ $post->is_highlighted ? '#005493' : ''}}" >
                 </div>
             </div>
         @endif

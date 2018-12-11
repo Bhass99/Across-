@@ -38,7 +38,7 @@ class sendPassword extends Controller
 
                 $users->password = $CrptPass;
                 $users->save();
-                return redirect()->route('forgetPassword')->with('email_send', 'email is sended');
+                return redirect()->route('forgetPassword')->with('email_send', 'Check your mailbox ');
 
             }
             //return view('pages.sendPassword');

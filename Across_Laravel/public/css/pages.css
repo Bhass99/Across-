@@ -17,6 +17,16 @@ body {
 .container-fluid .container {
   position: relative;
 }
+@media screen and (min-width: 992px) {
+  .container-fluid .container {
+    height: 410px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container-fluid .container {
+    height: auto;
+  }
+}
 .container-fluid .container .smaldate {
   padding: 10px 60px;
   display: block;
@@ -111,7 +121,7 @@ body {
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_imgs .content_img {
     height: 270px;
-    width: 305px;
+    width: 275px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -159,12 +169,45 @@ body {
 .container-fluid .container .content .content_txt .btnD {
   background-color: #49b9e5;
   border: none;
-  width: 120px;
+  width: 145px;
+  height: 43px;
+  position: relative;
+  padding-right: 29%;
+  padding-top: 3%;
+}
+@media screen and (min-width: 768px) {
+  .container-fluid .container .content .content_txt .btnD {
+    padding-top: 2.5%;
+  }
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_txt .btnD {
+    padding-top: 1.8%;
     width: 200px;
     height: 45px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container-fluid .container .content .content_txt .btnD {
+    padding-top: 1.5%;
+  }
+}
+.container-fluid .container .content .content_txt .btnD span {
+  position: absolute;
+  right: 0;
+  background-color: white;
+  height: 43px;
+  width: 24%;
+  top: 0;
+  font-size: 19px;
+  color: #243259;
+  font-weight: 700;
+  padding-top: 3.5%;
+}
+@media screen and (min-width: 992px) {
+  .container-fluid .container .content .content_txt .btnD span {
+    height: 45px;
+    padding-top: 2.5%;
   }
 }
 .container-fluid .container .content .content_txt .btnI {
@@ -182,22 +225,15 @@ body {
 }
 .container-fluid .container .content .content_txt ul {
   list-style: none;
-  margin-left: -16%;
-}
-@media screen and (min-width: 768px) {
-  .container-fluid .container .content .content_txt ul {
-    margin-left: -12%;
-  }
+  padding: 0;
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_txt ul {
-    margin-left: -8%;
     height: 54px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container-fluid .container .content .content_txt ul {
-    margin-left: -6%;
     height: 50px;
   }
 }
@@ -369,31 +405,42 @@ div.blocks-4 {
     top: 36px;
   }
 }
-.chooseLang {
-  margin-top: 25%;
-  opacity: 0.5;
+.languages {
+  margin-top: 10%;
 }
 @media screen and (min-width: 768px) {
-  .chooseLang {
-    margin-top: 3%;
-    margin-left: 48%;
+  .languages {
+    margin-top: 20%;
   }
 }
 @media screen and (min-width: 992px) {
+  .languages {
+    position: absolute;
+    right: 0;
+    width: 53%;
+    margin-top: 21.5%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .languages {
+    top: 28.5%;
+    right: -13%;
+  }
+}
+.languageIcons {
+  margin-left: 3%;
+}
+.chooseLang {
+  opacity: 0.5;
+}
+@media screen and (min-width: 992px) {
   .chooseLang {
-    margin-top: -9%;
-    margin-left: 73%;
+    white-space: nowrap;
   }
 }
 @media screen and (min-width: 1200px) {
   .chooseLang h5 {
     display: inline;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .chooseLang {
-    margin-top: -3%;
-    margin-left: 68%;
   }
 }
 .content_hr_Libary {
