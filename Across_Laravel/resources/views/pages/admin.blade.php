@@ -119,7 +119,7 @@
                         <div class=" container table-responsive-sm">
                                     @foreach($category as $item)
                                         @if($item->parent_id == null)
-                                                <div class="AdminCategories" >
+                                                <div class="AdminCategories jqueryClass" >
                                                     <div class="CategoryItem arrowCategory"  ><a href="#sub{{$item->id}}" data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow" ></a></div>
                                                     <div class="CategoryItem">{{$item->name}}</div>
                                                     <div class="table-action CategoryItem"><a href="/categories/{{$item->id}}/edit" class="editIcon"  > <i class="far fa-edit"></i></a>
@@ -153,7 +153,7 @@
                                             @foreach($sub_category as $child)
                                                 @if($child->parent_id == $item->id)
 
-                                                    <div  class=" SubCategories collapse " id="sub{{$item->id}}">
+                                                    <div  class=" SubCategories jqueryClass  collapse " id="sub{{$item->id}}">
                                                         <div class="arrowCategory" id="arrow{{$child->id}}" ><a href="#post{{$child->id}}"  data-toggle="collapse" aria-expanded="false" class="fas fa-chevron-circle-down toggle arrow " ></a></div>
                                                         <div>{{$child->name}} </div>
                                                         <div class="table-action " >
@@ -211,10 +211,12 @@
 
         $(document).ready(function () {
 
-            var index = false;
 
-            $('.arrowCategory').each(function () {
-                $(this).click(function () {
+
+            $('.jqueryClass').each(function () {
+                var parent = $(this);
+                var index = false;
+                parent.find('.arrowCategory').click(function () {
                     if (!index) {
                         $(this).css({'transform': 'rotateX(180deg)'});
                         index = true;

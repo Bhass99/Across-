@@ -16,7 +16,7 @@ class TablePosts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_parent_id')->unsigned()->nullable();
-            $table->foreign('post_parent_id')->references('id')->on('categories');
+            $table->foreign('post_parent_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('title')->default(null);
             $table->longText('description');
             $table->date('date')->nullable();

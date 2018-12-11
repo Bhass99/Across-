@@ -31,11 +31,13 @@ class CategoriesController extends Controller
         $category = new Category($request->all());
 
         $category_logo = request('category_logo');
-        $NoExtImage = pathinfo($category_logo->getClientOriginalname(), PATHINFO_FILENAME);
-        $extensionImage = $category_logo->getClientOriginalExtension();
-        $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
-        request('category_logo')->storeAs('public/uploads',$ImageNameToStore);
-        $category->category_logo = $ImageNameToStore;
+        if (isset($category_logo)){
+            $NoExtImage = pathinfo($category_logo->getClientOriginalname(), PATHINFO_FILENAME);
+            $extensionImage = $category_logo->getClientOriginalExtension();
+            $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
+            request('category_logo')->storeAs('public/uploads',$ImageNameToStore);
+            $category->category_logo = $ImageNameToStore;
+        }
 
         $category->save();
         return redirect('/adminpages' );
