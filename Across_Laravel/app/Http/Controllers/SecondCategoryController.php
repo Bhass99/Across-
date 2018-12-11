@@ -59,6 +59,7 @@ class SecondCategoryController extends Controller
         $category = Category::find($id);
         $category->name = request('name');
         if(request('category_logo') == null){
+
             $ImageNameToStore = $category->category_logo;
         }else{
             $category_logo = request('category_logo');
@@ -67,6 +68,8 @@ class SecondCategoryController extends Controller
             $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
             request('category_logo')->storeAs('public/uploads',$ImageNameToStore);
         }
+
+
         $category->category_logo = $ImageNameToStore;
         $category->save();
         return redirect('/adminpages' );

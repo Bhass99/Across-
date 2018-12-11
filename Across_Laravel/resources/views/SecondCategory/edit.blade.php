@@ -21,7 +21,7 @@
             <input class="form-control" type="text" name="name" value="{{$category->name}}" >
             <br>
             <label>Image</label>
-            <input class="form-control" type="file" name="image" value="{{$category->image}}">
+            <input class="form-control" type="file" name="category_logo" value="{{$category->image}}">
             <br>
             <div class="loginSubmit w-25">
                 <input class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" ><button class=" btn btn-light float-left btns btnI" name="submit" type="submit"> > </button>

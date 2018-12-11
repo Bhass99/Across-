@@ -127,7 +127,7 @@
                                     Your browser does not support the video tag.
                                 </video>
                             @else
-                                <img src="/storage/uploads/{{ $post->file }}" class="content_img" >
+                                <img src="/images/content1.png" class="content_img" >
                             @endif
                         </div>
                         <div class="content_txt">
@@ -148,12 +148,11 @@
                                     <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
                                     <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
                                 @else
-                                    <a href="/download/{{$post->id}}" target="_blank"  class="btn btn-primary float-left btns btnD " >Download</a>
-                                    <a href="/download/{{$post->id}}" class=" btn btn-light float-left btns btnI"> > </a>
+                                    <a target="_blank"  id="downloadFile" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
+                                        <span > > </span>
+                                    </a>
                                 @endif
-                                <a target="_blank"  id="downloadFile" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
-                                  <span > > </span>
-                                </a>
+
                                 {{--
                                 @elseif($categoryid[4]->id == $id)
                                 <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
@@ -232,7 +231,7 @@
 
                 $('.file').css('opacity', '0.4');
                 $(this).css('opacity', '1');
-                fileID = $('.file').attr('name');
+                fileID = oneItem.find('.file').attr('name');
                 oneItem.find('#downloadFile').attr("href",'/download/'+( + fileID ));
 
                 oneItem.find('.file').click(function () {
