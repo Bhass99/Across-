@@ -10,14 +10,14 @@
     <button ><a href="{{ route('logout') }}">{{ __('Logout') }}</a></button>
     <i class="fas fa-globe-asia"></i>
 </div>
-<div class="container container-mobile">
+<div class=" container-mobile">
     <div class="header">
         <div class="line1 " >
             <a href="{{ url('/index') }}"> <img src="/images/logo.png" ></a>
             <div class="headerLeft">
-                <i class="fas fa-user"></i>
-                <i class="fas fa-globe-asia"></i>
-                <i class="fas fa-align-justify" onclick="showNav()"></i>
+                <a href="/logout" class="fas fa-sign-out-alt"></a>
+                <a href="/adminpages" class="fas fa-globe-asia"></a>
+                <a class="fas fa-align-justify" onclick="showNav()"></a>
             </div>
             <div id="nav" >
                 @foreach($category as $item)

@@ -1,6 +1,11 @@
 .WC_bar {
   display: none;
 }
+@media screen and (min-width: 1200px) {
+  .header {
+    padding: 0px 20%;
+  }
+}
 .line1 img {
   width: 115px;
 }
@@ -14,7 +19,7 @@
   height: 70px;
   padding: 26px 0 0 0;
   text-align: center;
-  margin: -2px;
+  margin: -3px;
 }
 #nav {
   background: white;
