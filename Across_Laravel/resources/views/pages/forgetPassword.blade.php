@@ -22,5 +22,5 @@
         </div>
     @endif
 </div>
-
+<img src="/images/body.png" class="bg-image">
 @endsection

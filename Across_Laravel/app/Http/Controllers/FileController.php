@@ -10,7 +10,6 @@ class FileController extends Controller
 
     { $files = File::find($id);
 
-
         $file = $files->file;
         $fileId = $files->id;
         $TheFile = storage_path('/app/public/uploads/' . $file);

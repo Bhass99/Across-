@@ -22,15 +22,15 @@ class PagesController extends Controller
     }
     public function ShowCategory($id){
         $category = Category::all();
+
         $index = 0;
         if(count($category)> 0 && isset( $category[3]->id) && $category[3]->id == $id ){
             $index = 1;
         }
         $one_category = Category::find($id);
-        $assets = $one_category->assets;
+        $assets = $one_category->assets()->orderBy('created_at', 'desc')->paginate(10);
         $children = $one_category->children;
         $parent = $one_category->parent;
-
 
         if(count($children)> 0){
             if ($category[1]->id == $one_category->id   ) {
@@ -43,9 +43,8 @@ class PagesController extends Controller
                 return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id' ));
             }
         }else{
-            return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id'));
+            return view('pages.content' , compact('assets' ,'children','parent','category','one_category', 'index','id' ));
         }
-
     }
     public function sub_category($patent_id , $id ){
         $faqs = 0;
