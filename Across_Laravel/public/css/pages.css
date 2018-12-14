@@ -73,6 +73,9 @@ body {
     display: flex;
   }
 }
+.container-fluid .container .content .content_imgs {
+  position: relative;
+}
 @media screen and (min-width: 768px) {
   .container-fluid .container .content .content_imgs {
     margin-left: -2.2%;
@@ -184,12 +187,13 @@ body {
   .container-fluid .container .content .content_txt .btnD {
     padding-top: 1.8%;
     width: 200px;
-    height: 45px;
+    height: 52px;
+    font-size: 21px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container-fluid .container .content .content_txt .btnD {
-    padding-top: 1.5%;
+    padding-top: 1.3%;
   }
 }
 .container-fluid .container .content .content_txt .btnD span {
@@ -206,8 +210,9 @@ body {
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .content .content_txt .btnD span {
-    height: 45px;
-    padding-top: 2.5%;
+    height: 52px;
+    font-size: 27px;
+    padding-top: 2.5px;
   }
 }
 .container-fluid .container .content .content_txt .btnI {
@@ -242,6 +247,34 @@ body {
   color: #ff9400;
   position: relative;
   top: 1px;
+}
+.play-video {
+  position: absolute;
+  left: 46%;
+  font-size: 73px;
+  top: 31%;
+  color: white;
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .play-video {
+    font-size: 86px;
+    left: 45%;
+    top: 34%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .play-video {
+    top: 33%;
+    left: 49%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .play-video {
+    left: 46%;
+    font-size: 97px;
+    top: 31%;
+  }
 }
 .body-txt::-webkit-scrollbar {
   width: 2px;
@@ -424,11 +457,8 @@ div.blocks-4 {
 @media screen and (min-width: 1200px) {
   .languages {
     top: 28.5%;
-    right: -13%;
+    right: 4%;
   }
-}
-.languageIcons {
-  margin-left: 3%;
 }
 .chooseLang {
   opacity: 0.5;
@@ -439,8 +469,18 @@ div.blocks-4 {
   }
 }
 @media screen and (min-width: 1200px) {
+  .chooseLang {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 1200px) {
   .chooseLang h5 {
     display: inline;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .chooseLang {
+    font-size: 1.2em;
   }
 }
 .content_hr_Libary {
@@ -798,15 +838,32 @@ div.orange4 {
 .category--2 .highlighted .buttons-div .btns1 {
   color: white !important;
 }
+.category--3 rect {
+  fill: #ff9400;
+}
+.category--4 rect {
+  fill: #bd5200;
+}
+.category--5 rect {
+  fill: #929000;
+}
 .languageIcons {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  margin-left: 3%;
 }
 .languageIcons img {
   width: 30px;
   height: 30px;
   margin: auto 3px;
+}
+@media screen and (min-width: 1200px) {
+  .languageIcons img {
+    width: 37px;
+    height: 37px;
+    margin: auto 7px;
+  }
 }
 .buttons-div {
   display: -webkit-inline-box;
@@ -843,4 +900,45 @@ div.orange4 {
 }
 .file {
   opacity: 0.4;
+}
+.mr-desk {
+  margin: 25px auto;
+}
+@media screen and (min-width: 992px) {
+  .mr-desk {
+    margin: 50px auto;
+  }
+}
+.divPagination {
+  position: absolute;
+  bottom: 11px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.divPagination .pagination {
+  clear: both;
+  width: 75px;
+  margin: 25px auto 0;
+  padding: 0;
+}
+.divPagination .pagination li {
+  list-style: none;
+  float: left;
+  margin: 0 9px;
+}
+.divPagination .pagination li a {
+  display: block;
+  width: 15px;
+  height: 15px;
+  text-indent: -10000px;
+  background: #999;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+.divPagination .pagination li a.active {
+  background: #668CFF;
 }

@@ -91,24 +91,29 @@
             </div>
         </div>
     @endif
+    @if( isset($faqs) && $faqs == 1)
+        @foreach($assets as $post)
+                <div class="container-fluid  ">
+                    <div class="container mr-desk">
+                        <div class="contentheader">
+                            <img src="/storage/uploads/{{$post->image}}" class="infoimg">
+                            <h1> {{$post->title}} </h1>
+                        </div>
 
-    @foreach($assets as $post)
-
-        @if( isset($faqs) && $faqs == 1)
-            <div class="container-fluid  ">
-                <div class="container mr-desk">
-                    <div class="contentheader">
-                        <img src="/storage/uploads/{{$post->image}}" class="infoimg">
-                        <h1> {{$post->title}} </h1>
+                        <p> {{$post->description}}</p>
+                        <hr  class="content_hr">
                     </div>
-
-                    <p> {{$post->description}}</p>
-                    <hr  class="content_hr">
                 </div>
-            </div>
-        @else
-            <div class="container-fluid  category--{{ $parent->id }} ">
-                <div class="container mr-desk  {{ $post->is_highlighted ? 'highlighted' : '' }}">
+        @endforeach
+    @else
+
+        <div class="container-fluid  category--{{ $parent->id }} " style="position: relative">
+            @foreach($assets as $post)
+                @php
+                    $files = $post->file
+                @endphp
+            <div class="container mr-desk  {{ $post->is_highlighted ? 'highlighted' : '' }}">
+
                     <small class="smaldate " > {{ $post->date }} </small>
                     <div class="contentheader">
                         <img src="/storage/uploads/{{$post->image}}"  class="infoimg">
@@ -120,14 +125,12 @@
                                 <rect width="100" height="358"  />
                             </svg>
                             @if(isset($categoryid[4]->id)&&    $categoryid[4]->id == $id)
-                                <video  class="video" controls>
-                                    <source src="/storage/uploads/{{ $post->file }}"  type="video/mp4">
-                                    <source src="/storage/uploads/{{ $post->file }}"  type="video/webm">
-                                    <source src="/storage/uploads/{{ $post->file }}"  type="video/mov">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <a target="_blank" href="https://vimeo.com/{{$post->id}}">
+                                    <img src="/storage/uploads/{{ $post->image }}" class="content_img" >
+                                    <i class="fas fa-play-circle play-video"></i>
+                                </a>
                             @else
-                                <img src="/images/content1.png" class="content_img" >
+                                <img src="/storage/uploads/{{ $post->image }}" class="content_img" >
                             @endif
                         </div>
                         <div class="content_txt">
@@ -143,9 +146,8 @@
                                 @endif
                             </ul>
                             <div class="buttons-div">
-
                                 @if($categoryid[4]->id == $id)
-                                    <a target="_blank"   class="btn btn-primary float-left btns btnD  " style="background-color: white !important;" >open
+                                    <a target="_blank"  href="https://vimeo.com/{{$post->id}}" class="btn btn-primary float-left btns btnD  " style="background-color: white !important;" >open
                                         <span style="background-color: #49b9e5"> > </span>
                                     </a>
                                 @else
@@ -153,28 +155,9 @@
                                         <span > > </span>
                                     </a>
                                 @endif
-
-                                {{--
-                                @elseif($categoryid[4]->id == $id)
-                                <a href="#"  class="btn float-left btns btnD" style="background-color: white !important;" >Open</a>
-                                <a class="btn float-leftbtns btns btnI" style="background-color: #49b9e5"> > </a>
-                                @else
-                                <a href="/download/{{$post->id}}"  class="btn btn-primary float-left btns btnD" target="_blank" style="background-color:{{ $post->type  == 'Not Important' ? '' : '#ff9400' }}">Download</a>
-                                <button class=" btn btn-light float-left btns btnI"> > </button>
-                                @endif
-
-                                <div class="language">
-                                @if(isset($post->language))
-
-                                @endif
-
-                                </div>
-                                --}}
                             </div>
 
-                            @php
-                                $files = $post->file
-                            @endphp
+
                             <div class="d-flex languages">
                                 @if(count($files) > 0)
                                     <div class="ChooseLang">
@@ -194,9 +177,14 @@
                     <button class="btn float-right btn-top {{ $post->is_highlighted ? 'text-white' : '' }}" style="background-color: transparent" onclick="topFunction()">&and;</button>
                     <hr  class="content_hr " style="background-color: {{ $post->is_highlighted ? '#005493' : ''}}" >
                 </div>
-            </div>
+            @endforeach
         @endif
-    @endforeach
+        @if($assets instanceof \Illuminate\Pagination\LengthAwarePaginator )
+            <div class="divPagination">
+                {{ $assets->links() }}
+            </div>
+         @endif
+        </div>
 
 
 
