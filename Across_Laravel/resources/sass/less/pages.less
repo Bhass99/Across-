@@ -473,8 +473,8 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.orange1,div.
     height: 120px;
     width: 20%;
     float: left;
-    margin-left: 15px;
-
+    padding:auto  0!important;
+    margin: auto 0!important;
   }
   @media @desktop{
     height: 130px;
@@ -580,32 +580,47 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.orange1,div.
 .divBlock0{
   @media @desktop{
     display: block;
+    width: 300px;
+
   }
   p {
     word-wrap: break-word;
-    width: 100%;
+    @media @desktop{
+      width: 95%;
+    }
+  }
+}
+.divBlockResponsive{
+  width: 100%;
+  @media @desktop{
+    display: block;
+  }
+  p {
+    word-wrap: break-word;
 
   }
 }
-
+divBlockResponsive
 .divsTxt{
   @media @desktop{
     margin-left: 3%;
+
 
   }
 }
 
 .divArrow{
-  display: none !important ;
+  display: none ;
   transform: rotate(90deg);
   font-size: 1.8em;
   margin-top: -13%;
   color: rgb(	116, 55, 81);
   @media @landscape{
-    display: none;
+    display: block;
 
   }
 }
+
 
 //                                                               core Rescources 2 ///
 .divArrow2 {
@@ -725,7 +740,9 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.orange1,div.
 
 
 .category--1{
-   rect{
+  z-index: -1;
+
+  rect{
      fill: #005493;
    }
   .highlighted{
@@ -755,6 +772,8 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.orange1,div.
  }
 
 .category--2{
+  z-index: -1;
+
   rect{
     fill: #743751;
   }
@@ -793,18 +812,24 @@ div.purple1, div.purple2, div.purple3, div.purple4, div.purple5,div.orange1,div.
 
 
 .category--3 {
+  z-index: -1;
+
   rect{
     fill:  #ff9400;
   }
 }
 
 .category--4 {
+  z-index: -1;
+
   rect{
     fill:  #bd5200;
   }
 }
 
 .category--5 {
+  z-index: -1;
+
   rect{
     fill:  #929000;
   }

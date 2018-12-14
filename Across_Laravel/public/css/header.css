@@ -1,9 +1,10 @@
 .WC_bar {
   display: none;
 }
-@media screen and (min-width: 1200px) {
-  .header {
-    padding: 0px 20%;
+@media (max-width: 1200px) {
+  .container-mobile {
+    padding-right: 0 !important;
+    margin-right: -10px !important;
   }
 }
 .line1 img {

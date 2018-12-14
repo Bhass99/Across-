@@ -542,7 +542,8 @@ div.orange4 {
     height: 120px;
     width: 20%;
     float: left;
-    margin-left: 15px;
+    padding: auto  0!important;
+    margin: auto 0!important;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -639,19 +640,35 @@ div.orange4 {
 @media screen and (min-width: 1200px) {
   .divBlock0 {
     display: block;
+    width: 300px;
   }
 }
 .divBlock0 p {
   word-wrap: break-word;
+}
+@media screen and (min-width: 1200px) {
+  .divBlock0 p {
+    width: 95%;
+  }
+}
+.divBlockResponsive {
   width: 100%;
 }
 @media screen and (min-width: 1200px) {
-  .divsTxt {
+  .divBlockResponsive {
+    display: block;
+  }
+}
+.divBlockResponsive p {
+  word-wrap: break-word;
+}
+@media screen and (min-width: 1200px) {
+  divBlockResponsive .divsTxt {
     margin-left: 3%;
   }
 }
 .divArrow {
-  display: none !important ;
+  display: none ;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   font-size: 1.8em;
@@ -660,7 +677,7 @@ div.orange4 {
 }
 @media screen and (min-width: 992px) {
   .divArrow {
-    display: none;
+    display: block;
   }
 }
 .divArrow2 {
@@ -769,6 +786,9 @@ div.orange4 {
   width: 100px;
   height: 50px;
 }
+.category--1 {
+  z-index: -1;
+}
 .category--1 rect {
   fill: #005493;
 }
@@ -795,6 +815,9 @@ div.orange4 {
 }
 .category--1 .highlighted .smaldate {
   color: white;
+}
+.category--2 {
+  z-index: -1;
 }
 .category--2 rect {
   fill: #743751;
@@ -823,11 +846,20 @@ div.orange4 {
 .category--2 .highlighted .buttons-div .btns1 {
   color: white !important;
 }
+.category--3 {
+  z-index: -1;
+}
 .category--3 rect {
   fill: #ff9400;
 }
+.category--4 {
+  z-index: -1;
+}
 .category--4 rect {
   fill: #bd5200;
+}
+.category--5 {
+  z-index: -1;
 }
 .category--5 rect {
   fill: #929000;

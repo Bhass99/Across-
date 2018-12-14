@@ -4,7 +4,6 @@
     $categoryid = \App\Category::whereNull('parent_id')->get();
 
 @endphp
-@include('inc.navbar')
 @section('content')
 
     <div class="navbar-parent w-100">
@@ -30,7 +29,7 @@
     <div class="container container-responsive">
         <p class="txtPageCore"> {{$parent->name}}/ {{isset($id_category->name)? $id_category->name :'All' }}<a href="#" style="color: #7baabe;"></a></p>
         <div class="divsInfo">
-            <div class="divBlock0" style="width: {{ count($parent->children) > 0 ?   '300px' : '100%'  }};">
+            <div class=" {{ count($parent->children) > 0 ?   'divBlock0' : 'divBlockResponsive'   }}">
                 <h2 class="">{{$parent->title}}</h2>
                 <p >{{$parent->description}}</p>
             </div>
@@ -38,6 +37,7 @@
                 @php
                     $i=1;
                 @endphp
+
                 @foreach($children as $item)
                     <a href="/sub_category/{{$item->parent_id . '/'.$item->id}}" >
                         @if($block[1]->id == $parent->id)
@@ -52,7 +52,7 @@
                                 <p class="iconTxt">{{$item->name}}</p>
 
                             </div>
-                            <p class="text-center divArrow" style=" @if ( $id_category->id == $item->id) display: block !important; @endif"  > > </p>
+                            <p class="text-center  @if ( $id_category->id == $item->id) divArrow @else d-none @endif"> > </p>
                         </div>
                     </a>
                     @php
