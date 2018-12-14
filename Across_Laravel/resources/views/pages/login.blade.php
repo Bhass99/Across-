@@ -34,7 +34,7 @@
             <input type="password" name="password"  class="form-control" required placeholder="Password" >
         </div>
         <div class="loginSubmit">
-            <input class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" ><button class=" btn btn-light float-left btns btnI" name="submit" type="submit"> > </button>
+            <button  class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" > Submit <span  > > </span> </button>
             <a href="{{ url('forgetPassword') }}">Forgotten Password?</a>
         </div>
 

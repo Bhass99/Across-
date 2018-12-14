@@ -30,11 +30,44 @@
   margin-left: 5%;
   width: 100%;
 }
-.loginForm .loginSubmit input {
+.loginForm .loginSubmit button {
+  background: #ff9400;
+  width: 145px;
+  height: 43px;
+  position: relative;
+  padding-right: 29%;
+  border: 1px solid black;
   border-radius: unset;
-  background: orange;
-  border: 1px solid #131b58;
-  padding: 0 50px 0 10px;
+  margin-bottom: 10px;
+  color: #001135;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 992px) {
+  .loginForm .loginSubmit button {
+    width: 200px;
+    height: 45px;
+  }
+}
+@media screen and (min-width: 1200px) {
+}
+.loginForm .loginSubmit button span {
+  padding-top: 3.5%;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  height: 100%;
+  width: 24%;
+  top: 0;
+  font-size: 19px;
+  color: #243259;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  .loginForm .loginSubmit button span {
+    padding-top: 2.5%;
+  }
 }
 .loginContainer {
   z-index: 2;

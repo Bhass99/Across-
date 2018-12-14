@@ -80,6 +80,6 @@ class DeleteFileController extends Controller
     public function destroy(File $file)
     {
         $file->delete();
-        return redirect('/edit');
+        return back();
     }
 }

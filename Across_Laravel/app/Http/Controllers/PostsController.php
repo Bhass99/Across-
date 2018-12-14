@@ -53,7 +53,7 @@ class PostsController extends Controller
                 'title' => 'required',
                 'description' => 'required',
                 'date' => 'nullable',
-                'image' => 'nullable',
+                'image' => 'required',
                 'first_li' => 'nullable',
                 'second_li' => 'nullable',
                 'is_highlighted' => 'nullable',
@@ -62,11 +62,14 @@ class PostsController extends Controller
 
         $post = new Post($request->all('post_parent_id', 'title', 'description', 'date', 'image', 'first_li', 'second_li', 'is_highlighted'));
         $imagename = request('image');
-        $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
-        $extensionImage = $imagename->getClientOriginalExtension();
-        $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
-        request('image')->storeAs('public/uploads', $ImageNameToStore);
-        $post->image = $ImageNameToStore;
+        if(isset($imagename)){
+            $NoExtImage = pathinfo($imagename->getClientOriginalname(), PATHINFO_FILENAME);
+            $extensionImage = $imagename->getClientOriginalExtension();
+            $ImageNameToStore = $NoExtImage . '_' . time() . '.' . $extensionImage;
+            request('image')->storeAs('public/uploads', $ImageNameToStore);
+            $post->image = $ImageNameToStore;
+        }
+
         $post->posted_by = Auth::user()->email;
         $post->save();
 
@@ -123,6 +126,7 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $NewFile = false;
 
         $this->validate($request, [
                 'post_parent_id' => 'required',
@@ -154,6 +158,7 @@ class PostsController extends Controller
             $files = File::where('parent_id', '=', $id)->get();
             foreach ($files as $file ){
                 if($file->language == $locale){
+                    $NewFile = false;
                     $file->file = $request->file('file-' . $locale)->getClientOriginalExtension();
                     $file->save();
 

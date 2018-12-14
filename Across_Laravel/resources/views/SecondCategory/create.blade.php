@@ -34,7 +34,7 @@
             <input class="form-control" type="text" name="name" >
             <br>
             <div class="loginSubmit w-25    ">
-                <input class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" ><button class=" btn btn-light float-left btns btnI" name="submit" type="submit"> > </button>
+                <button  class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" > Submit <span  > > </span> </button>
             </div>
             <a href="{{ route('adminpages') }}" class="float-right  btn btn-light">Back</a>
         </form>
