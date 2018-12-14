@@ -47,33 +47,31 @@
             <input class="form-control" type="file" name="image" value="{{$posts->image}}">
             <br>
             <label>Language</label>
-
-
-            <br>
-            <label id="nl">
-                Nl
+            <div class="check_box_div" id="nl">
+                <label> Dutch </label>
                 <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
-            </label>
+            </div>
 
-            <label id="de">
-                GM
+            <div class="check_box_div" id="de">
+                <label> German</label>
                 <input class="CheckBox" type="checkbox" name="de"  value="de"  >
-            </label>
+            </div>
 
-            <label id="it">
-                IT
-                <input class="CheckBox" type="checkbox" name="it"  value="it"   >
-            </label>
+            <div class="check_box_div" id="it">
+                <label>  Italian</label>
+                <input class="CheckBox" type="checkbox" name="it"  value="it"  >
+            </div>
 
-            <label id="es">
-                SP
+            <div class="check_box_div"  id="es">
+                <label>  Spanish</label>
                 <input class="CheckBox" type="checkbox" name="es"  value="es"  >
-            </label>
+            </div>
 
-            <label id="en">
-                EN
+            <div class="check_box_div" id="en">
+                <label>English</label>
                 <input class="CheckBox" type="checkbox" name="en"  value="en"  >
-            </label>
+            </div>
+
 
             <br>
             <br>
@@ -83,14 +81,18 @@
             </div>
             <a href="{{ route('adminpages') }}" class="float-right  btn btn-light">Back</a>
         </form>
-        @foreach($file as $TheFile)
-            <div>{{$TheFile->language . '.' . $TheFile->file  }}</div>
-            <form method="POST" action="/files/{{$TheFile->id}} " onsubmit="return confirm('Are you sure you want to delete this file?')">
-                {{method_field('delete')}}
-                {!! csrf_field() !!}
-                <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
-            </form>
-        @endforeach
+        <div class="oldFiles">
+            @foreach($file as $TheFile)
+                <div class="one_file">
+                    <div>{{$TheFile->language . '.' . $TheFile->file  }}</div>
+                    <form method="POST" action="/files/{{$TheFile->id}} " onsubmit="return confirm('Are you sure you want to delete this file?')">
+                        {{method_field('delete')}}
+                        {!! csrf_field() !!}
+                        <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            @endforeach
+        </div>
         <img src="/images/body.png" class="bg-image">
 
         <script>
@@ -104,7 +106,7 @@
                         x.setAttribute("name", "file-" + $(this).val());
                         document.getElementById($(this).parent().attr('id')).appendChild(x);
                     } else {
-                        ($(this).parent().children()[1]).remove();
+                        ($(this).parent().children()[2]).remove();
                         console.log();
                     }
                 })

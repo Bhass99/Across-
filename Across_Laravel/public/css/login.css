@@ -101,3 +101,103 @@
     background-size: cover;
   }
 }
+.check_box_container {
+  border: 1px solid rgba(186, 217, 255, 0.25);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+@media screen and (min-width: 992px) {
+  .check_box_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.check_box_div {
+  width: 49%;
+  display: inline-block;
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  .check_box_div {
+    margin: 0 10px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 992px) {
+  .check_box_div .CheckBox {
+    width: 100%;
+    height: 30px;
+  }
+}
+.check_box_div input {
+  width: 100px;
+}
+.oldFiles {
+  color: #131b58;
+  width: 80%;
+  margin: auto;
+}
+.oldFiles .loginTitle {
+  font-size: 2rem;
+}
+.oldFiles label {
+  width: 100%;
+}
+.oldFiles label input {
+  width: 100%;
+}
+.oldFiles .loginSubmit {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+}
+.oldFiles .loginSubmit a {
+  font-size: 1rem;
+  margin-left: 5%;
+  width: 100%;
+}
+.oldFiles .loginSubmit button {
+  background: #ff9400;
+  width: 145px;
+  height: 43px;
+  position: relative;
+  padding-right: 29%;
+  border: 1px solid black;
+  border-radius: unset;
+  margin-bottom: 10px;
+  color: #001135;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 992px) {
+  .oldFiles .loginSubmit button {
+    width: 200px;
+    height: 45px;
+  }
+}
+@media screen and (min-width: 1200px) {
+}
+.oldFiles .loginSubmit button span {
+  padding-top: 3.5%;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  height: 100%;
+  width: 24%;
+  top: 0;
+  font-size: 19px;
+  color: #243259;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  .oldFiles .loginSubmit button span {
+    padding-top: 2.5%;
+  }
+}
