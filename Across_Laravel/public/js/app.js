@@ -47454,7 +47454,7 @@ if (false) {
 /* 49 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n\r\n}\r\n\r\n^\r\nMedia definitions require block statements after any features\r\n      in C:\\webroot\\stage\\Across github\\Across-\\Across_Laravel\\resources\\sass\\less\\pages.less (line 998, column 0)\n    at runLoaders (C:\\webroot\\stage\\Across github\\Across-\\Across_Laravel\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\webroot\\stage\\Across github\\Across-\\Across_Laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\webroot\\stage\\Across github\\Across-\\Across_Laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (C:\\webroot\\stage\\Across github\\Across-\\Across_Laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at process._tickCallback (internal/process/next_tick.js:68:7)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
