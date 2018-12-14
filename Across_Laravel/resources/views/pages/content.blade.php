@@ -242,7 +242,7 @@
                 $(this).css('opacity', '1');
                 var fileID = oneItem.find('.file').attr('name');
                 oneItem.find('#downloadFile').attr("href",'/download/'+( + fileID ));
-                
+
                 oneItem.find('.file').click(function () {
                     $('.file').css('opacity', '0.4');
                     $(this).css('opacity', '1');
