@@ -40,7 +40,7 @@ class CategoriesController extends Controller
         }
 
         $category->save();
-        return redirect('/adminpages' );
+        return redirect('/adminpages' )->with('success', 'Category is been added');
 
 
 
@@ -68,7 +68,7 @@ class CategoriesController extends Controller
         }
         $category->category_logo = $ImageNameToStore;
         $category->save();
-        return redirect('/adminpages' );
+        return redirect('/adminpages' )->with('success', 'Category is been edited');
 
     }
 

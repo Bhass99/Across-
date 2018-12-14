@@ -30,9 +30,9 @@
     <div class="container container-responsive">
         <p class="txtPageCore"> {{$parent->name}}/ {{isset($id_category->name)? $id_category->name :'All' }}<a href="#" style="color: #7baabe;"></a></p>
         <div class="divsInfo">
-            <div class="divBlock">
+            <div class="divBlock0" style="width: {{ count($parent->children) > 0 ?   '300px' : '100%'  }};">
                 <h2 class="">{{$parent->title}}</h2>
-                <p>{{$parent->description}}</p>
+                <p >{{$parent->description}}</p>
             </div>
             <div class=" d-block  row px-3 ">
                 @php

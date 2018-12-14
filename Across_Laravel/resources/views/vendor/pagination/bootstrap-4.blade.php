@@ -1,7 +1,6 @@
 
 @if ($paginator->hasPages())
     <ul class="pagination" role="navigation">
-
         @foreach ($elements as $element)
             {{-- "Three Dots" Separator --}}
             @if (is_string($element))

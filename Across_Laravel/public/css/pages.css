@@ -637,28 +637,13 @@ div.orange4 {
   margin-top: 10px;
 }
 @media screen and (min-width: 1200px) {
-  .divBlock {
+  .divBlock0 {
     display: block;
   }
 }
-.divBlock p {
+.divBlock0 p {
   word-wrap: break-word;
   width: 100%;
-}
-@media screen and (min-width: 768px) {
-  .divBlock p {
-    width: 100%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .divBlock p {
-    width: 100%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .divBlock p {
-    width: 300px;
-  }
 }
 @media screen and (min-width: 1200px) {
   .divsTxt {
