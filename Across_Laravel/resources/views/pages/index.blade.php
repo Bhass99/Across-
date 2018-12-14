@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/pages.css')}}" />
 
 
-@include('inc.navbar')
+
 
 @section('content')
 

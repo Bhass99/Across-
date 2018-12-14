@@ -145,33 +145,42 @@
                                     <li ><span class="dot">&#9679;</span> {{ $post->second_li }}</li>
                                 @endif
                             </ul>
-                            <div class="buttons-div">
-                                @if($categoryid[4]->id == $id)
-                                    <a target="_blank"  href="https://vimeo.com/{{$post->id}}" class="btn btn-primary float-left btns btnD  " style="background-color: white !important;" >open
-                                        <span style="background-color: #49b9e5"> > </span>
-                                    </a>
-                                @else
-                                    <a target="_blank"  id="downloadFile" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
-                                        <span > > </span>
-                                    </a>
-                                @endif
-                            </div>
 
+                            <div class="buttons-div" >
 
-                            <div class="d-flex languages">
-                                @if(count($files) > 0)
-                                    <div class="ChooseLang">
-                                        <p>Choose language</p>
-                                    </div>
-                                @endif
-                                <div class="languageIcons" name="{{$post->id}}">
-                                    @foreach($files as $file)
-                                        <div class="file" name="{{$file->id}}"  >
-                                            <img src="/images/{{$file->language}}.png">
+                                <div class="btnDownload" >
+                                    @if($categoryid[4]->id == $id)
+                                        <div>
+                                            <a target="_blank"  href="https://vimeo.com/{{$post->id}}" class="btn btn-primary float-left btns btnD  " style="background-color: white !important;" >open
+                                                <span style="background-color: #49b9e5"> > </span>
+                                            </a>
                                         </div>
-                                    @endforeach
+                                    @else
+                                        <a target="_blank"  id="downloadFile" name="{{$post->id}}" class="btn btn-primary float-left btns btnD  downloadFile " >Download
+                                            <span > > </span>
+                                        </a>
+                                    @endif
                                 </div>
+
+                                <div class="languages" >
+                                    @if(count($files) > 0)
+                                        <div class="ChooseLang">
+                                            <p>Choose language</p>
+                                        </div>
+                                    @endif
+                                    <div class="languageIcons" name="{{$post->id}}">
+                                        @foreach($files as $file)
+                                            <div class="file" name="{{$file->id}}"  >
+                                                <img src="/images/{{$file->language}}.png">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
                             </div>
+
+
+
                         </div>
                     </div>
                     <button class="btn float-right btn-top {{ $post->is_highlighted ? 'text-white' : '' }}" style="background-color: transparent" onclick="topFunction()">&and;</button>
@@ -202,11 +211,22 @@
         $(document).ready(function(){
 
             $(".body-txt").each(function () {
-
+                var $window = $(window);
                 var $height = 134;
                 if ($(this).height() > $height ){
                     $(this).css("height", 135);
                     $(this).css("overflow-y", "scroll");
+                    var windowsize = $window.width();
+
+                    if(windowsize > 750 && windowsize < 992){
+                        $(this).css("height", 90);
+                        $(this).css("overflow-y", "scroll");
+                    }else{
+                        $(this).css("height", 133);
+                        $(this).css("overflow-y", "scroll");
+                    }
+
+
                 }else {
                     $(this).css("height", "auto");
                 }
@@ -226,7 +246,7 @@
 
                 $('.file').css('opacity', '0.4');
                 $(this).css('opacity', '1');
-                fileID = oneItem.find('.file').attr('name');
+                var fileID = oneItem.find('.file').attr('name');
                 oneItem.find('#downloadFile').attr("href",'/download/'+( + fileID ));
 
                 oneItem.find('.file').click(function () {

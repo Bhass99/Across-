@@ -23,35 +23,35 @@ body {
   .container {
 
     position: relative;
-    @media @landscape{
+    @media @landscape {
       height: 410px;
     }
-    @media @desktop{
-    height: auto;
+    @media @desktop {
+      height: auto;
 
     }
 
-    .assets-con{
+    .assets-con {
       border-bottom: 2.5px solid white;
       padding-bottom: 4%;
       .smaldate {
         padding: 10px 60px;
         display: block;
-        @media @portrait{
+        @media @portrait {
         }
-        @media @landscape{
+        @media @landscape {
 
         }
 
       }
-      .btn-top{
+      .btn-top {
         position: absolute;
         right: 0;
         bottom: 0px;
       }
       .contentheader {
         display: inline-flex;
-        @media @portrait{
+        @media @portrait {
           width: 100%;
         }
         .infoimg {
@@ -59,19 +59,19 @@ body {
           width: 50px;
           height: 52px;
           margin-right: 10px;
-          @media @portrait{
+          @media @portrait {
             width: 40px;
             height: 44px;
           }
-          @media @landscape{
+          @media @landscape {
           }
-          @media @desktop{
+          @media @desktop {
 
           }
         }
         h1 {
 
-          @media @portrait{
+          @media @portrait {
             font-size: 1.8em;
           }
         }
@@ -79,20 +79,20 @@ body {
       .content {
         display: block;
 
-        @media @portrait{
+        @media @portrait {
           display: flex;
         }
 
         .content_imgs {
           position: relative;
-          @media @portrait{
+          @media @portrait {
             margin-left: -2.2%;
           }
-          @media @landscape{
+          @media @landscape {
             margin-left: -15px;
 
           }
-          @media @desktop{
+          @media @desktop {
             margin-left: -15px;
 
           }
@@ -101,14 +101,14 @@ body {
             height: 200px;
             width: 50px;
             float: left;
-            @media @portrait{
+            @media @portrait {
               height: 270px;
 
             }
-            @media @landscape{
+            @media @landscape {
               width: 70px;
             }
-            @media @desktop{
+            @media @desktop {
               float: left;
             }
 
@@ -116,46 +116,53 @@ body {
           .content_img {
             height: 200px;
             width: 205px;
-            @media @portrait{
+            @media @portrait {
               width: 250px;
               height: 270px;
             }
-            @media @landscape{
+            @media @landscape {
               height: 270px;
               width: 275px;
             }
           }
         }
         .content_txt {
-          @media @portrait{
+          @media @portrait {
             width: 100%;
             flex: 1;
             padding-left: 50px;
             position: relative;
 
           }
-          @media @landscape{
+          @media @landscape {
             padding-left: 50px;
 
           }
-          .body-txt{
+          .body-txt {
 
             word-wrap: break-word;
             width: 250px;
-            @media @portrait{
+            @media @portrait {
               width: 350px;
             }
-            @media @landscape{
+            @media @landscape {
               width: 450px;
             }
-            @media @desktop{
+            @media @desktop {
               width: 630px;
             }
+            padding-top: 5%;
+            width: 200px;
+            height: 52px;
+            font-size: 21px;
+          }
+          @media @desktop {
+            padding-top: 5%;
           }
           .btns {
             border-radius: unset;
 
-            @media @portrait{
+            @media @portrait {
               margin-top: 1%;
             }
 
@@ -168,19 +175,19 @@ body {
             position: relative;
             padding-right: 29%;
             padding-top: 3%;
-            @media @portrait{
+            @media @portrait {
               padding-top: 2.5%;
             }
-            @media @landscape{
+            @media @landscape {
               padding-top: 1.8%;
               width: 200px;
               height: 52px;
               font-size: 21px;
             }
-            @media @desktop{
+            @media @desktop {
               padding-top: 1.3%;
             }
-            span{
+            span {
               position: absolute;
               right: 0;
               background-color: white;
@@ -191,7 +198,7 @@ body {
               color: #243259;
               font-weight: 700;
               padding-top: 3.5%;
-              @media @landscape{
+              @media @landscape {
                 height: 52px;
                 font-size: 27px;
                 padding-top: 2.5px;
@@ -201,47 +208,70 @@ body {
           .btnI {
             color: #243259;
             background-color: white;
-            @media @landscape{
+            @media @landscape {
+              height: 45px;
+            }
+          }
+          .btnI {
+            color: #243259;
+            background-color: white;
+            @media @landscape {
               height: 45px;
             }
           }
           .btns1 {
             border: none;
             background-color: transparent;
-            @media @portrait{
+            @media @portrait {
             }
           }
           ul {
             list-style: none;
             padding: 0;
-            @media @portrait{
+            @media @portrait {
             }
-            @media @landscape{
+            @media @landscape {
               height: 54px;
+
             }
-            @media @desktop{
-              height: 50px;
+            .btns1 {
+              border: none;
+              background-color: transparent;
+              @media @portrait {
+              }
             }
-            li{
-              .dot {
-                font-size: 20px;
-                color: #ff9400;
-                position: relative;
-                top: 1px;
+            ul {
+              list-style: none;
+              padding: 0;
+              @media @portrait {
+              }
+              @media @landscape {
+                height: 54px;
+              }
+              @media @desktop {
+                height: 50px;
+              }
+              li {
+                .dot {
+                  font-size: 20px;
+                  color: #ff9400;
+                  position: relative;
+                  top: 1px;
+                }
               }
             }
           }
         }
-      }
-      hr{
-        margin-top: 26%;
-        border: none;
-        height: 2px;
-        color: #333;
-        background-color: white;
-        @media @portrait{
-          margin-top: 3%;
+        hr {
+          margin-top: 26%;
+          border: none;
+          height: 2px;
+          color: #333;
+          background-color: white;
+          @media @portrait {
+            margin-top: 3%;
 
+          }
         }
       }
     }
@@ -293,6 +323,13 @@ body {
 .body-txt::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.content_hr {
+  margin-top: 3%;
+  border: none;
+  height: 2px;
+  color: #333;
+  background-color: white;
+  @media @landscape{
 
 
 
@@ -423,19 +460,18 @@ div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
   }
 }
 .languages{
-  margin-top: 10%;
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 0px 10px;
+  width: 100%;
   @media @portrait{
-    margin-top: 20%;
+
   }
   @media @landscape{
-    position: absolute;
-    right: 0;
-    width: 53%;
-    margin-top: 21.5%;
+
   }
   @media @desktop{
-    top: 28.5%;
-    right: 4%;
+    padding: 0px 30px;
   }
 }
 
@@ -770,7 +806,7 @@ divBlockResponsive
       fill: #ff9400!important;
     }
     hr{
-      background:  #1d4c7b!important;
+      background:  #005493!important;
     }
     .btnD{
       background: #ff9400!important;
@@ -822,16 +858,32 @@ divBlockResponsive
       color: white;
     }
 
-    .buttons-div {
 
-      .btns1{
-        color: white !important;
-      }
-
-    }
   }
 }
 
+.buttons-div {
+
+  width: 100%;
+  @media @desktop{
+    display: inline-flex;
+    position: absolute;
+    top: 232px;
+  }
+  @media @portrait{
+    position: absolute;
+    top: 190px;
+  }
+  @media @landscape{
+    display: inline-flex;
+    position: absolute;
+    top: 232px;
+  }
+  .btns1{
+    color: white !important;
+  }
+
+}
 
 .category--3 {
   z-index: -1;
@@ -874,18 +926,7 @@ divBlockResponsive
     }
   }
 }
-.buttons-div{
-  display: inline-flex;
-  width: 100%;
-  @media @portrait{
-    position: absolute ;
-    bottom: 0;
-  }
-  p{
-    padding: 17px 28px;
-    margin-bottom: 0px;
-  }
-}
+
 
 .navbar-parent {
   position: relative;
