@@ -99,7 +99,6 @@
                       document.getElementById($(this).parent().attr('id')).appendChild(x);
                   } else {
                         ($(this).parent().children()[1]).remove();
-                      console.log();
                   }
               })
 

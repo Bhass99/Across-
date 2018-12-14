@@ -128,7 +128,6 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $NewFile = false;
 
         $this->validate($request, [
                 'post_parent_id' => 'required',
@@ -156,41 +155,54 @@ class PostsController extends Controller
 
         foreach (['nl','en','de', 'es', 'it'] as $locale) {
 
-        if ($request->hasFile('file-' .$locale)) {
-            $files = File::where('parent_id', '=', $id)->get();
-            foreach ($files as $file ){
-                if($file->language == $locale){
-                    $NewFile = false;
-                    $file->file = $request->file('file-' . $locale)->getClientOriginalExtension();
-                    $file->save();
+            if ($request->hasFile('file-' .$locale)) {
+                $file = File::firstOrNew([
+                    'parent_id' => $id,
+                    'language' => $locale,
+                ]);
+                $extension = $request->file('file-' .$locale)->getClientOriginalExtension();
 
-                    $fileNameToStore = $file->id . '.' .    $file->file = $request->file('file-' . $locale)->getClientOriginalExtension();
-                     $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
-                }else{
-                   $NewFile = true;
-                }
-            }
-       }
-       }
-       if($NewFile){
-           foreach (['de', 'en', 'nl', 'es', 'it'] as $locale) {
+                $file->file = $extension;
+                $file->save();
+                $fileNameToStore = $file->id . '.' .    $file->file = $request->file('file-' . $locale)->getClientOriginalExtension();
+                $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
 
-               if ($request->hasFile('file-' . $locale)) {
+                //upload
 
-                   $fileData = new File($request->all());
-
-                   $fileData->language = $request->$locale;
-                   $fileData->parent_id = $post->id;
-                   $TheFile = $request->file('file-' . $locale);
-                   $extension = $TheFile->getClientOriginalExtension();
-                   $fileData->file = $extension;
-                   $fileData->save();
-                   $fileNameToStore = $fileData->id . '.' . $extension;
-                   $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
-               }
+                //foreach ($files as $file ){
+                //                    dd($file->language);
+                //                    if($file->language == $locale){
+                //                        $NewFile = false;
+                //                        $file->file = $request->file('file-' . $locale)->getClientOriginalExtension();
+                //                        $file->save();
+                //
+                //                        $fileNameToStore = $file->id . '.' .    $file->file = $request->file('file-' . $locale)->getClientOriginalExtension();
+                //                         $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
+                //                    }else{
+                //                       $NewFile = true;
+                //                    }
+                //                }
            }
-
        }
+      // if($NewFile){
+        //           foreach (['de', 'en', 'nl', 'es', 'it'] as $locale) {
+        //
+        //               if ($request->hasFile('file-' . $locale)) {
+        //
+        //                   $fileData = new File($request->all());
+        //
+        //                   $fileData->language = $request->$locale;
+        //                   $fileData->parent_id = $post->id;
+        //                   $TheFile = $request->file('file-' . $locale);
+        //                   $extension = $TheFile->getClientOriginalExtension();
+        //                   $fileData->file = $extension;
+        //                   $fileData->save();
+        //                   $fileNameToStore = $fileData->id . '.' . $extension;
+        //                   $request->file('file-' . $locale)->storeAs('public/uploads', $fileNameToStore);
+        //               }
+        //           }
+        //
+        //       }
        return redirect('/adminpages')->with('success', 'Post is successfully edited!');
 
 
