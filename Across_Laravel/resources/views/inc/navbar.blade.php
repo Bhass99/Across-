@@ -10,7 +10,7 @@
     <button ><a href="{{ route('logout') }}">{{ __('Logout') }}</a></button>
     <i class="fas fa-globe-asia"></i>
 </div>
-<div class=" container-mobile">
+<div class="container container-mobile">
     <div class="header">
         <div class="line1 " >
             <a href="{{ url('/index') }}"> <img src="/images/logo.png" ></a>

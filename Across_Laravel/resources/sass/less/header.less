@@ -3,14 +3,17 @@
 @desktop: ~'screen and (min-width: 1200px)';
 @xxl: ~'screen and (min-width: 2010px)';
 
+
+
 .WC_bar{
   display: none;
 }
-.header{
- @media @desktop{
-   padding: 0px 20%;
- }
+.container-mobile{
 
+  @media (max-width: 1200px){
+    padding-right: 0 !important;
+    margin-right: -10px !important;
+  }
 }
 
 .line1{
