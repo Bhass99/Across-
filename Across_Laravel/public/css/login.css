@@ -35,7 +35,7 @@
   width: 145px;
   height: 43px;
   position: relative;
-  padding-right: 29%;
+  padding-right: 50%;
   border: 1px solid black;
   border-radius: unset;
   margin-bottom: 10px;
@@ -115,9 +115,12 @@
   }
 }
 .check_box_div {
-  width: 49%;
-  display: inline-block;
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.check_box_div label {
+  width: 30px;
 }
 @media screen and (min-width: 992px) {
   .check_box_div {
@@ -126,7 +129,17 @@
         -ms-flex: 1;
             flex: 1;
     text-align: center;
+    display: block;
   }
+  .check_box_div label {
+    width: auto;
+  }
+  .check_box_div .CheckBox {
+    margin-bottom: 10px;
+  }
+}
+.check_box_div .CheckBox {
+  margin-top: 6px;
 }
 @media screen and (min-width: 992px) {
   .check_box_div .CheckBox {
@@ -138,9 +151,14 @@
   width: 100px;
 }
 .oldFiles {
+  text-align: center;
   color: #131b58;
   width: 80%;
   margin: auto;
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 992px) {
 }
 .oldFiles .loginTitle {
   font-size: 2rem;
@@ -167,7 +185,7 @@
   width: 145px;
   height: 43px;
   position: relative;
-  padding-right: 29%;
+  padding-right: 50%;
   border: 1px solid black;
   border-radius: unset;
   margin-bottom: 10px;
@@ -200,4 +218,28 @@
   .oldFiles .loginSubmit button span {
     padding-top: 2.5%;
   }
+}
+.oldFiles .one_file {
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+}
+.highlight_check_div {
+  width: 40%;
+}
+.highlight_check_div .checkBox-label {
+  width: auto !important;
+}
+.highlight_check_div input {
+  margin-left: 10px;
+}
+.oldFilesSpace {
+  border: 1px solid rgba(186, 217, 255, 0.25);
+  border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+}
+.FileName {
+  overflow: auto;
+  max-width: 175px;
 }

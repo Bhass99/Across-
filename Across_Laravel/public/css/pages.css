@@ -6,6 +6,14 @@ body {
   font-size: 1em;
   font-family: Arial;
 }
+body a {
+  color: black !important;
+  text-decoration: none !important;
+}
+body a:hover {
+  color: #000 !important;
+  font-weight: bold;
+}
 .txt1 {
   color: #9c9cb6;
 }
@@ -13,9 +21,6 @@ body {
   background-color: #ebebeb;
   margin: auto;
   overflow: hidden;
-}
-.container-fluid .container {
-  position: relative;
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container {
@@ -144,6 +149,7 @@ body {
 @media screen and (min-width: 992px) {
   .container-fluid .container .assets-con .content .content_txt {
     padding-left: 50px;
+    height: 130px;
   }
 }
 .container-fluid .container .assets-con .content .content_txt .body-txt {
@@ -189,7 +195,6 @@ body {
 }
 @media screen and (min-width: 992px) {
   .container-fluid .container .assets-con .content .content_txt .btnD {
-    padding-top: 5%;
     width: 200px;
     height: 52px;
     font-size: 21px;
@@ -251,9 +256,6 @@ body {
   color: #ff9400;
   position: relative;
   top: 1px;
-}
-.container-fluid .container .assets-con:last-child {
-  background-color: red !important;
 }
 /*.content_hr {
 
@@ -440,51 +442,6 @@ div.blocks-4 {
     margin-left: 15%;
     position: relative;
     top: 36px;
-  }
-}
-.languages {
-  margin-top: 10%;
-}
-@media screen and (min-width: 768px) {
-  .languages {
-    margin-top: 20%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .languages {
-    position: absolute;
-    right: 0;
-    width: 53%;
-    margin-top: 21.5%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .languages {
-    top: 28.5%;
-    right: 4%;
-  }
-}
-.chooseLang {
-  opacity: 0.5;
-}
-@media screen and (min-width: 992px) {
-  .chooseLang {
-    white-space: nowrap;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .chooseLang {
-    font-size: 1.2em;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .chooseLang h5 {
-    display: inline;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .chooseLang {
-    font-size: 1.2em;
   }
 }
 .content_hr_Libary {
@@ -790,8 +747,14 @@ div.orange4 {
   width: 100px;
   height: 50px;
 }
-.category--1 {
-  z-index: -1;
+.container:nth-last-child(2) .assets-con {
+  border: none;
+}
+.category--1:last-child {
+  background: red;
+}
+.category--1 .btn-primary {
+  color: #000 !important;
 }
 .category--1 rect {
   fill: #005493;
@@ -820,8 +783,8 @@ div.orange4 {
 .category--1 .highlighted .smaldate {
   color: white;
 }
-.category--2 {
-  z-index: -1;
+.category--2 .btn-primary {
+  color: #000 !important;
 }
 .category--2 rect {
   fill: #743751;
@@ -850,20 +813,11 @@ div.orange4 {
 .category--2 .highlighted .buttons-div .btns1 {
   color: white !important;
 }
-.category--3 {
-  z-index: -1;
-}
 .category--3 rect {
   fill: #ff9400;
 }
-.category--4 {
-  z-index: -1;
-}
 .category--4 rect {
   fill: #bd5200;
-}
-.category--5 {
-  z-index: -1;
 }
 .category--5 rect {
   fill: #929000;
@@ -885,22 +839,6 @@ div.orange4 {
     height: 37px;
     margin: auto 7px;
   }
-}
-.buttons-div {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  width: 100%;
-}
-@media screen and (min-width: 768px) {
-  .buttons-div {
-    position: absolute ;
-    bottom: 0;
-  }
-}
-.buttons-div p {
-  padding: 17px 28px;
-  margin-bottom: 0px;
 }
 .navbar-parent {
   position: relative;
@@ -963,3 +901,70 @@ div.orange4 {
 .divPagination .pagination li a.active {
   background: #668CFF;
 }
+.languages {
+  z-index: 100;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 20px 0;
+}
+@media screen and (min-width: 768px) {
+  .languages {
+    display: -webkit-inline-box;
+  }
+}
+.chooseLang {
+  margin-left: 10px;
+}
+/*
+.buttons-div{
+  display: inline-flex;
+  width: 100%;
+  @media @portrait{
+
+  }
+  p{
+    padding: 17px 28px;
+    margin-bottom: 0px;
+  }
+}
+
+.languages{
+    display: inline-flex;
+  margin-top: 10%;
+  @media @portrait{
+    margin-top: 20%;
+  }
+  @media @landscape{
+    position: absolute;
+    right: 0;
+    width: 53%;
+    margin-top: 21.5%;
+  }
+  @media @desktop{
+    top: 28.5%;
+    right: 4%;
+  }
+}
+
+.chooseLang{
+  opacity: 0.5;
+margin-left: 10px;
+  @media @landscape{
+    white-space: nowrap;
+  }
+  @media @desktop{
+    font-size: 1.2em;
+
+  }
+  h5{
+    @media @desktop{
+      display: inline;
+    }
+  }
+  @media @desktop{
+    font-size: 1.2em;
+
+  }
+}
+*/

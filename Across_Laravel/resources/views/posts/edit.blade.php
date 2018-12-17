@@ -27,9 +27,15 @@
             <input type="hidden" name="post_parent_id" value="{{$posts->post_parent_id}}">
             <label>Title</label>
             <input class="form-control" type="text" name="title" value="{{$posts->title}}"   >
-            <label>Highlight</label>
-            <input type="checkbox" name="is_highlighted"  class="form-control"   value="1" {{$posts->is_highlighted ? 'checked':''}}>
             <br>
+
+           <div class="highlight_check_div">
+               <label class="checkBox-label">Highlight</label>
+               <input type="checkbox" name="is_highlighted"  class="check_box"   value="1" {{$posts->is_highlighted ? 'checked':''}}>
+           </div>
+
+
+
             <br>
             <label>Description</label>
             <textarea class="form-control" type="text" name="description" >{{$posts->description}}</textarea>
@@ -46,30 +52,36 @@
             <label>Image</label>
             <input class="form-control" type="file" name="image" value="{{$posts->image}}">
             <br>
+            <div class="oldFilesSpace"  id="oldFilesSpace">
+
+            </div>
+            <br>
             <label>Language</label>
-            <div class="check_box_div" id="nl">
-                <label> Dutch </label>
-                <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
-            </div>
+            <div class="check_box_container">
+                <div class="check_box_div" id="nl">
+                    <label> Dutch </label>
+                    <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
+                </div>
 
-            <div class="check_box_div" id="de">
-                <label> German</label>
-                <input class="CheckBox" type="checkbox" name="de"  value="de"  >
-            </div>
+                <div class="check_box_div" id="de">
+                    <label> German</label>
+                    <input class="CheckBox" type="checkbox" name="de"  value="de"  >
+                </div>
 
-            <div class="check_box_div" id="it">
-                <label>  Italian</label>
-                <input class="CheckBox" type="checkbox" name="it"  value="it"  >
-            </div>
+                <div class="check_box_div" id="it">
+                    <label>  Italian</label>
+                    <input class="CheckBox" type="checkbox" name="it"  value="it"  >
+                </div>
 
-            <div class="check_box_div"  id="es">
-                <label>  Spanish</label>
-                <input class="CheckBox" type="checkbox" name="es"  value="es"  >
-            </div>
+                <div class="check_box_div"  id="es">
+                    <label>  Spanish</label>
+                    <input class="CheckBox" type="checkbox" name="es"  value="es"  >
+                </div>
 
-            <div class="check_box_div" id="en">
-                <label>English</label>
-                <input class="CheckBox" type="checkbox" name="en"  value="en"  >
+                <div class="check_box_div" id="en">
+                    <label>English</label>
+                    <input class="CheckBox" type="checkbox" name="en"  value="en"  >
+                </div>
             </div>
 
 
@@ -81,10 +93,10 @@
             </div>
             <a href="{{ route('adminpages') }}" class="float-right  btn btn-light">Back</a>
         </form>
-        <div class="oldFiles">
+        <div id="oldFiles" class="oldFiles">
             @foreach($file as $TheFile)
                 <div class="one_file">
-                    <div>{{$TheFile->language . '.' . $TheFile->file  }}</div>
+                    <div class="FileName" >{{$TheFile->language . '.' . $TheFile->file  }}</div>
                     <form method="POST" action="/files/{{$TheFile->id}} " onsubmit="return confirm('Are you sure you want to delete this file?')">
                         {{method_field('delete')}}
                         {!! csrf_field() !!}
@@ -112,6 +124,10 @@
                 })
 
             });
+
+            var parent = document.getElementById('oldFilesSpace')
+            var child = document.getElementById('oldFiles')
+                parent.appendChild(child);
 
         </script>
 @endsection

@@ -9,11 +9,7 @@
   display: none;
 }
 .container-mobile{
-
-  @media (max-width: 1200px){
-    padding-right: 0 !important;
-    margin-right: -10px !important;
-  }
+  padding: 0!important;
 }
 
 .line1{
@@ -43,9 +39,15 @@
   display: none;
   text-align: center;
   width: 100%;
-  margin: 15px auto;
   .link{
     margin: 15px auto;
+  }
+  @media @portrait{
+    margin-top: 20px;
+  }
+  @media @landscape{
+    margin-top: 20px;
+
   }
 }
 
@@ -109,7 +111,7 @@
 }
 
 
-@media (min-width: 1025px){
+@media @portrait{
 
   .headerLeft .fas{
     display: none;
@@ -137,10 +139,9 @@
 
   .WC_bar {
     width: 100%;
-    padding: 50px;
+    padding: 0 0 0 50%;
     display: inline-flex;
     background: #d8d8d8;
-    padding: 0 0 0 60%;
   }
   .WC_bar div{
     background: #b7b7b7;
@@ -186,6 +187,7 @@
 }
 
 .edit{
+  margin-top: 1px;
   color: black;
   float: left;
 

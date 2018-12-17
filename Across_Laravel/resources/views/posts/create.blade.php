@@ -28,7 +28,7 @@
             <label>Title</label>
             <input class="form-control" type="text" name="title" value="{{old('title')}}">
             <br>
-            <div class="d-flex">
+            <div class="highlight_check_div">
                 <label class="checkBox-label">Highlight</label>
                 <input type="checkbox" name="is_highlighted"  class="check_box"   value="1">
             </div>
