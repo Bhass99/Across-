@@ -21,21 +21,6 @@
         }
 
         /* visited link */
-        a:visited {
-            color: black;
-        }
-
-        /* mouse over link */
-        a:hover {
-            transform: scaleY(1.05);
-            text-decoration: none !important;
-
-        }
-
-        /* selected link */
-        a:active {
-            color: blue;
-        }
     </style>
 </head>
 <body>

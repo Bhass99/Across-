@@ -9,6 +9,15 @@ html, body {
 body {
   font-size: 1em;
   font-family: Arial;
+  a{
+    color: black !important;
+    text-decoration: none !important;
+    
+  }
+    a:hover{
+      color: #000!important;
+      font-weight: bold;
+    }
 }
 .txt1{
   color: #9c9cb6;
@@ -22,7 +31,6 @@ body {
 
   .container {
 
-    position: relative;
     @media @landscape{
       height: 410px;
     }
@@ -137,6 +145,7 @@ body {
           }
           @media @landscape{
             padding-left: 50px;
+            height: 130px;
 
           }
           .body-txt{
@@ -148,6 +157,7 @@ body {
             }
             @media @landscape{
               width: 450px;
+
             }
             @media @desktop{
               width: 630px;
@@ -170,16 +180,14 @@ body {
             padding-right: 29%;
             padding-top: 3%;
             @media @portrait{
-              padding-top: 2.5%;
+              padding-top: 1.5%;
             }
             @media @landscape{
-              padding-top: 5%;
               width: 200px;
               height: 52px;
               font-size: 21px;
             }
             @media @desktop{
-              padding-top: 5%;
             }
             span{
               position: absolute;
@@ -239,8 +247,11 @@ body {
 }
 
 
-.container:nth-of-type(10) div{
+.container:nth-of-type(10) div {
   border-bottom: unset !important;
+}
+.container-fluid .container .assets-con:last-child{
+ // background-color: red !important;
 }
 /*.content_hr {
 
@@ -416,43 +427,7 @@ div.blocks-0, div.blocks-1, div.blocks-2, div.blocks-3, div.blocks-4 {
     top: 36px
   }
 }
-.languages{
-  margin-top: 10%;
-  @media @portrait{
-    margin-top: 20%;
-  }
-  @media @landscape{
-    position: absolute;
-    right: 0;
-    width: 53%;
-    margin-top: 21.5%;
-  }
-  @media @desktop{
-    top: 28.5%;
-    right: 4%;
-  }
-}
 
-.chooseLang{
-  opacity: 0.5;
-
-  @media @landscape{
-    white-space: nowrap;
-  }
-  @media @desktop{
-    font-size: 1.2em;
-
-  }
-  h5{
-    @media @desktop{
-      display: inline;
-    }
-  }
-  @media @desktop{
-    font-size: 1.2em;
-
-  }
-}
 .content_hr_Libary{
   margin-top: 14% !important;
   @media @portrait{
@@ -751,9 +726,21 @@ divBlockResponsive
   height: 50px;
 }
 
+.container:nth-last-child(2) {
+  .assets-con{
+    border: none;
+  }
+
+}
 
 .category--1{
-  z-index: -1;
+  &:last-child{
+    background: red;
+  }
+
+  .btn-primary{
+    color: #000!important;
+  }
 
   rect{
     fill: #005493;
@@ -788,7 +775,9 @@ divBlockResponsive
 
 
 .category--2{
-  z-index: -1;
+  .btn-primary{
+    color: #000!important;
+  }
 
   rect{
     fill: #743751;
@@ -828,7 +817,7 @@ divBlockResponsive
 
 
 .category--3 {
-  z-index: -1;
+
 
   rect{
     fill:  #ff9400;
@@ -836,7 +825,7 @@ divBlockResponsive
 }
 
 .category--4 {
-  z-index: -1;
+
 
   rect{
     fill:  #bd5200;
@@ -844,7 +833,7 @@ divBlockResponsive
 }
 
 .category--5 {
-  z-index: -1;
+
 
   rect{
     fill:  #929000;
@@ -868,18 +857,7 @@ divBlockResponsive
     }
   }
 }
-.buttons-div{
-  display: inline-flex;
-  width: 100%;
-  @media @portrait{
-    position: absolute ;
-    bottom: 0;
-  }
-  p{
-    padding: 17px 28px;
-    margin-bottom: 0px;
-  }
-}
+
 
 .navbar-parent {
   position: relative;
@@ -948,3 +926,67 @@ divBlockResponsive
   }
 
 }
+
+.languages {
+  z-index: 100;
+  display: inline-flex;
+  padding: 20px 0;
+  @media @portrait{
+  }
+}
+.chooseLang {
+  margin-left: 10px;
+}
+
+/*
+.buttons-div{
+  display: inline-flex;
+  width: 100%;
+  @media @portrait{
+
+  }
+  p{
+    padding: 17px 28px;
+    margin-bottom: 0px;
+  }
+}
+
+.languages{
+    display: inline-flex;
+  margin-top: 10%;
+  @media @portrait{
+    margin-top: 20%;
+  }
+  @media @landscape{
+    position: absolute;
+    right: 0;
+    width: 53%;
+    margin-top: 21.5%;
+  }
+  @media @desktop{
+    top: 28.5%;
+    right: 4%;
+  }
+}
+
+.chooseLang{
+  opacity: 0.5;
+margin-left: 10px;
+  @media @landscape{
+    white-space: nowrap;
+  }
+  @media @desktop{
+    font-size: 1.2em;
+
+  }
+  h5{
+    @media @desktop{
+      display: inline;
+    }
+  }
+  @media @desktop{
+    font-size: 1.2em;
+
+  }
+}
+*/

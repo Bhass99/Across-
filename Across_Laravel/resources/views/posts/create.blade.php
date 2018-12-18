@@ -28,8 +28,11 @@
             <label>Title</label>
             <input class="form-control" type="text" name="title" value="{{old('title')}}">
             <br>
-            <label>Highlight</label>
-            <input type="checkbox" name="is_highlighted"  class="form-control"   value="1">
+            <div class="highlight_check_div">
+                <label class="checkBox-label">Highlight</label>
+                <input type="checkbox" name="is_highlighted"  class="check_box"   value="1">
+            </div>
+
             <br>
             <label>Description</label>
             <textarea class="form-control" type="text" name="description" >{{old('description')}}</textarea>
@@ -48,30 +51,32 @@
             <br>
 
             <label>Language</label>
-            <label id="nl">
-                Nl
-                <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
-            </label>
+            <div class="check_box_container">
+                <div class="check_box_div" id="nl">
+                    <label> Dutch </label>
+                    <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
+                </div>
 
-            <label id="de">
-                GM
-                <input class="CheckBox" type="checkbox" name="de"  value="de"  >
-            </label>
+                <div class="check_box_div" id="de">
+                    <label> German</label>
+                    <input class="CheckBox" type="checkbox" name="de"  value="de"  >
+                </div>
 
-            <label id="it">
-                IT
-                <input class="CheckBox" type="checkbox" name="it"  value="it"  >
-            </label>
+                <div class="check_box_div" id="it">
+                    <label>  Italian</label>
+                    <input class="CheckBox" type="checkbox" name="it"  value="it"  >
+                </div>
 
-            <label id="es">
-                SP
-                <input class="CheckBox" type="checkbox" name="es"  value="es"  >
-            </label>
+                <div class="check_box_div"  id="es">
+                    <label>  Spanish</label>
+                    <input class="CheckBox" type="checkbox" name="es"  value="es"  >
+                </div>
 
-            <label id="en">
-                EN
-                <input class="CheckBox" type="checkbox" name="en"  value="en"  >
-            </label>
+                <div class="check_box_div" id="en">
+                    <label>English</label>
+                    <input class="CheckBox" type="checkbox" name="en"  value="en"  >
+                </div>
+            </div>
 
             <br>
             <br>
@@ -98,7 +103,7 @@
                       x.setAttribute("name", "file-" + $(this).val());
                       document.getElementById($(this).parent().attr('id')).appendChild(x);
                   } else {
-                        ($(this).parent().children()[1]).remove();
+                        ($(this).parent().children()[2]).remove();
                   }
               })
 

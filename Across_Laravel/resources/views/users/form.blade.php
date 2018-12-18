@@ -58,7 +58,7 @@
                             <input type="text" name="email"  class="form-control" value="{{ old('email', $user ? $user->email : null) }}" placeholder="Email" required>
                         </div>
                         <div class="loginSubmit w-25    ">
-                            <input class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" ><button class=" btn btn-light float-left btns btnI" name="submit" type="submit"> > </button>
+                            <button  class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" > Submit <span  > > </span> </button>
                         </div>
                         <a href="/adminusers" class="float-right  btn btn-light">Back</a>
                     </form>

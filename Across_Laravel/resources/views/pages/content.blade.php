@@ -193,36 +193,40 @@
 
 
 
+
+
     @include('inc.Blocks')
     <script>
-
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+
         $(document).ready(function(){
 
-            $(".body-txt").each(function () {
-                var $window = $(window);
-                var $height = 134;
-                if ($(this).height() > $height ){
-                    $(this).css("height", 135);
-                    $(this).css("overflow-y", "scroll");
-                    var windowsize = $window.width();
-
-                    if(windowsize > 750 && windowsize < 992){
-                        $(this).css("height", 90);
-                        $(this).css("overflow-y", "scroll");
-                    }else{
-                        $(this).css("height", 133);
-                        $(this).css("overflow-y", "scroll");
-                    }
+                        $(".body-txt").each(function () {
+                            var $window = $(window);
+                            var windowsize = $window.width();
+                            var height = 130;
 
 
-                }else {
-                    $(this).css("height", "auto");
-                }
-            });
+                            if(windowsize < 750 && $(this).height() > height){
+                                $(this).css("overflow-y", "scroll");
+                                $(this).css("height", 90);
+                            }
+
+
+                             if(windowsize > 749  && windowsize < 1023)
+                              {
+                                  $(this).css("overflow-y", "scroll");
+                                  $(this).css("height", 85);
+                              }
+                            if( windowsize >1023)
+                                  {
+                                  $(this).css("overflow-y", "scroll");
+                                  $(this).css("height", 125);
+                              }
+                        });
 
             $('.link-{{$id}}').css('font-weight', 'bold');
             @if(isset($parent_id_category))

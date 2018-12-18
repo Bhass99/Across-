@@ -4,11 +4,8 @@ body {
 .WC_bar {
   display: none;
 }
-@media (max-width: 1200px) {
-  .container-mobile {
-    padding-right: 0 !important;
-    margin-right: -10px !important;
-  }
+.container-mobile {
+  padding: 0!important;
 }
 .line1 img {
   width: 115px;
@@ -30,10 +27,19 @@ body {
   display: none;
   text-align: center;
   width: 100%;
-  margin: 15px auto;
 }
 #nav .link {
   margin: 15px auto;
+}
+@media screen and (min-width: 768px) {
+  #nav {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #nav {
+    margin-top: 20px;
+  }
 }
 @media screen and (min-width: 1200px) {
   .blueBarWidth {
@@ -94,7 +100,7 @@ body {
     margin: 0 14px;
   }
 }
-@media (min-width: 1025px) {
+@media screen and (min-width: 768px) {
   .headerLeft .fas {
     display: none;
   }
@@ -116,12 +122,11 @@ body {
   }
   .WC_bar {
     width: 100%;
-    padding: 50px;
+    padding: 0 0 0 50%;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     background: #d8d8d8;
-    padding: 0 0 0 60%;
   }
   .WC_bar div {
     background: #b7b7b7;
@@ -159,6 +164,7 @@ body {
   }
 }
 .edit {
+  margin-top: 1px;
   color: black;
   float: left;
   padding: 0;

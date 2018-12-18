@@ -36,7 +36,7 @@
       width: 145px;
       height: 43px;
       position: relative;
-      padding-right: 29%;
+      padding-right: 50%;
       border: 1px solid black;
       border-radius: unset;
       margin-bottom: 10px;
@@ -106,3 +106,98 @@
   }
 
 }
+
+
+
+
+.check_box_container{
+  border: 1px solid rgba(186, 217, 255, 0.25);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  @media @landscape{
+    display: flex;
+
+  }
+
+}
+
+.check_box_div{
+  display: flex;
+  label{
+    width: 30px;
+  }
+  @media @landscape{
+    margin: 0 10px;
+    flex: 1;
+    text-align: center;
+    display: block;
+    label{
+      width: auto;
+    }
+    .CheckBox{
+      margin-bottom: 10px;
+    }
+  }
+
+  .CheckBox{
+    margin-top: 6px;
+    @media @landscape{
+      width: 100%;
+      height: 30px;
+    }
+
+  }
+  input{
+
+      width: 100px;
+    
+  }
+}
+
+.oldFiles{
+  text-align: center;
+  color: #131b58;
+  width: 80%;
+  margin: auto;
+ // position: relative;
+//  top: -500px;
+  @media @portrait{
+  //  top: -420px;
+  }
+  @media @landscape{
+ //   top: -350px;
+  }
+
+ .loginForm;
+  .one_file{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+  }
+
+}
+
+.highlight_check_div{
+  width: 40%;
+  .checkBox-label{
+    width: auto !important;
+  }
+  input{
+    margin-left: 10px;
+  }
+}
+
+.oldFilesSpace{
+  border: 1px solid rgba(186, 217, 255, 0.25);
+  border-radius: 5px;
+//  height: 170px;
+  @media @portrait{
+   // height: 100px;
+  }
+}
+.FileName{
+  overflow: auto;
+  max-width: 175px;
+}
+

@@ -27,9 +27,15 @@
             <input type="hidden" name="post_parent_id" value="{{$posts->post_parent_id}}">
             <label>Title</label>
             <input class="form-control" type="text" name="title" value="{{$posts->title}}"   >
-            <label>Highlight</label>
-            <input type="checkbox" name="is_highlighted"  class="form-control"   value="1" {{$posts->is_highlighted ? 'checked':''}}>
             <br>
+
+           <div class="highlight_check_div">
+               <label class="checkBox-label">Highlight</label>
+               <input type="checkbox" name="is_highlighted"  class="check_box"   value="1" {{$posts->is_highlighted ? 'checked':''}}>
+           </div>
+
+
+
             <br>
             <label>Description</label>
             <textarea class="form-control" type="text" name="description" >{{$posts->description}}</textarea>
@@ -46,34 +52,38 @@
             <label>Image</label>
             <input class="form-control" type="file" name="image" value="{{$posts->image}}">
             <br>
-            <label>Language</label>
+            <div class="oldFilesSpace"  id="oldFilesSpace">
 
-
+            </div>
             <br>
-            <label id="nl">
-                Nl
-                <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
-            </label>
+            <label>Language</label>
+            <div class="check_box_container">
+                <div class="check_box_div" id="nl">
+                    <label> Dutch </label>
+                    <input class="CheckBox" type="checkbox" name="nl"  value="nl"   >
+                </div>
 
-            <label id="de">
-                GM
-                <input class="CheckBox" type="checkbox" name="de"  value="de"  >
-            </label>
+                <div class="check_box_div" id="de">
+                    <label> German</label>
+                    <input class="CheckBox" type="checkbox" name="de"  value="de"  >
+                </div>
 
-            <label id="it">
-                IT
-                <input class="CheckBox" type="checkbox" name="it"  value="it"   >
-            </label>
+                <div class="check_box_div" id="it">
+                    <label>  Italian</label>
+                    <input class="CheckBox" type="checkbox" name="it"  value="it"  >
+                </div>
 
-            <label id="es">
-                SP
-                <input class="CheckBox" type="checkbox" name="es"  value="es"  >
-            </label>
+                <div class="check_box_div"  id="es">
+                    <label>  Spanish</label>
+                    <input class="CheckBox" type="checkbox" name="es"  value="es"  >
+                </div>
 
-            <label id="en">
-                EN
-                <input class="CheckBox" type="checkbox" name="en"  value="en"  >
-            </label>
+                <div class="check_box_div" id="en">
+                    <label>English</label>
+                    <input class="CheckBox" type="checkbox" name="en"  value="en"  >
+                </div>
+            </div>
+
 
             <br>
             <br>
@@ -83,14 +93,18 @@
             </div>
             <a href="{{ route('adminpages') }}" class="float-right  btn btn-light">Back</a>
         </form>
-        @foreach($file as $TheFile)
-            <div>{{$TheFile->language . '.' . $TheFile->file  }}</div>
-            <form method="POST" action="/files/{{$TheFile->id}} " onsubmit="return confirm('Are you sure you want to delete this file?')">
-                {{method_field('delete')}}
-                {!! csrf_field() !!}
-                <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
-            </form>
-        @endforeach
+        <div id="oldFiles" class="oldFiles">
+            @foreach($file as $TheFile)
+                <div class="one_file">
+                    <div class="FileName" >{{$TheFile->language . '.' . $TheFile->file  }}</div>
+                    <form method="POST" action="/files/{{$TheFile->id}} " onsubmit="return confirm('Are you sure you want to delete this file?')">
+                        {{method_field('delete')}}
+                        {!! csrf_field() !!}
+                        <button type="submit" style="border: none; background: none; cursor: pointer" ><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            @endforeach
+        </div>
         <img src="/images/body.png" class="bg-image">
 
         <script>
@@ -104,12 +118,16 @@
                         x.setAttribute("name", "file-" + $(this).val());
                         document.getElementById($(this).parent().attr('id')).appendChild(x);
                     } else {
-                        ($(this).parent().children()[1]).remove();
+                        ($(this).parent().children()[2]).remove();
                         console.log();
                     }
                 })
 
             });
+
+            var parent = document.getElementById('oldFilesSpace')
+            var child = document.getElementById('oldFiles')
+                parent.appendChild(child);
 
         </script>
 @endsection
