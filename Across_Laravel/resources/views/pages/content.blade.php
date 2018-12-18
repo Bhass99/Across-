@@ -112,7 +112,7 @@
                 @php
                     $files = $post->file
                 @endphp
-            <div class="container   {{ $post->is_highlighted ? 'highlighted' : '' }}">
+            <div class="container  {{ $post->is_highlighted ? 'highlighted' : '' }}">
                 <div class="assets-con" style="border-bottom: {{ $post->is_highlighted ? '#005493' : ''}}">
                     <small class="smaldate " > {{ $post->date }} </small>
                     <div class="contentheader">
@@ -176,19 +176,11 @@
                                         @endforeach
                                     </div>
                                 </div>
-
                             </div>
-
-
-
                         </div>
                     </div>
                     <button class="btn float-right btn-top {{ $post->is_highlighted ? 'text-white' : '' }}" style="background-color: transparent" onclick="topFunction()">&and;</button>
-                    <!--<hr  class="content_hr " style="background-color: {{ $post->is_highlighted ? '#005493' : ''}}" > -->
-
                 </div>
-
-
             </div>
             @endforeach
         @endif
