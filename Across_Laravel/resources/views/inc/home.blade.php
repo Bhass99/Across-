@@ -42,9 +42,6 @@
                 <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </div>
-
-
-
     </div>
 
     @include('inc.blocks')

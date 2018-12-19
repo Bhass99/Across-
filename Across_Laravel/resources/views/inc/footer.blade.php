@@ -1,11 +1,11 @@
 
 <div class="footer">
     <ul class="footerLink">
-        <li><a>Privacy</a></li>
-        <li><a>Sitemap</a></li>
-        <li><a>Disclaimer</a></li>
-        <li><a>Accessibility</a></li>
-        <li><a>Cookie policy</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">Accessibility</a></li>
+        <li><a href="#">Cookie policy</a></li>
     </ul>
     <div class="footerContainer"  >
         <div class="InfoDiv" >Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh</div>

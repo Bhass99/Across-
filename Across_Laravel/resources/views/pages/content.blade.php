@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="container container-responsive">
-        <p class="txtPageCore"> {{$parent->name}}/ {{isset($id_category->name)? $id_category->name :'All' }}<a href="#" style="color: #7baabe;"></a></p>
+        <p class="txtPageCore"> {{$parent->name}}/ <a href="#" onclick="window.location.reload(true);"class="active" style="color: #7baabe !important;">{{isset($id_category->name)? $id_category->name :'All' }}</a></p>
         <div class="divsInfo">
             <div class=" {{ count($parent->children) > 0 ?   'divBlock0' : 'divBlockResponsive'   }}">
                 <h2 class="">{{$parent->title}}</h2>
@@ -48,7 +48,7 @@
                             <div class="col">
                                 <img src="/storage/uploads/{{$item->category_logo}}" class="iconImgs" >
                             </div>
-                            <div class="col">
+                            <div class="col col-txt">
                                 <p class="iconTxt">{{$item->name}}</p>
 
                             </div>
@@ -161,7 +161,6 @@
                                         </a>
                                     @endif
                                 </div>
-
                                 <div class="languages" >
                                     @if(count($files) > 0)
                                         <div class="ChooseLang">
@@ -203,30 +202,51 @@
         }
 
         $(document).ready(function(){
-
-                        $(".body-txt").each(function () {
-                            var $window = $(window);
-                            var windowsize = $window.width();
-                            var height = 130;
-
-
-                            if(windowsize < 750 && $(this).height() > height){
-                                $(this).css("overflow-y", "scroll");
-                                $(this).css("height", 90);
-                            }
+                /*
+                $(".body-txt").each(function () {
+                    var $window = $(window);
+                    var windowsize = $window.width();
+                    var height = 130;
 
 
-                             if(windowsize > 749  && windowsize < 1023)
-                              {
-                                  $(this).css("overflow-y", "scroll");
-                                  $(this).css("height", 85);
-                              }
-                            if( windowsize >1023)
-                                  {
-                                  $(this).css("overflow-y", "scroll");
-                                  $(this).css("height", 125);
-                              }
-                        });
+                    if(windowsize < 750 && $(this).height() > height){
+                        $(this).css("overflow-y", "scroll");
+                        $(this).css("height", 90);
+                    }
+
+
+                     if(windowsize > 749  && windowsize < 1023)
+                      {
+                          $(this).css("overflow-y", "scroll");
+                          $(this).css("height", 85);
+                      }
+                    if( windowsize >1023)
+                          {
+                          $(this).css("overflow-y", "scroll");
+                          $(this).css("height", 125);
+                      }
+                });
+                Je zag bij elke post scrollbar.
+                De twee <li> moeten meteen aan de p hoogte zitten.
+                */
+            $('.body-txt').each(function(){
+                var $window = $(window);
+                var $windowWidth = $window.width();
+                var $portraitHeight = 100;
+                var $landscapeHeight = 120;
+                if ($windowWidth > 767 && $windowWidth < 1023){
+                    if ($(this).height() > $portraitHeight){
+                        $(this).css('height', 90);
+                        $(this).css('overflow-y', 'scroll')
+                    }
+                }
+                else if ($windowWidth > 1023 ){
+                    if ($(this).height() > $landscapeHeight ){
+                        $(this).css('height', $landscapeHeight);
+                        $(this).css('overflow-y', 'scroll')
+                    }
+                }
+            });
 
             $('.link-{{$id}}').css('font-weight', 'bold');
             @if(isset($parent_id_category))
