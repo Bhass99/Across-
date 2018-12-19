@@ -234,6 +234,7 @@
                 var $windowWidth = $window.width();
                 var $portraitHeight = 100;
                 var $landscapeHeight = 120;
+                var $mobileHeight = 100;
                 if ($windowWidth > 767 && $windowWidth < 1023){
                     if ($(this).height() > $portraitHeight){
                         $(this).css('height', 90);
@@ -243,6 +244,12 @@
                 else if ($windowWidth > 1023 ){
                     if ($(this).height() > $landscapeHeight ){
                         $(this).css('height', $landscapeHeight);
+                        $(this).css('overflow-y', 'scroll')
+                    }
+                }
+                else if ($windowWidth > 319 && $windowWidth < 767){
+                    if ($(this).height() > $mobileHeight){
+                        $(this).css('height', $mobileHeight);
                         $(this).css('overflow-y', 'scroll')
                     }
                 }

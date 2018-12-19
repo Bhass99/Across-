@@ -33,7 +33,7 @@
             <label> Password</label>
             <input type="password" name="password"  class="form-control" required placeholder="Password" >
         </div>
-        <div class="loginSubmit">
+        <div class="loginSubmit" style="width: 300px">
             <button  class="btn btn-primary float-left btns btnD " name="submit" type="submit" value="Submit" > Submit <span  > > </span> </button>
             <a href="{{ url('forgetPassword') }}">Forgotten Password?</a>
         </div>
